@@ -1,10 +1,11 @@
 import { Canvas, useFrame, useThree } from '@react-three/fiber'
-import { Html, OrbitControls } from '@react-three/drei'
-import { useMemo, useRef, useEffect } from 'react'
+import { Html, Line, OrbitControls } from '@react-three/drei'
+import { Suspense, useMemo, useRef, useEffect } from 'react'
 import * as THREE from 'three'
 import { constellationById } from '../data/constellations'
 import { ALWAYS_LABELED_NODES, EARTHBNC_LENS_NODE_IDS } from '../data/narratives'
 import {
+  computeGraphPositions,
   filterNodes,
   getConnectedIds,
   portfolioEdges,
@@ -21,52 +22,23 @@ function CameraRig({ target }: { target: THREE.Vector3 | null }) {
   const { camera } = useThree()
   const desired = useRef(new THREE.Vector3(0, 2, 14))
   const lookAt = useRef(new THREE.Vector3(0, 0, 0))
-  const focusing = useRef(false)
 
   useEffect(() => {
     if (target) {
-      focusing.current = true
       desired.current.set(target.x + 2.2, target.y + 1.8, target.z + 5.5)
       lookAt.current.copy(target)
     } else {
-      focusing.current = false
+      desired.current.set(0, 2, 14)
+      lookAt.current.set(0, 0, 0)
     }
   }, [target])
 
   useFrame(() => {
-    if (!focusing.current || !target) return
     camera.position.lerp(desired.current, 0.06)
     camera.lookAt(lookAt.current)
   })
 
   return null
-}
-
-function SegmentEdge({
-  from,
-  to,
-  highlight,
-  onPath,
-}: {
-  from: [number, number, number]
-  to: [number, number, number]
-  highlight: boolean
-  onPath: boolean
-}) {
-  const lineObj = useMemo(() => {
-    const geometry = new THREE.BufferGeometry().setFromPoints([
-      new THREE.Vector3(...from),
-      new THREE.Vector3(...to),
-    ])
-    const material = new THREE.LineBasicMaterial({
-      color: onPath ? 0x22d3ee : highlight ? 0x67e8f9 : 0x3f3f46,
-      transparent: true,
-      opacity: onPath ? 0.95 : highlight ? 0.5 : 0.15,
-    })
-    return new THREE.Line(geometry, material)
-  }, [from, to, highlight, onPath])
-
-  return <primitive object={lineObj} />
 }
 
 function GraphNode({
@@ -118,7 +90,7 @@ function GraphNode({
           onHover(false)
         }}
       >
-        <sphereGeometry args={[1, 20, 20]} />
+        <sphereGeometry args={[scale, 24, 24]} />
         <meshStandardMaterial
           color={color}
           emissive={color}
@@ -151,7 +123,7 @@ function GraphEdges({
   highlightIds: Set<string>
   pathKeys: Set<string>
 }) {
-  const segments = useMemo(() => {
+  const lines = useMemo(() => {
     return portfolioEdges
       .filter((e) => visibleIds.has(e.source) && visibleIds.has(e.target))
       .map((edge) => {
@@ -164,32 +136,35 @@ function GraphEdges({
           onPath ||
           highlightIds.has(edge.source) ||
           highlightIds.has(edge.target)
+        const active = onPath || (highlight && highlightIds.size > 0)
         return {
           key: edgeKey,
-          from: [a.x, a.y, a.z] as [number, number, number],
-          to: [b.x, b.y, b.z] as [number, number, number],
-          highlight: highlight && highlightIds.size > 0,
+          points: [
+            [a.x, a.y, a.z] as [number, number, number],
+            [b.x, b.y, b.z] as [number, number, number],
+          ],
+          active,
           onPath,
         }
       })
       .filter(Boolean) as {
       key: string
-      from: [number, number, number]
-      to: [number, number, number]
-      highlight: boolean
+      points: [number, number, number][]
+      active: boolean
       onPath: boolean
     }[]
   }, [positions, visibleIds, highlightIds, pathKeys])
 
   return (
     <>
-      {segments.map((s) => (
-        <SegmentEdge
-          key={s.key}
-          from={s.from}
-          to={s.to}
-          highlight={s.highlight}
-          onPath={s.onPath}
+      {lines.map((line) => (
+        <Line
+          key={line.key}
+          points={line.points}
+          color={line.onPath ? '#22d3ee' : line.active ? '#67e8f9' : '#3f3f46'}
+          lineWidth={line.onPath ? 1.8 : line.active ? 1.2 : 0.5}
+          transparent
+          opacity={line.onPath ? 0.95 : line.active ? 0.5 : 0.15}
         />
       ))}
     </>
@@ -227,13 +202,12 @@ function SceneContent() {
     [lens],
   )
 
-  const basePositions = useMemo(
-    () => computeLayoutPositions(filtered, viewMode),
-    [filtered, viewMode],
-  )
-
   const positionMap = useMemo(() => {
-    const map = new Map(basePositions.map((p) => [p.id, { ...p }]))
+    const base =
+      viewMode === 'graph'
+        ? computeGraphPositions(portfolioNodes)
+        : computeLayoutPositions(portfolioNodes, viewMode)
+    const map = new Map(base.map((p) => [p.id, { ...p }]))
     if (constellationIds) {
       const focus = filtered.filter((n) => constellationIds.has(n.id))
       focus.forEach((node, i) => {
@@ -247,7 +221,7 @@ function SceneContent() {
       })
     }
     return map
-  }, [basePositions, constellationIds, filtered])
+  }, [viewMode, constellationIds, filtered])
 
   const pathKeys = useMemo(() => pathEdgeKeys(relationshipPath), [relationshipPath])
   const pathSet = useMemo(() => new Set(relationshipPath), [relationshipPath])
@@ -293,7 +267,6 @@ function SceneContent() {
 
   return (
     <>
-      <color attach="background" args={['#050608']} />
       <ambientLight intensity={0.45} />
       <pointLight position={[10, 10, 10]} intensity={0.9} color="#22d3ee" />
       <pointLight position={[-8, -4, -6]} intensity={0.4} color="#a78bfa" />
@@ -350,25 +323,17 @@ type GraphSceneProps = {
 export function GraphScene({ className = '' }: GraphSceneProps) {
   return (
     <div
-      className={`relative w-full overflow-hidden rounded-xl border border-zinc-800 bg-[#050608] ${className}`}
+      className={`relative h-[min(62vh,600px)] w-full overflow-hidden rounded-xl border border-zinc-800 bg-[#050608] ${className}`}
     >
       <Canvas
         camera={{ position: [0, 2, 14], fov: 48 }}
-        gl={{
-          antialias: true,
-          alpha: false,
-          powerPreference: 'high-performance',
-          failIfMajorPerformanceCaveat: false,
-        }}
-        dpr={[1, 2]}
-        frameloop="always"
+        gl={{ antialias: true, alpha: true }}
         style={{ width: '100%', height: '100%', display: 'block' }}
-        onCreated={({ gl }) => {
-          gl.setClearColor('#050608')
-        }}
         onPointerMissed={() => usePortfolioStore.getState().selectNodeWithPath(null)}
       >
-        <SceneContent />
+        <Suspense fallback={null}>
+          <SceneContent />
+        </Suspense>
       </Canvas>
     </div>
   )

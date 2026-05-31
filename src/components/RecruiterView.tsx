@@ -1,4 +1,5 @@
-import { hero, pdfPath, projectDeepDives, skillClusters } from '../data/cvContent'
+import { hero, projectDeepDives, skillClusters } from '../data/cvContent'
+import { DownloadCvButtons } from './DownloadCvButtons'
 import { nodeById } from '../data/portfolioGraph'
 
 type RecruiterViewProps = {
@@ -61,17 +62,9 @@ export function RecruiterView({ pdfAvailable }: RecruiterViewProps) {
 
         <section className="mt-12 text-center">
           <p className="text-sm text-zinc-500">Need the traditional version?</p>
-          {pdfAvailable ? (
-            <a
-              href={pdfPath}
-              download
-              className="mt-4 inline-block rounded-lg bg-zinc-800 px-6 py-3 text-sm font-medium text-zinc-200 ring-1 ring-zinc-700"
-            >
-              Download PDF CV
-            </a>
-          ) : (
-            <p className="mt-4 text-sm text-zinc-600">PDF version coming shortly.</p>
-          )}
+          <div className="mt-4 flex justify-center">
+            <DownloadCvButtons pdfAvailable={pdfAvailable} />
+          </div>
           <p className="mt-8 text-xs text-zinc-600">
             Switch to Interactive mode to explore the full relationship graph.
           </p>

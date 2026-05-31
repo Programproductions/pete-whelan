@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
-import { hero, contact, pdfPath } from '../data/cvContent'
+import { hero, contact } from '../data/cvContent'
+import { DownloadCvButtons } from './DownloadCvButtons'
 import { useMediaQuery } from '../hooks/useMediaQuery'
 import { GraphCanvas } from './GraphCanvas'
 import { GraphToolbar } from './GraphToolbar'
@@ -62,21 +63,9 @@ export function HeroWithGraph({ pdfAvailable }: HeroWithGraphProps) {
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.18 }}
-              className="mt-8 flex flex-wrap gap-2"
+              className="mt-8 flex flex-wrap items-center gap-2"
             >
-              {pdfAvailable ? (
-                <a
-                  href={pdfPath}
-                  download
-                  className="rounded-lg bg-zinc-800/80 px-4 py-2 text-sm text-zinc-200 ring-1 ring-zinc-700 hover:bg-zinc-800"
-                >
-                  Download PDF
-                </a>
-              ) : (
-                <span className="rounded-lg px-4 py-2 text-sm text-zinc-600 ring-1 ring-zinc-800">
-                  PDF coming shortly
-                </span>
-              )}
+              <DownloadCvButtons pdfAvailable={pdfAvailable} />
               <a
                 href={`mailto:${contact.email}`}
                 className="rounded-lg px-4 py-2 text-sm text-zinc-400 hover:text-zinc-200"
