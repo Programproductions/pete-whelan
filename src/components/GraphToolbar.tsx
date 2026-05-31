@@ -13,7 +13,7 @@ export function GraphToolbar() {
   const { viewMode, setViewMode } = usePortfolioStore()
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-3 rounded-xl border border-zinc-800/60 bg-zinc-950/40 p-3">
       <div className="flex flex-wrap items-center gap-2">
         <span className="text-xs font-medium uppercase tracking-wider text-zinc-600">View</span>
         {viewModes.map((mode) => (
@@ -23,7 +23,7 @@ export function GraphToolbar() {
             onClick={() => setViewMode(mode.id)}
             className={`rounded-full px-3 py-1 text-xs font-medium transition ${
               viewMode === mode.id
-                ? 'bg-violet-500/15 text-violet-300 ring-1 ring-violet-500/40'
+                ? 'bg-cyan-500/15 text-cyan-300 ring-1 ring-cyan-500/40'
                 : 'bg-zinc-800/60 text-zinc-400 hover:text-zinc-200'
             }`}
           >

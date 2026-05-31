@@ -11,7 +11,7 @@ type HeroWithGraphProps = {
 }
 
 export function HeroWithGraph({ pdfAvailable }: HeroWithGraphProps) {
-  const show3d = useMediaQuery('(min-width: 768px)')
+  const isMobile = useMediaQuery('(max-width: 767px)')
 
   return (
     <section className="relative px-4 pb-12 pt-24 md:px-8 md:pt-28 lg:px-12">
@@ -84,30 +84,29 @@ export function HeroWithGraph({ pdfAvailable }: HeroWithGraphProps) {
                 Contact
               </a>
             </motion.div>
-            <p className="mt-6 hidden text-xs text-zinc-600 md:block">
-              Click any node · use constellations to follow a thread · switch architecture or
-              timeline views
+            <p className="mt-6 hidden text-xs text-zinc-600 lg:block">
+              Click any node · constellations filter threads · try Graph view first
             </p>
           </div>
 
-          <div className="min-w-0">
+          <div className="flex min-w-0 flex-col">
             <div className="mb-4 hidden md:block">
               <GraphToolbar />
             </div>
-            {show3d ? (
-              <GraphCanvas className="h-[min(58vh,560px)]" />
+            {isMobile ? (
+              <>
+                <GraphToolbar />
+                <MobileGraphFallback />
+              </>
             ) : (
-              <MobileGraphFallback />
-            )}
-            {show3d && (
-              <p className="mt-2 text-center text-[10px] text-zinc-600">
-                Drag to orbit · scroll to zoom · click a node for the story path
-              </p>
+              <>
+                <GraphCanvas className="h-[min(58vh,560px)] w-full" />
+                <p className="mt-2 text-center text-[10px] text-zinc-600">
+                  Drag to orbit · scroll to zoom · click a node for the story path
+                </p>
+              </>
             )}
           </div>
-        </div>
-        <div className="mt-8 md:hidden">
-          <GraphToolbar />
         </div>
       </div>
     </section>

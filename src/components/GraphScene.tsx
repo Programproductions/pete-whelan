@@ -350,14 +350,22 @@ type GraphSceneProps = {
 export function GraphScene({ className = '' }: GraphSceneProps) {
   return (
     <div
-      className={`relative w-full min-h-[400px] overflow-hidden rounded-xl border border-zinc-800 bg-[#050608] ${className}`}
+      className={`relative w-full overflow-hidden rounded-xl border border-zinc-800 bg-[#050608] ${className}`}
     >
       <Canvas
         camera={{ position: [0, 2, 14], fov: 48 }}
-        gl={{ antialias: true, alpha: false, powerPreference: 'high-performance' }}
+        gl={{
+          antialias: true,
+          alpha: false,
+          powerPreference: 'high-performance',
+          failIfMajorPerformanceCaveat: false,
+        }}
         dpr={[1, 2]}
         frameloop="always"
-        style={{ width: '100%', height: '100%', minHeight: 400, display: 'block' }}
+        style={{ width: '100%', height: '100%', display: 'block' }}
+        onCreated={({ gl }) => {
+          gl.setClearColor('#050608')
+        }}
         onPointerMissed={() => usePortfolioStore.getState().selectNodeWithPath(null)}
       >
         <SceneContent />

@@ -2,12 +2,12 @@ import { Component, type ErrorInfo, type ReactNode } from 'react'
 import { MobileGraphFallback } from './MobileGraphFallback'
 
 type Props = { children: ReactNode; className?: string }
-type State = { error: Error | null }
+type State = { error: Error | null; retryKey: number }
 
 export class GraphErrorBoundary extends Component<Props, State> {
-  state: State = { error: null }
+  state: State = { error: null, retryKey: 0 }
 
-  static getDerivedStateFromError(error: Error): State {
+  static getDerivedStateFromError(error: Error): Partial<State> {
     return { error }
   }
 
@@ -15,24 +15,32 @@ export class GraphErrorBoundary extends Component<Props, State> {
     console.error('Career graph failed to render:', error, info)
   }
 
+  handleRetry = () => {
+    this.setState((s) => ({ error: null, retryKey: s.retryKey + 1 }))
+  }
+
   render() {
     if (this.state.error) {
       return (
-        <div
-          className={`rounded-xl border border-amber-500/30 bg-zinc-900/50 p-4 ${this.props.className ?? ''}`}
-        >
-          <p className="text-sm font-medium text-amber-200/90">
-            3D graph could not load in this browser.
-          </p>
-          <p className="mt-2 text-xs text-zinc-500">
-            {this.state.error.message}
-          </p>
+        <div className={this.props.className}>
+          <div className="rounded-xl border border-amber-500/25 bg-zinc-900/60 p-4">
+            <p className="text-sm text-amber-100/90">The 3D graph could not start in this browser.</p>
+            <p className="mt-1 text-xs text-zinc-500">{this.state.error.message}</p>
+            <button
+              type="button"
+              onClick={this.handleRetry}
+              className="mt-3 rounded-md bg-zinc-800 px-3 py-1.5 text-xs font-medium text-zinc-200 hover:bg-zinc-700"
+            >
+              Retry 3D graph
+            </button>
+          </div>
           <div className="mt-4">
-            <MobileGraphFallback />
+            <MobileGraphFallback embedded />
           </div>
         </div>
       )
     }
-    return this.props.children
+
+    return <div key={this.state.retryKey}>{this.props.children}</div>
   }
 }

@@ -9,6 +9,11 @@ import {
 import { usePortfolioStore } from '../store/usePortfolioStore'
 import { GraphControls } from './GraphControls'
 
+type MobileGraphFallbackProps = {
+  /** When true, toolbar lives above — hide duplicate filters/search. */
+  embedded?: boolean
+}
+
 function NodeAccordionItem({ node }: { node: PortfolioNode }) {
   const [open, setOpen] = useState(false)
   const { selectNodeWithPath } = usePortfolioStore()
@@ -59,7 +64,7 @@ function NodeAccordionItem({ node }: { node: PortfolioNode }) {
   )
 }
 
-export function MobileGraphFallback() {
+export function MobileGraphFallback({ embedded = false }: MobileGraphFallbackProps) {
   const { filter, search } = usePortfolioStore()
   const filtered = useMemo(
     () => filterNodes(portfolioNodes, filter, search),
@@ -71,11 +76,13 @@ export function MobileGraphFallback() {
 
   return (
     <div className="rounded-xl border border-zinc-800 bg-zinc-900/20 p-4">
-      <p className="mb-4 text-xs text-zinc-500">
-        3D graph optimised for desktop — explore relationships below.
-      </p>
-      <GraphControls />
-      <div className="mt-6">
+      {!embedded && (
+        <p className="mb-4 text-xs text-zinc-500">
+          Compact view for smaller screens — tap items to open details.
+        </p>
+      )}
+      {!embedded && <GraphControls />}
+      <div className={embedded ? '' : 'mt-6'}>
         <p className="mb-2 text-xs font-medium uppercase tracking-wider text-zinc-500">
           Featured
         </p>
