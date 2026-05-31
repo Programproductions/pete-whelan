@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { createPortal } from 'react-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 import { GraphControls } from './GraphControls'
+import { GraphLayerControls } from './GraphLayerControls'
 import { CareerGraphViewer } from './CareerGraphViewer'
 import { usePortfolioStore } from '../store/usePortfolioStore'
 
@@ -74,7 +75,8 @@ export function CareerGraphModal({ open, onClose }: CareerGraphModalProps) {
               </button>
             </header>
 
-            <div className="shrink-0 border-b border-zinc-800/80 px-5 py-3 md:px-6">
+            <div className="shrink-0 space-y-4 border-b border-zinc-800/80 px-5 py-3 md:px-6">
+              <GraphLayerControls />
               <GraphControls />
             </div>
 

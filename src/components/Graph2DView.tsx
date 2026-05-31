@@ -1,19 +1,14 @@
 import { useMemo } from 'react'
-import {
-  computeGraphPositions,
-  filterNodes,
-  getConnectedIds,
-  portfolioEdges,
-  portfolioNodes,
-  type NodePosition,
-  type PortfolioNode,
-} from '../data/portfolioGraph'
+import type { PortfolioNode } from '../data/portfolioGraph'
 import { usePortfolioStore } from '../store/usePortfolioStore'
 import { getNodeColor, getNodeScale } from '../utils/nodeColors'
+import { useGraphDisplay } from '../hooks/useGraphDisplay'
 
 const VB = { width: 900, height: 520, pad: 48 }
 
-function projectPositions(positions: NodePosition[]) {
+function projectPositions(
+  positions: { id: string; x: number; y: number; z: number }[],
+) {
   const xs = positions.map((p) => p.x)
   const zs = positions.map((p) => p.z)
   const minX = Math.min(...xs)
@@ -39,63 +34,19 @@ type Graph2DViewProps = {
   className?: string
 }
 
-/** SVG career graph — works when WebGL is blocked or disabled. */
 export function Graph2DView({ className = '' }: Graph2DViewProps) {
-  const {
-    filter,
-    search,
-    selectedNode,
-    hoveredNodeId,
-    selectNodeWithPath,
-    setHoveredNodeId,
-  } = usePortfolioStore()
-
-  const filtered = useMemo(
-    () => filterNodes(portfolioNodes, filter, search),
-    [filter, search],
-  )
-  const visibleIds = useMemo(() => new Set(filtered.map((n) => n.id)), [filtered])
+  const { selectNodeWithPath, setHoveredNodeId, hoveredNodeId } = usePortfolioStore()
+  const { filtered, positionMap, edges, nodeState } = useGraphDisplay()
 
   const coords = useMemo(() => {
-    const positions = computeGraphPositions(portfolioNodes)
+    const positions = [...positionMap.values()]
     return projectPositions(positions)
-  }, [])
-
-  const focusId = selectedNode?.id ?? hoveredNodeId
-  const highlightIds = useMemo(() => {
-    if (!focusId) return new Set<string>()
-    const ids = getConnectedIds(focusId)
-    ids.add(focusId)
-    return ids
-  }, [focusId])
-
-  const hasFocus = focusId !== null
-
-  const edges = useMemo(() => {
-    return portfolioEdges
-      .filter((e) => visibleIds.has(e.source) && visibleIds.has(e.target))
-      .map((edge) => {
-        const a = coords.get(edge.source)
-        const b = coords.get(edge.target)
-        if (!a || !b) return null
-        const active =
-          !hasFocus || highlightIds.has(edge.source) || highlightIds.has(edge.target)
-        return { key: `${edge.source}-${edge.target}`, a, b, active }
-      })
-      .filter(Boolean) as {
-      key: string
-      a: { x: number; y: number }
-      b: { x: number; y: number }
-      active: boolean
-    }[]
-  }, [coords, visibleIds, highlightIds, hasFocus])
+  }, [positionMap])
 
   const renderNode = (node: PortfolioNode) => {
     const c = coords.get(node.id)
     if (!c) return null
-    const inHighlight = highlightIds.has(node.id)
-    const dimmed = hasFocus && !inHighlight
-    const highlighted = hasFocus && inHighlight
+    const { dimmed, highlighted } = nodeState(node)
     const r = Math.max(5, getNodeScale(node.type, node.featured) * 36)
     const color = getNodeColor(node.type)
     const showLabel =
@@ -114,10 +65,10 @@ export function Graph2DView({ className = '' }: Graph2DViewProps) {
           cy={c.y}
           r={r}
           fill={color}
-          fillOpacity={dimmed ? 0.2 : 0.9}
+          fillOpacity={dimmed ? 0.42 : 0.92}
           stroke={highlighted ? '#fff' : color}
           strokeWidth={highlighted ? 2 : 0}
-          strokeOpacity={highlighted ? 0.8 : 0}
+          strokeOpacity={highlighted ? 0.85 : 0}
         />
         {showLabel && (
           <text
@@ -146,18 +97,23 @@ export function Graph2DView({ className = '' }: Graph2DViewProps) {
       >
         <rect width={VB.width} height={VB.height} fill="#050608" />
         <g>
-          {edges.map((e) => (
-            <line
-              key={e.key}
-              x1={e.a.x}
-              y1={e.a.y}
-              x2={e.b.x}
-              y2={e.b.y}
-              stroke={e.active ? '#22d3ee' : '#3f3f46'}
-              strokeWidth={e.active ? 1.5 : 1}
-              strokeOpacity={e.active ? 0.55 : 0.22}
-            />
-          ))}
+          {edges.map((e) => {
+            const a = coords.get(e.source)
+            const b = coords.get(e.target)
+            if (!a || !b) return null
+            return (
+              <line
+                key={`${e.source}-${e.target}`}
+                x1={a.x}
+                y1={a.y}
+                x2={b.x}
+                y2={b.y}
+                stroke={e.active ? '#22d3ee' : '#3f3f46'}
+                strokeWidth={e.active ? 1.5 : 1}
+                strokeOpacity={e.active ? 0.55 : 0.28}
+              />
+            )
+          })}
         </g>
         <g>{filtered.map(renderNode)}</g>
       </svg>
