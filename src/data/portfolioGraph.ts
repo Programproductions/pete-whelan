@@ -113,9 +113,9 @@ const portfolioNodesRaw: PortfolioNode[] = [
     id: 'wici',
     label: 'WICI',
     type: 'company',
-    summary: 'Client — Florence AI and healthcare conversational delivery.',
+    summary: 'Client — Florence AI (Alexa).',
     detail:
-      'Contracted engagement for Florence AI work including therapeutic chatbot concepts and clinical-adjacent conversational design.',
+      'Client organisation for the Florence AI Alexa application and related healthcare conversational product work.',
     tags: ['companies', 'ai'],
   },
   {
@@ -235,12 +235,21 @@ const portfolioNodesRaw: PortfolioNode[] = [
       'Platform engineering and deployment governance — critical for teams shipping regulated cloud products with audit trails.',
   },
   {
+    id: 'florence-ai',
+    label: 'Florence AI',
+    type: 'project',
+    summary: 'Healthcare Alexa voice application.',
+    detail:
+      'Florence AI — production Alexa app for WICI, with Florence Medical as healthcare context. Voice intents, certification and conversational UX in clinical-adjacent settings.',
+    tags: ['projects', 'ai'],
+  },
+  {
     id: 'sage-chatbot',
     label: 'Sage',
     type: 'project',
-    summary: 'Therapeutic chatbot — Program Productions / Florence AI.',
+    summary: 'Therapeutic chatbot — Program Productions.',
     detail:
-      'Sage therapeutic chatbot delivered via Program Productions, with WICI and Florence Medical in the healthcare AI context — safe conversational AI in clinical-adjacent settings.',
+      'Sage therapeutic chatbot delivered via Program Productions — safe conversational AI in clinical-adjacent settings (related healthcare domain work).',
     tags: ['projects', 'ai'],
   },
   {
@@ -587,9 +596,12 @@ export const portfolioEdges: PortfolioEdge[] = [
   { source: 'web4', target: 'tautsec', label: 'engagement' },
   { source: 'web4', target: 'tautsec-pty', label: 'partner' },
   { source: 'web4', target: 'lexi', label: 'engagement' },
+  { source: 'wici', target: 'florence-ai', label: 'client for' },
+  { source: 'pete-whelan', target: 'florence-ai', label: 'built' },
+  { source: 'florence-medical', target: 'florence-ai', label: 'healthcare context' },
+  { source: 'voice-ai-pioneer', target: 'florence-ai', label: 'includes' },
   { source: 'program-productions', target: 'sage-chatbot', label: 'delivered' },
-  { source: 'wici', target: 'sage-chatbot', label: 'Florence AI' },
-  { source: 'wici', target: 'florence-medical', label: 'partner' },
+  { source: 'florence-medical', target: 'sage-chatbot', label: 'related' },
   { source: 'upwork', target: 'my-paralegal', label: 'client for' },
   { source: 'pete-whelan', target: 'wici', label: 'delivered' },
   { source: 'pete-whelan', target: 'tautsec-pty', label: 'architects' },

@@ -50,6 +50,7 @@ export const projectEngagements: Record<string, ProjectEngagement> = {
     phase: 'Pacesetter live',
   },
   'flight-deck': { clientCompanyId: 'program-productions' },
+  'florence-ai': { clientCompanyId: 'wici' },
   'sage-chatbot': { clientCompanyId: 'program-productions' },
   'my-paralegal': { clientCompanyId: 'upwork' },
   'alexa-apps': { clientCompanyId: 'contract-engagements' },

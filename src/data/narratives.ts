@@ -78,10 +78,17 @@ export const nodeNarratives: Record<string, NodeNarrative> = {
       'agentic-workflows',
     ],
   },
+  'florence-ai': {
+    whyExists: 'WICI needed a production Alexa surface for Florence healthcare conversational AI.',
+    problemSolved: 'Voice-first clinical-adjacent assistance with certification and intent reliability.',
+    ledTo: ['healthcare-ai', 'prompt-engineering', 'voice-ai-pioneer'],
+    outcome: 'Shipped Florence AI as a certified Alexa application for the client.',
+    storyPath: ['pete-whelan', 'wici', 'florence-ai', 'florence-medical', 'healthcare-ai'],
+  },
   'voice-ai-pioneer': {
     whyExists: 'Voice was the first mass-market conversational surface — before LLM chat became default.',
     problemSolved: 'Making unreliable speech and intent systems feel dependable in production.',
-    ledTo: ['alexa-apps', 'my-paralegal', 'prompt-engineering', 'healthcare-ai'],
+    ledTo: ['florence-ai', 'alexa-apps', 'my-paralegal', 'prompt-engineering', 'healthcare-ai'],
     outcome: 'Foundation for modern context engineering and agent guardrails.',
   },
   'ai-native-engineering': {
@@ -105,6 +112,7 @@ export const ALWAYS_LABELED_NODES = new Set([
   'lexi',
   'flight-deck',
   'paradise-engineering',
+  'florence-ai',
 ])
 
 export const EARTHBNC_LENS_NODE_IDS = new Set([
