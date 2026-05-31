@@ -50,7 +50,10 @@ export function Graph2DView({ className = '' }: Graph2DViewProps) {
     const r = Math.max(5, getNodeScale(node.type, node.featured) * 36)
     const color = getNodeColor(node.type)
     const showLabel =
-      node.id === 'pete-whelan' || highlighted || hoveredNodeId === node.id
+      node.id === 'pete-whelan' ||
+      highlighted ||
+      hoveredNodeId === node.id ||
+      Boolean(node.phase)
 
     return (
       <g
@@ -71,15 +74,28 @@ export function Graph2DView({ className = '' }: Graph2DViewProps) {
           strokeOpacity={highlighted ? 0.85 : 0}
         />
         {showLabel && (
-          <text
-            x={c.x}
-            y={c.y - r - 6}
-            textAnchor="middle"
-            className="fill-zinc-200 text-[10px]"
-            style={{ fontSize: 10, pointerEvents: 'none' }}
-          >
-            {node.label}
-          </text>
+          <>
+            <text
+              x={c.x}
+              y={c.y - r - (node.phase ? 10 : 6)}
+              textAnchor="middle"
+              className="fill-zinc-200 text-[10px]"
+              style={{ fontSize: 10, pointerEvents: 'none' }}
+            >
+              {node.label}
+            </text>
+            {node.phase && (
+              <text
+                x={c.x}
+                y={c.y - r + 2}
+                textAnchor="middle"
+                className="fill-cyan-400/80 text-[8px]"
+                style={{ fontSize: 8, pointerEvents: 'none' }}
+              >
+                {node.phase}
+              </text>
+            )}
+          </>
         )}
       </g>
     )

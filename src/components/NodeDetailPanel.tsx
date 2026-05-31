@@ -8,6 +8,7 @@ import {
 } from '../data/portfolioGraph'
 import { usePortfolioStore } from '../store/usePortfolioStore'
 import { RelationshipPath } from './RelationshipPath'
+import { ProjectEngagementDetails } from './ProjectEngagementDetails'
 
 function typeLabel(type: NodeType): string {
   return type.replace(/-/g, ' ')
@@ -83,6 +84,11 @@ export function NodeDetailPanel() {
                 <p className="mt-2 text-sm font-medium text-cyan-400/90">{node.summary}</p>
                 <p className="mt-2 text-sm leading-relaxed text-zinc-400">{node.detail}</p>
               </section>
+
+              <ProjectEngagementDetails
+                node={node}
+                onSelectClient={selectNodeWithPath}
+              />
 
               {node.whyExists && (
                 <section className="mt-6">

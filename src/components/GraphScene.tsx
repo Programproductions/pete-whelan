@@ -53,11 +53,18 @@ function GraphNode({
           metalness={0.3}
         />
       </mesh>
-      {(highlighted || node.id === 'pete-whelan') && (
+      {(highlighted || node.id === 'pete-whelan' || node.phase) && (
         <Html distanceFactor={12} center style={{ pointerEvents: 'none' }}>
-          <span className="whitespace-nowrap rounded bg-black/70 px-2 py-0.5 text-[10px] text-zinc-200 backdrop-blur">
-            {node.label}
-          </span>
+          <div className="text-center">
+            <span className="whitespace-nowrap rounded bg-black/70 px-2 py-0.5 text-[10px] text-zinc-200 backdrop-blur">
+              {node.label}
+            </span>
+            {node.phase && (
+              <span className="mt-0.5 block whitespace-nowrap text-[9px] text-cyan-300/90">
+                {node.phase}
+              </span>
+            )}
+          </div>
         </Html>
       )}
     </group>

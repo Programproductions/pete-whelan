@@ -44,6 +44,8 @@ export type PortfolioNode = {
   refereeEmail?: string
   /** Project nodes: required client company */
   clientCompanyId?: string
+  website?: string
+  phase?: string
   contractLength?: string
   startDate?: string
   endDate?: string
@@ -547,6 +549,8 @@ function applyEngagementData(nodes: PortfolioNode[]): PortfolioNode[] {
       return {
         ...node,
         clientCompanyId: project.clientCompanyId,
+        website: project.website,
+        phase: project.phase,
         contractLength: project.contractLength,
         startDate: project.startDate,
         endDate: project.endDate,

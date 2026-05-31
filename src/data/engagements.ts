@@ -13,6 +13,10 @@ export type CompanyEngagement = {
 export type ProjectEngagement = {
   /** Company / client organisation this delivery was for */
   clientCompanyId: string
+  /** Public product site when live */
+  website?: string
+  /** Release / go-to-market phase (e.g. private beta, live) */
+  phase?: string
   contractLength?: string
   startDate?: string
   endDate?: string
@@ -30,9 +34,20 @@ export const companyEngagements: Record<string, CompanyEngagement> = {
 
 /** Review and fill optional dates / contract length as you confirm them */
 export const projectEngagements: Record<string, ProjectEngagement> = {
-  aimi: { clientCompanyId: 'program-music' },
-  tautsec: { clientCompanyId: 'tautsec-pty' },
-  lexi: { clientCompanyId: 'web4' },
+  aimi: {
+    clientCompanyId: 'program-music',
+    phase: 'Private beta — invite only',
+  },
+  tautsec: {
+    clientCompanyId: 'tautsec-pty',
+    website: 'https://tautsec.com.au',
+    phase: 'Live',
+  },
+  lexi: {
+    clientCompanyId: 'web4',
+    website: 'https://lexi.tips',
+    phase: 'Pacesetter live',
+  },
   'flight-deck': { clientCompanyId: 'program-productions' },
   'sage-chatbot': { clientCompanyId: 'wici' },
   'legal-voice-apps': { clientCompanyId: 'contract-engagements' },
