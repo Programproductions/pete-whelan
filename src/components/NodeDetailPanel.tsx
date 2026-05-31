@@ -31,7 +31,7 @@ function groupRelated(nodes: PortfolioNode[]) {
 }
 
 export function NodeDetailPanel() {
-  const { selectedNode, selectNodeWithPath, setSelectedNode } = usePortfolioStore()
+  const { selectedNode, selectNodeWithPath } = usePortfolioStore()
 
   const node = selectedNode ? enrichNode(selectedNode) : null
   const related =
