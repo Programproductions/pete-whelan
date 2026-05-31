@@ -629,7 +629,6 @@ export const portfolioEdges: PortfolioEdge[] = [
   { source: 'lexi', target: 'horse-racing-analytics', label: 'domain' },
   { source: 'lexi', target: 'nodejs', label: 'stack' },
   { source: 'florence-medical', target: 'healthcare-ai', label: 'domain' },
-  { source: 'florence-medical', target: 'sage-chatbot', label: 'explored' },
   { source: 'pete-whelan', target: 'alexa-apps', label: 'built' },
   { source: 'pete-whelan', target: 'my-paralegal', label: 'built' },
   { source: 'voice-ai-pioneer', target: 'alexa-apps', label: 'includes' },
