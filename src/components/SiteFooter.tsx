@@ -1,14 +1,12 @@
-import { contact, hero } from '../data/cvContent'
+import { contact, hero, site } from '../data/cvContent'
 
 export function SiteFooter() {
   return (
     <footer className="border-t border-zinc-800/80 px-6 py-12 md:px-12 lg:px-20">
       <div className="mx-auto flex max-w-5xl flex-col gap-6 md:flex-row md:items-center md:justify-between">
         <div>
-          <p className="font-mono text-xs text-cyan-500/70">{hero.proofLine}</p>
-          <p className="mt-2 text-sm text-zinc-500">
-            Built from spec · React · Vite · React Three Fiber · Deployed on Vercel
-          </p>
+          <p className="text-sm font-medium text-zinc-300">{site.brandLabel}</p>
+          <p className="mt-1 text-sm text-zinc-500">{hero.title}</p>
         </div>
         <div className="flex gap-6 text-sm">
           <a

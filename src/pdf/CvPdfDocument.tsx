@@ -1,6 +1,7 @@
 import { Document, Page, Text, View, StyleSheet, Link } from '@react-pdf/renderer'
 import {
   hero,
+  site,
   contact,
   aiNativeStatement,
   skillClusters,
@@ -35,7 +36,7 @@ const styles = StyleSheet.create({
 
 export function CvPdfDocument() {
   return (
-    <Document title={`${hero.name} — CV`} author={hero.name}>
+    <Document title={site.pageTitle} author={hero.name}>
       <Page size="A4" style={styles.page}>
         <Text style={styles.name}>{hero.name}</Text>
         <Text style={styles.title}>{hero.title}</Text>
