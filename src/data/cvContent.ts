@@ -19,7 +19,7 @@ export const hero = {
   title: 'Solutions Architect | AI-Native Engineer | Cloud Platform Builder',
   tagline:
     'I design and build cloud-native platforms, AI-driven products and internal engineering systems that help teams move from idea to production faster, safer and with better architectural control.',
-  proofLine: 'Resume',
+  proofLine: 'Built from a spec. Structured as a graph. Designed for AI-native engineering.',
 }
 
 export const aiNativeStatement = {
