@@ -1,4 +1,4 @@
-import { hero, projectDeepDives, skillClusters } from '../data/cvContent'
+import { hero, site, projectDeepDives, skillClusters } from '../data/cvContent'
 import { DownloadCvButtons } from './DownloadCvButtons'
 import { nodeById } from '../data/portfolioGraph'
 
@@ -10,7 +10,7 @@ export function RecruiterView({ pdfAvailable }: RecruiterViewProps) {
   return (
     <div className="px-6 pb-20 pt-24 md:px-12 lg:px-20">
       <div className="mx-auto max-w-3xl">
-        <h1 className="text-3xl font-semibold text-zinc-50">{hero.name}</h1>
+        <h1 className="text-3xl font-semibold text-zinc-50">{site.brandLabel}</h1>
         <p className="mt-2 text-lg text-cyan-300/90">{hero.title}</p>
 
         <section className="mt-12">

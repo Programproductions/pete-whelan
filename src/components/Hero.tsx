@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { hero, contact } from '../data/cvContent'
+import { hero, site, contact } from '../data/cvContent'
 import { CvEntryChoice } from './CvEntryChoice'
 
 type HeroProps = {
@@ -32,7 +32,7 @@ export function Hero({ onExploreGraph, pdfAvailable }: HeroProps) {
           transition={{ duration: 0.55, delay: 0.05 }}
           className="mt-4 text-4xl font-semibold tracking-tight text-zinc-50 md:text-6xl"
         >
-          {hero.name}
+          {site.brandLabel}
         </motion.h1>
         <motion.p
           initial={{ opacity: 0, y: 16 }}

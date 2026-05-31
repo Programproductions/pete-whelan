@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { hero, contact } from '../data/cvContent'
+import { hero, site, contact } from '../data/cvContent'
 import { DownloadCvButtons } from './DownloadCvButtons'
 import { useMediaQuery } from '../hooks/useMediaQuery'
 import { GraphCanvas } from './GraphCanvas'
@@ -41,7 +41,7 @@ export function HeroWithGraph({ pdfAvailable }: HeroWithGraphProps) {
               transition={{ delay: 0.05 }}
               className="mt-3 text-3xl font-semibold tracking-tight text-zinc-50 md:text-4xl lg:text-5xl"
             >
-              {hero.name}
+              {site.brandLabel}
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 14 }}

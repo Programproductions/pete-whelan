@@ -38,7 +38,7 @@ export function CvPdfDocument() {
   return (
     <Document title={site.pageTitle} author={hero.name}>
       <Page size="A4" style={styles.page}>
-        <Text style={styles.name}>{hero.name}</Text>
+        <Text style={styles.name}>{site.brandLabel}</Text>
         <Text style={styles.title}>{hero.title}</Text>
         <Text style={styles.tagline}>{hero.tagline}</Text>
 
