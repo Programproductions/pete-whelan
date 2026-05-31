@@ -49,7 +49,7 @@ export function NodeDetailPanel() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-40 bg-black/50 backdrop-blur-sm lg:hidden"
+            className="fixed inset-0 z-[110] bg-black/50 backdrop-blur-sm lg:hidden"
             onClick={() => selectNodeWithPath(null)}
           />
           <motion.aside
@@ -57,7 +57,7 @@ export function NodeDetailPanel() {
             animate={{ x: 0, opacity: 1 }}
             exit={{ x: '100%', opacity: 0 }}
             transition={{ type: 'spring', damping: 28, stiffness: 320 }}
-            className="fixed right-0 top-0 z-50 flex h-full w-full max-w-lg flex-col border-l border-zinc-800 bg-[#0a0b0e]/98 shadow-2xl backdrop-blur-xl"
+            className="fixed right-0 top-0 z-[120] flex h-full w-full max-w-lg flex-col border-l border-zinc-800 bg-[#0a0b0e]/98 shadow-2xl backdrop-blur-xl"
           >
             <div className="flex items-start justify-between border-b border-zinc-800 p-6">
               <div>

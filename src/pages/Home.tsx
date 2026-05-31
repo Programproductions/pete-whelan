@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { SiteHeader } from '../components/SiteHeader'
 import { EarthbancLensBanner } from '../components/EarthbancLensBanner'
 import { Hero } from '../components/Hero'
+import { CareerGraphModal } from '../components/CareerGraphModal'
 import { InteractiveGraphSection } from '../components/InteractiveGraphSection'
 import { InteractiveMethodology } from '../components/InteractiveMethodology'
 import { NodeDetailPanel } from '../components/NodeDetailPanel'
@@ -35,6 +36,7 @@ function TimelineStrip() {
 
 export function Home() {
   const [pdfAvailable, setPdfAvailable] = useState(false)
+  const [graphOpen, setGraphOpen] = useState(false)
   const siteMode = usePortfolioStore((s) => s.siteMode)
   useEarthbancLens()
 
@@ -44,9 +46,7 @@ export function Home() {
       .catch(() => setPdfAvailable(false))
   }, [])
 
-  const scrollToGraph = () => {
-    document.getElementById('graph')?.scrollIntoView({ behavior: 'smooth' })
-  }
+  const openGraph = () => setGraphOpen(true)
 
   return (
     <div className="min-h-screen bg-[#07080a]">
@@ -56,8 +56,8 @@ export function Home() {
         <RecruiterView pdfAvailable={pdfAvailable} />
       ) : (
         <>
-          <Hero onExploreGraph={scrollToGraph} pdfAvailable={pdfAvailable} />
-          <InteractiveGraphSection />
+          <Hero onExploreGraph={openGraph} pdfAvailable={pdfAvailable} />
+          <InteractiveGraphSection onOpenGraph={openGraph} />
           <TimelineStrip />
           <InteractiveMethodology />
           <ProjectDeepDive />
@@ -67,6 +67,7 @@ export function Home() {
         </>
       )}
       <SiteFooter />
+      <CareerGraphModal open={graphOpen} onClose={() => setGraphOpen(false)} />
       {siteMode === 'interactive' && <NodeDetailPanel />}
     </div>
   )

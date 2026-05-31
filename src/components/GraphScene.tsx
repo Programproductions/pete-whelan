@@ -1,7 +1,6 @@
-import { Canvas, useFrame, useThree } from '@react-three/fiber'
+import { Canvas } from '@react-three/fiber'
 import { Html, Line, OrbitControls } from '@react-three/drei'
-import { Suspense, useMemo, useRef, useEffect } from 'react'
-import * as THREE from 'three'
+import { Suspense, useMemo } from 'react'
 import {
   computeGraphPositions,
   filterNodes,
@@ -13,29 +12,6 @@ import {
 } from '../data/portfolioGraph'
 import { usePortfolioStore } from '../store/usePortfolioStore'
 import { getNodeColor, getNodeScale } from '../utils/nodeColors'
-
-function CameraRig({ target }: { target: THREE.Vector3 | null }) {
-  const { camera } = useThree()
-  const desired = useRef(new THREE.Vector3(0, 2, 14))
-  const lookAt = useRef(new THREE.Vector3(0, 0, 0))
-
-  useEffect(() => {
-    if (target) {
-      desired.current.set(target.x + 2, target.y + 1.5, target.z + 6)
-      lookAt.current.copy(target)
-    } else {
-      desired.current.set(0, 2, 14)
-      lookAt.current.set(0, 0, 0)
-    }
-  }, [target])
-
-  useFrame(() => {
-    camera.position.lerp(desired.current, 0.06)
-    camera.lookAt(lookAt.current)
-  })
-
-  return null
-}
 
 function GraphNode({
   node,
@@ -112,9 +88,9 @@ function GraphEdges({
         const b = positions.get(edge.target)
         if (!a || !b) return null
         const active =
+          highlightIds.size === 0 ||
           highlightIds.has(edge.source) ||
-          highlightIds.has(edge.target) ||
-          highlightIds.size === 0
+          highlightIds.has(edge.target)
         return {
           key: `${edge.source}-${edge.target}`,
           points: [
@@ -134,9 +110,9 @@ function GraphEdges({
           key={line.key}
           points={line.points}
           color={line.active ? '#22d3ee' : '#3f3f46'}
-          lineWidth={line.active ? 1.2 : 0.5}
+          lineWidth={1}
           transparent
-          opacity={line.active ? 0.5 : 0.15}
+          opacity={line.active ? 0.55 : 0.2}
         />
       ))}
     </>
@@ -158,11 +134,10 @@ function SceneContent() {
     [filter, search],
   )
   const visibleIds = useMemo(() => new Set(filtered.map((n) => n.id)), [filtered])
-  const allPositions = useMemo(() => computeGraphPositions(portfolioNodes), [])
-  const positionMap = useMemo(
-    () => new Map(allPositions.map((p) => [p.id, p])),
-    [allPositions],
-  )
+  const positionMap = useMemo(() => {
+    const positions = computeGraphPositions(portfolioNodes)
+    return new Map(positions.map((p) => [p.id, p]))
+  }, [])
 
   const focusId = selectedNode?.id ?? hoveredNodeId
   const highlightIds = useMemo(() => {
@@ -172,24 +147,15 @@ function SceneContent() {
     return ids
   }, [focusId])
 
-  const cameraTarget = useMemo(() => {
-    if (!selectedNode) return null
-    const pos = positionMap.get(selectedNode.id)
-    if (!pos) return null
-    return new THREE.Vector3(pos.x, pos.y, pos.z)
-  }, [selectedNode, positionMap])
+  const edgeHighlights = focusId ? highlightIds : new Set<string>()
 
   return (
     <>
-      <ambientLight intensity={0.35} />
-      <pointLight position={[10, 10, 10]} intensity={0.8} color="#22d3ee" />
-      <pointLight position={[-8, -4, -6]} intensity={0.4} color="#a78bfa" />
-      <CameraRig target={cameraTarget} />
-      <GraphEdges
-        positions={positionMap}
-        visibleIds={visibleIds}
-        highlightIds={focusId ? highlightIds : new Set()}
-      />
+      <color attach="background" args={['#050608']} />
+      <ambientLight intensity={0.4} />
+      <pointLight position={[10, 10, 10]} intensity={0.85} color="#22d3ee" />
+      <pointLight position={[-8, -4, -6]} intensity={0.45} color="#a78bfa" />
+      <GraphEdges positions={positionMap} visibleIds={visibleIds} highlightIds={edgeHighlights} />
       {filtered.map((node) => {
         const pos = positionMap.get(node.id)
         if (!pos) return null
@@ -208,6 +174,7 @@ function SceneContent() {
         )
       })}
       <OrbitControls
+        makeDefault
         enableDamping
         dampingFactor={0.08}
         minDistance={6}
@@ -222,14 +189,14 @@ type GraphSceneProps = {
   className?: string
 }
 
-export function GraphScene({ className = '' }: GraphSceneProps) {
+/** Minimal 3D graph — mount only when visible (e.g. inside an open modal). */
+export function GraphScene({ className = 'h-full w-full' }: GraphSceneProps) {
   return (
-    <div
-      className={`h-[min(70vh,640px)] w-full rounded-xl border border-zinc-800 bg-[#050608] ${className}`}
-    >
+    <div className={`relative overflow-hidden rounded-xl border border-zinc-800 bg-[#050608] ${className}`}>
       <Canvas
         camera={{ position: [0, 2, 14], fov: 50 }}
-        gl={{ antialias: true, alpha: true }}
+        gl={{ antialias: true, alpha: false }}
+        style={{ width: '100%', height: '100%', display: 'block' }}
         onPointerMissed={() => usePortfolioStore.getState().selectNodeWithPath(null)}
       >
         <Suspense fallback={null}>
