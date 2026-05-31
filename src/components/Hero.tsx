@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
-import { hero, contact, pdfPath } from '../data/cvContent'
+import { hero, contact } from '../data/cvContent'
+import { CvEntryChoice } from './CvEntryChoice'
 
 type HeroProps = {
   onExploreGraph: () => void
@@ -8,7 +9,7 @@ type HeroProps = {
 
 export function Hero({ onExploreGraph, pdfAvailable }: HeroProps) {
   return (
-    <section className="relative overflow-hidden px-6 pb-20 pt-28 md:px-12 md:pt-36 lg:px-20">
+    <section className="relative overflow-hidden px-6 pb-16 pt-28 md:px-12 md:pt-36 lg:px-20">
       <div
         className="pointer-events-none absolute inset-0 opacity-40"
         style={{
@@ -49,40 +50,26 @@ export function Hero({ onExploreGraph, pdfAvailable }: HeroProps) {
         >
           {hero.tagline}
         </motion.p>
+
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55, delay: 0.2 }}
-          className="mt-10 flex flex-wrap gap-3"
         >
-          <button
-            type="button"
-            onClick={onExploreGraph}
-            className="rounded-lg bg-cyan-500/10 px-5 py-2.5 text-sm font-medium text-cyan-300 ring-1 ring-cyan-500/30 transition hover:bg-cyan-500/20"
-          >
-            Explore Interactive CV
-          </button>
-          {pdfAvailable ? (
-            <a
-              href={pdfPath}
-              download
-              className="rounded-lg bg-zinc-800/80 px-5 py-2.5 text-sm font-medium text-zinc-200 ring-1 ring-zinc-700 transition hover:bg-zinc-800"
-            >
-              Download PDF
-            </a>
-          ) : (
-            <span
-              className="cursor-not-allowed rounded-lg bg-zinc-900 px-5 py-2.5 text-sm text-zinc-500 ring-1 ring-zinc-800"
-              title="PDF version coming shortly"
-            >
-              PDF coming shortly
-            </span>
-          )}
+          <CvEntryChoice onExploreInteractive={onExploreGraph} pdfAvailable={pdfAvailable} />
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.35 }}
+          className="mt-8"
+        >
           <a
             href={`mailto:${contact.email}`}
-            className="rounded-lg px-5 py-2.5 text-sm font-medium text-zinc-400 transition hover:text-zinc-200"
+            className="text-sm text-zinc-500 transition hover:text-zinc-300"
           >
-            Contact
+            {contact.email}
           </a>
         </motion.div>
       </div>

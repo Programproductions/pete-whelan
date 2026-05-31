@@ -1,6 +1,6 @@
 import { useRef } from 'react'
-import { GraphControls } from './GraphControls'
-import { GraphScene } from './GraphScene'
+import { GraphCanvas } from './GraphCanvas'
+import { GraphToolbar } from './GraphToolbar'
 import { MobileGraphFallback } from './MobileGraphFallback'
 import { useMediaQuery } from '../hooks/useMediaQuery'
 
@@ -23,9 +23,9 @@ export function InteractiveGraphSection() {
           detail. Hover to highlight relationships.
         </p>
         <div className="mt-8 hidden md:block">
-          <GraphControls />
+          <GraphToolbar />
           <div className="mt-4">
-            <GraphScene />
+            <GraphCanvas />
           </div>
         </div>
         <div className="mt-8 md:hidden">

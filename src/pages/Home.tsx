@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react'
 import { SiteHeader } from '../components/SiteHeader'
 import { EarthbancLensBanner } from '../components/EarthbancLensBanner'
-import { HeroWithGraph } from '../components/HeroWithGraph'
+import { Hero } from '../components/Hero'
+import { InteractiveGraphSection } from '../components/InteractiveGraphSection'
 import { InteractiveMethodology } from '../components/InteractiveMethodology'
 import { NodeDetailPanel } from '../components/NodeDetailPanel'
 import { ProjectDeepDive } from '../components/ProjectDeepDive'
@@ -43,6 +44,10 @@ export function Home() {
       .catch(() => setPdfAvailable(false))
   }, [])
 
+  const scrollToGraph = () => {
+    document.getElementById('graph')?.scrollIntoView({ behavior: 'smooth' })
+  }
+
   return (
     <div className="min-h-screen bg-[#07080a]">
       <SiteHeader />
@@ -51,7 +56,8 @@ export function Home() {
         <RecruiterView pdfAvailable={pdfAvailable} />
       ) : (
         <>
-          <HeroWithGraph pdfAvailable={pdfAvailable} />
+          <Hero onExploreGraph={scrollToGraph} pdfAvailable={pdfAvailable} />
+          <InteractiveGraphSection />
           <TimelineStrip />
           <InteractiveMethodology />
           <ProjectDeepDive />
