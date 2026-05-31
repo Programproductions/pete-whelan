@@ -29,6 +29,7 @@ export const companyEngagements: Record<string, CompanyEngagement> = {
   'florence-medical': { companyRole: 'client' },
   wici: { companyRole: 'client' },
   'tautsec-pty': { companyRole: 'client' },
+  upwork: { companyRole: 'client' },
   'contract-engagements': { companyRole: 'client' },
 }
 
@@ -49,7 +50,7 @@ export const projectEngagements: Record<string, ProjectEngagement> = {
     phase: 'Pacesetter live',
   },
   'flight-deck': { clientCompanyId: 'program-productions' },
-  'sage-chatbot': { clientCompanyId: 'wici' },
-  'legal-voice-apps': { clientCompanyId: 'contract-engagements' },
+  'sage-chatbot': { clientCompanyId: 'program-productions' },
+  'my-paralegal': { clientCompanyId: 'upwork' },
   'alexa-apps': { clientCompanyId: 'contract-engagements' },
 }

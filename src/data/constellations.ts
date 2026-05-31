@@ -88,7 +88,7 @@ export const constellations: Constellation[] = [
       'pete-whelan',
       'voice-ai-pioneer',
       'alexa-apps',
-      'legal-voice-apps',
+      'my-paralegal',
       'sage-chatbot',
       'florence-medical',
       'healthcare-ai',

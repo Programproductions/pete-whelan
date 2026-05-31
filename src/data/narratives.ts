@@ -81,7 +81,7 @@ export const nodeNarratives: Record<string, NodeNarrative> = {
   'voice-ai-pioneer': {
     whyExists: 'Voice was the first mass-market conversational surface — before LLM chat became default.',
     problemSolved: 'Making unreliable speech and intent systems feel dependable in production.',
-    ledTo: ['alexa-apps', 'legal-voice-apps', 'prompt-engineering', 'healthcare-ai'],
+    ledTo: ['alexa-apps', 'my-paralegal', 'prompt-engineering', 'healthcare-ai'],
     outcome: 'Foundation for modern context engineering and agent guardrails.',
   },
   'ai-native-engineering': {
