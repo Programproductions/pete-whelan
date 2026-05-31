@@ -1,10 +1,13 @@
 import { motion } from 'framer-motion'
+import { isWebGLBlockedEnvironment } from '../utils/previewEnvironment'
 
 type InteractiveGraphSectionProps = {
   onOpenGraph: () => void
 }
 
 export function InteractiveGraphSection({ onOpenGraph }: InteractiveGraphSectionProps) {
+  const inPreviewEmbed = isWebGLBlockedEnvironment()
+
   return (
     <section id="graph" className="border-t border-zinc-800/80 px-6 py-20 md:px-12 lg:px-20">
       <div className="mx-auto max-w-6xl">
@@ -51,7 +54,9 @@ export function InteractiveGraphSection({ onOpenGraph }: InteractiveGraphSection
             Open career graph
           </span>
           <span className="mt-2 block text-sm text-zinc-500">
-            Launches full-screen — WebGL renders only when opened so the graph displays reliably.
+            {inPreviewEmbed
+              ? 'Opens in a panel — for 3D, use “Open site in new tab” inside the graph (preview embeds block WebGL).'
+              : 'Launches full-screen with 3D orbit controls when your browser allows WebGL.'}
           </span>
         </motion.button>
       </div>
