@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 import { SiteHeader } from '../components/SiteHeader'
 import { EarthbancLensBanner } from '../components/EarthbancLensBanner'
 import { HeroWithGraph } from '../components/HeroWithGraph'
-import { WhyNotCvSection } from '../components/WhyNotCvSection'
 import { InteractiveMethodology } from '../components/InteractiveMethodology'
 import { NodeDetailPanel } from '../components/NodeDetailPanel'
 import { ProjectDeepDive } from '../components/ProjectDeepDive'
@@ -10,6 +9,7 @@ import { SkillClusters } from '../components/SkillClusters'
 import { PdfDownloadButton } from '../components/PdfDownloadButton'
 import { SiteFooter } from '../components/SiteFooter'
 import { RecruiterView } from '../components/RecruiterView'
+import { WhyNotCvSection } from '../components/WhyNotCvSection'
 import { useEarthbancLens } from '../hooks/useEarthbancLens'
 import { usePortfolioStore } from '../store/usePortfolioStore'
 import { pdfPath } from '../data/cvContent'
@@ -53,10 +53,10 @@ export function Home() {
         <>
           <HeroWithGraph pdfAvailable={pdfAvailable} />
           <TimelineStrip />
-          <WhyNotCvSection />
           <InteractiveMethodology />
           <ProjectDeepDive />
           <SkillClusters />
+          <WhyNotCvSection />
           <PdfDownloadButton available={pdfAvailable} />
         </>
       )}

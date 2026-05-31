@@ -41,6 +41,9 @@ export const skillClusters = [
     items: [
       'Claude / Claude Code',
       'OpenAI',
+      'Codex',
+      'Cursor',
+      'Google Antigravity',
       'Prompt engineering',
       'Context engineering',
       'Agent workflows',
@@ -58,6 +61,8 @@ export const skillClusters = [
       'Workflows & Pub/Sub',
       'Firestore',
       'Identity Platform',
+      'Pinecone',
+      'MongoDB Atlas',
     ],
   },
   {
@@ -65,7 +70,7 @@ export const skillClusters = [
     items: [
       'React',
       'Node.js',
-      'TypeScript',
+      'JavaScript',
       'API design',
       'SaaS architecture',
       'Multi-tenancy',
@@ -94,7 +99,7 @@ export const projectDeepDives: ProjectDeepDive[] = [
     role: 'Solutions architect and technical lead — platform design through production delivery.',
     architecture:
       'Multi-tenant SaaS with LLM orchestration for catalogue ingestion, rights matching and audit workflows; human-in-the-loop review for compliance-grade outputs.',
-    technologies: ['React', 'TypeScript', 'Node.js', 'OpenAI', 'GCP', 'Firestore', 'Cloud Functions'],
+    technologies: ['React', 'JavaScript', 'Node.js', 'OpenAI', 'GCP', 'Firestore', 'Cloud Functions'],
     aiNative: [
       'LLM orchestration pipelines',
       'Structured evaluation of match quality',
@@ -112,7 +117,7 @@ export const projectDeepDives: ProjectDeepDive[] = [
     role: 'Lead architect for GCP platform, identity and Terraform foundations.',
     architecture:
       'GCP-native product with Identity Platform, Terraform-managed environments and AI-assisted assessment workflows (Cyber Pilot).',
-    technologies: ['GCP', 'Terraform', 'Identity Platform', 'React', 'Node.js', 'TypeScript'],
+    technologies: ['GCP', 'Terraform', 'Identity Platform', 'React', 'Node.js', 'JavaScript'],
     aiNative: ['AI-assisted cyber assessment', 'Workflow automation', 'Structured risk evidence capture'],
     outcome: 'Production cyber platform connecting assessment, evidence and insurance-aligned workflows.',
     earthbancRelevance:
@@ -124,7 +129,7 @@ export const projectDeepDives: ProjectDeepDive[] = [
     role: 'Architect for event-driven platform and Betfair integration.',
     architecture:
       'Event-driven services with predictive analytics, external API integration and real-time intelligence surfaces.',
-    technologies: ['Node.js', 'MongoDB Atlas', 'Betfair API', 'TypeScript', 'React'],
+    technologies: ['Node.js', 'MongoDB Atlas', 'Betfair API', 'JavaScript', 'React'],
     aiNative: ['Predictive models', 'Feature pipelines', 'Decision-support UX'],
     outcome: 'Analytics platform delivering timely intelligence for racing market decisions.',
     earthbancRelevance:

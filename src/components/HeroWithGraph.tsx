@@ -1,16 +1,17 @@
 import { motion } from 'framer-motion'
 import { hero, contact, pdfPath } from '../data/cvContent'
 import { useMediaQuery } from '../hooks/useMediaQuery'
-import { LazyGraphCanvas } from './LazyGraphCanvas'
+import { GraphCanvas } from './GraphCanvas'
 import { GraphToolbar } from './GraphToolbar'
 import { MobileGraphFallback } from './MobileGraphFallback'
+import { IterationNotice } from './IterationNotice'
 
 type HeroWithGraphProps = {
   pdfAvailable: boolean
 }
 
 export function HeroWithGraph({ pdfAvailable }: HeroWithGraphProps) {
-  const isDesktop = useMediaQuery('(min-width: 1024px)')
+  const show3d = useMediaQuery('(min-width: 768px)')
 
   return (
     <section className="relative px-4 pb-12 pt-24 md:px-8 md:pt-28 lg:px-12">
@@ -22,6 +23,8 @@ export function HeroWithGraph({ pdfAvailable }: HeroWithGraphProps) {
         }}
       />
       <div className="relative mx-auto max-w-7xl">
+        <IterationNotice className="mb-8" />
+
         <div className="grid gap-10 lg:grid-cols-[minmax(0,340px)_1fr] lg:gap-12">
           <div className="lg:pt-4">
             <motion.p
@@ -81,28 +84,29 @@ export function HeroWithGraph({ pdfAvailable }: HeroWithGraphProps) {
                 Contact
               </a>
             </motion.div>
-            <p className="mt-6 hidden text-xs text-zinc-600 lg:block">
-              Click any node · constellations filter narratives · architecture & timeline views
+            <p className="mt-6 hidden text-xs text-zinc-600 md:block">
+              Click any node · use constellations to follow a thread · switch architecture or
+              timeline views
             </p>
           </div>
 
-          <div>
-            <div className="mb-4 hidden lg:block">
+          <div className="min-w-0">
+            <div className="mb-4 hidden md:block">
               <GraphToolbar />
             </div>
-            {isDesktop ? (
-              <LazyGraphCanvas className="h-[min(58vh,560px)]" />
+            {show3d ? (
+              <GraphCanvas className="h-[min(58vh,560px)]" />
             ) : (
               <MobileGraphFallback />
             )}
-            {isDesktop && (
+            {show3d && (
               <p className="mt-2 text-center text-[10px] text-zinc-600">
-                Drag to orbit · scroll to zoom · paths animate on selection
+                Drag to orbit · scroll to zoom · click a node for the story path
               </p>
             )}
           </div>
         </div>
-        <div className="mt-8 lg:hidden">
+        <div className="mt-8 md:hidden">
           <GraphToolbar />
         </div>
       </div>

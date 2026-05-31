@@ -1,12 +1,11 @@
 import { motion } from 'framer-motion'
 
 const paragraphs = [
-  'Most CVs describe a career as a list.',
-  'I design systems.',
-  'This portfolio models my career as a connected graph of projects, technologies, domains, organisations and outcomes.',
-  'It was built using the same AI-native, specification-driven engineering approach I use to design products, agent systems and internal platforms.',
-  'For recruiters and hiring managers who prefer a traditional format, a PDF version is available.',
-  'This website is intended to demonstrate how I think, not simply what I have done.',
+  'Most CVs list roles and tools in sequence. That works for screening, but it rarely shows how experience connects across domains.',
+  'I wanted a clearer picture: how music technology, voice AI, cloud platforms and agent-driven delivery relate to each other — and to the work I do today.',
+  'So this site models my career as a graph: projects, organisations, technologies and outcomes linked by real relationships.',
+  'It was built the same way I build products — with a written spec, structured data, and AI-native tooling in the loop (not as a one-shot demo).',
+  'If you prefer a conventional format, the PDF download is there. This page is mainly for people who want to see how the pieces fit together.',
 ]
 
 export function WhyNotCvSection() {
@@ -19,19 +18,17 @@ export function WhyNotCvSection() {
           viewport={{ once: true }}
           className="text-2xl font-semibold tracking-tight text-zinc-100 md:text-3xl"
         >
-          Why I Built This Instead Of A CV
+          Why a graph, not only a CV
         </motion.h2>
         <div className="mt-8 space-y-4">
           {paragraphs.map((text, i) => (
             <motion.p
-              key={text}
+              key={text.slice(0, 32)}
               initial={{ opacity: 0, y: 8 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.04 }}
-              className={`leading-relaxed ${
-                i === 1 ? 'text-lg font-medium text-cyan-300/90' : 'text-zinc-400'
-              }`}
+              transition={{ delay: i * 0.03 }}
+              className="leading-relaxed text-zinc-400"
             >
               {text}
             </motion.p>

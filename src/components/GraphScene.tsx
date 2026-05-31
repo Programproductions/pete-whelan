@@ -1,6 +1,6 @@
 import { Canvas, useFrame, useThree } from '@react-three/fiber'
-import { Html, Line, OrbitControls } from '@react-three/drei'
-import { Suspense, useMemo, useRef, useEffect } from 'react'
+import { Html, OrbitControls } from '@react-three/drei'
+import { useMemo, useRef, useEffect } from 'react'
 import * as THREE from 'three'
 import { constellationById } from '../data/constellations'
 import { ALWAYS_LABELED_NODES, EARTHBNC_LENS_NODE_IDS } from '../data/narratives'
@@ -21,38 +21,52 @@ function CameraRig({ target }: { target: THREE.Vector3 | null }) {
   const { camera } = useThree()
   const desired = useRef(new THREE.Vector3(0, 2, 14))
   const lookAt = useRef(new THREE.Vector3(0, 0, 0))
+  const focusing = useRef(false)
 
   useEffect(() => {
     if (target) {
+      focusing.current = true
       desired.current.set(target.x + 2.2, target.y + 1.8, target.z + 5.5)
       lookAt.current.copy(target)
     } else {
-      desired.current.set(0, 2, 14)
-      lookAt.current.set(0, 0, 0)
+      focusing.current = false
     }
   }, [target])
 
   useFrame(() => {
-    camera.position.lerp(desired.current, 0.05)
+    if (!focusing.current || !target) return
+    camera.position.lerp(desired.current, 0.06)
     camera.lookAt(lookAt.current)
   })
 
   return null
 }
 
-function AnimatedPathLine({ points }: { points: [number, number, number][] }) {
-  return (
-    <Line
-      points={points}
-      color="#22d3ee"
-      lineWidth={2.5}
-      dashed
-      dashSize={0.35}
-      gapSize={0.18}
-      transparent
-      opacity={0.92}
-    />
-  )
+function SegmentEdge({
+  from,
+  to,
+  highlight,
+  onPath,
+}: {
+  from: [number, number, number]
+  to: [number, number, number]
+  highlight: boolean
+  onPath: boolean
+}) {
+  const lineObj = useMemo(() => {
+    const geometry = new THREE.BufferGeometry().setFromPoints([
+      new THREE.Vector3(...from),
+      new THREE.Vector3(...to),
+    ])
+    const material = new THREE.LineBasicMaterial({
+      color: onPath ? 0x22d3ee : highlight ? 0x67e8f9 : 0x3f3f46,
+      transparent: true,
+      opacity: onPath ? 0.95 : highlight ? 0.5 : 0.15,
+    })
+    return new THREE.Line(geometry, material)
+  }, [from, to, highlight, onPath])
+
+  return <primitive object={lineObj} />
 }
 
 function GraphNode({
@@ -81,7 +95,7 @@ function GraphNode({
 
   useFrame((state) => {
     if (!meshRef.current) return
-    const pulse = highlighted || pathActive ? 1 + Math.sin(state.clock.elapsedTime * 3) * 0.06 : 1
+    const pulse = highlighted || pathActive ? 1 + Math.sin(state.clock.elapsedTime * 3) * 0.05 : 1
     meshRef.current.scale.setScalar(scale * pulse)
   })
 
@@ -89,6 +103,7 @@ function GraphNode({
     <group position={[position.x, position.y, position.z]}>
       <mesh
         ref={meshRef}
+        scale={[scale, scale, scale]}
         onClick={(e) => {
           e.stopPropagation()
           onSelect()
@@ -99,30 +114,24 @@ function GraphNode({
           onHover(true)
         }}
         onPointerOut={() => {
-          document.body.style.cursor = 'default'
+          document.body.style.cursor = 'auto'
           onHover(false)
         }}
       >
-        <sphereGeometry args={[1, 28, 28]} />
+        <sphereGeometry args={[1, 20, 20]} />
         <meshStandardMaterial
           color={color}
           emissive={color}
           emissiveIntensity={emissive}
           transparent
-          opacity={dimmed ? 0.2 : 0.98}
+          opacity={dimmed ? 0.22 : 0.98}
           roughness={0.35}
-          metalness={0.4}
+          metalness={0.35}
         />
       </mesh>
-      {(showLabel || highlighted || pathActive) && (
-        <Html distanceFactor={14} center style={{ pointerEvents: 'none' }}>
-          <span
-            className={`whitespace-nowrap rounded px-2 py-0.5 text-[10px] backdrop-blur ${
-              pathActive
-                ? 'bg-cyan-500/30 font-medium text-cyan-100 ring-1 ring-cyan-400/50'
-                : 'bg-black/75 text-zinc-200'
-            }`}
-          >
+      {showLabel && (
+        <Html distanceFactor={16} position={[0, scale + 0.35, 0]} style={{ pointerEvents: 'none' }}>
+          <span className="whitespace-nowrap rounded bg-black/80 px-2 py-0.5 text-[10px] text-zinc-100">
             {node.label}
           </span>
         </Html>
@@ -142,7 +151,7 @@ function GraphEdges({
   highlightIds: Set<string>
   pathKeys: Set<string>
 }) {
-  const lines = useMemo(() => {
+  const segments = useMemo(() => {
     return portfolioEdges
       .filter((e) => visibleIds.has(e.source) && visibleIds.has(e.target))
       .map((edge) => {
@@ -151,44 +160,38 @@ function GraphEdges({
         if (!a || !b) return null
         const edgeKey = `${edge.source}-${edge.target}`
         const onPath = pathKeys.has(edgeKey)
-        const connected =
+        const highlight =
           onPath ||
           highlightIds.has(edge.source) ||
           highlightIds.has(edge.target)
         return {
           key: edgeKey,
-          points: [
-            [a.x, a.y, a.z] as [number, number, number],
-            [b.x, b.y, b.z] as [number, number, number],
-          ],
-          connected,
+          from: [a.x, a.y, a.z] as [number, number, number],
+          to: [b.x, b.y, b.z] as [number, number, number],
+          highlight: highlight && highlightIds.size > 0,
           onPath,
         }
       })
       .filter(Boolean) as {
       key: string
-      points: [number, number, number][]
-      connected: boolean
+      from: [number, number, number]
+      to: [number, number, number]
+      highlight: boolean
       onPath: boolean
     }[]
   }, [positions, visibleIds, highlightIds, pathKeys])
 
   return (
     <>
-      {lines.map((line) =>
-        line.onPath ? (
-          <AnimatedPathLine key={line.key} points={line.points} />
-        ) : (
-          <Line
-            key={line.key}
-            points={line.points}
-            color={line.connected ? '#22d3ee' : '#3f3f46'}
-            lineWidth={line.connected ? 1 : 0.4}
-            transparent
-            opacity={line.connected ? 0.45 : 0.12}
-          />
-        ),
-      )}
+      {segments.map((s) => (
+        <SegmentEdge
+          key={s.key}
+          from={s.from}
+          to={s.to}
+          highlight={s.highlight}
+          onPath={s.onPath}
+        />
+      ))}
     </>
   )
 }
@@ -290,10 +293,10 @@ function SceneContent() {
 
   return (
     <>
-      <ambientLight intensity={0.32} />
-      <pointLight position={[10, 10, 10]} intensity={0.85} color="#22d3ee" />
-      <pointLight position={[-8, -4, -6]} intensity={0.35} color="#a78bfa" />
-      <fog attach="fog" args={['#050608', 18, 42]} />
+      <color attach="background" args={['#050608']} />
+      <ambientLight intensity={0.45} />
+      <pointLight position={[10, 10, 10]} intensity={0.9} color="#22d3ee" />
+      <pointLight position={[-8, -4, -6]} intensity={0.4} color="#a78bfa" />
       <CameraRig target={cameraTarget} />
       <GraphEdges
         positions={positionMap}
@@ -329,6 +332,7 @@ function SceneContent() {
         )
       })}
       <OrbitControls
+        makeDefault
         enableDamping
         dampingFactor={0.08}
         minDistance={5}
@@ -346,17 +350,17 @@ type GraphSceneProps = {
 export function GraphScene({ className = '' }: GraphSceneProps) {
   return (
     <div
-      className={`relative w-full overflow-hidden rounded-xl border border-zinc-800 bg-[#050608] ${className}`}
+      className={`relative w-full min-h-[400px] overflow-hidden rounded-xl border border-zinc-800 bg-[#050608] ${className}`}
     >
       <Canvas
         camera={{ position: [0, 2, 14], fov: 48 }}
-        gl={{ antialias: true, alpha: true }}
-        dpr={[1, 1.5]}
+        gl={{ antialias: true, alpha: false, powerPreference: 'high-performance' }}
+        dpr={[1, 2]}
+        frameloop="always"
+        style={{ width: '100%', height: '100%', minHeight: 400, display: 'block' }}
         onPointerMissed={() => usePortfolioStore.getState().selectNodeWithPath(null)}
       >
-        <Suspense fallback={null}>
-          <SceneContent />
-        </Suspense>
+        <SceneContent />
       </Canvas>
     </div>
   )
