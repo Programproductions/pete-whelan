@@ -2,9 +2,7 @@ import { useEffect } from 'react'
 import { createPortal } from 'react-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 import { GraphControls } from './GraphControls'
-import { GraphScene } from './GraphScene'
-import { MobileGraphFallback } from './MobileGraphFallback'
-import { useMediaQuery } from '../hooks/useMediaQuery'
+import { CareerGraphViewer } from './CareerGraphViewer'
 import { usePortfolioStore } from '../store/usePortfolioStore'
 
 type CareerGraphModalProps = {
@@ -13,7 +11,6 @@ type CareerGraphModalProps = {
 }
 
 export function CareerGraphModal({ open, onClose }: CareerGraphModalProps) {
-  const isDesktop = useMediaQuery('(min-width: 768px)')
   const selectNodeWithPath = usePortfolioStore((s) => s.selectNodeWithPath)
 
   useEffect(() => {
@@ -65,7 +62,7 @@ export function CareerGraphModal({ open, onClose }: CareerGraphModalProps) {
                   Interactive career graph
                 </h2>
                 <p className="mt-1 text-sm text-zinc-500">
-                  Drag to orbit · scroll to zoom · click a node for detail
+                  Click a node for detail · drag to pan the 2D view or orbit in 3D when available
                 </p>
               </div>
               <button
@@ -81,12 +78,11 @@ export function CareerGraphModal({ open, onClose }: CareerGraphModalProps) {
               <GraphControls />
             </div>
 
-            <div className="min-h-0 flex-1 p-4 md:p-6">
-              {isDesktop ? (
-                <GraphScene key="career-graph-canvas" className="h-[min(62vh,560px)] w-full md:h-[min(65vh,600px)]" />
-              ) : (
-                <MobileGraphFallback embedded />
-              )}
+            <div className="min-h-0 flex-1 overflow-y-auto p-4 md:p-6">
+              <CareerGraphViewer
+                active={open}
+                className="h-[min(62vh,560px)] w-full md:h-[min(65vh,600px)]"
+              />
             </div>
           </motion.div>
         </motion.div>
