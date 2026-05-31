@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { SiteHeader } from '../components/SiteHeader'
 import { EarthbancLensBanner } from '../components/EarthbancLensBanner'
+import { AiNativeSection } from '../components/AiNativeSection'
 import { Hero } from '../components/Hero'
 import { CareerGraphModal } from '../components/CareerGraphModal'
 import { InteractiveGraphSection } from '../components/InteractiveGraphSection'
