@@ -11,7 +11,7 @@ import { GraphControls } from './GraphControls'
 
 function NodeAccordionItem({ node }: { node: PortfolioNode }) {
   const [open, setOpen] = useState(false)
-  const { setSelectedNode } = usePortfolioStore()
+  const { selectNodeWithPath } = usePortfolioStore()
   const related = [...getConnectedIds(node.id)]
     .map((id) => nodeById.get(id))
     .filter(Boolean)
@@ -36,7 +36,7 @@ function NodeAccordionItem({ node }: { node: PortfolioNode }) {
           <p className="mt-2 text-sm leading-relaxed text-zinc-500">{node.detail}</p>
           <button
             type="button"
-            onClick={() => setSelectedNode(node)}
+            onClick={() => selectNodeWithPath(node)}
             className="mt-3 text-xs font-medium text-cyan-400"
           >
             Open full detail →

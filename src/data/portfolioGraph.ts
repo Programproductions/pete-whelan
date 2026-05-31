@@ -26,6 +26,10 @@ export type PortfolioNode = {
   tags: string[]
   featured?: boolean
   earthbancRelevance?: string
+  whyExists?: string
+  problemSolved?: string
+  ledTo?: string[]
+  outcome?: string
 }
 
 export type PortfolioEdge = {
