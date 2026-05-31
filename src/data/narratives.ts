@@ -41,6 +41,7 @@ export const nodeNarratives: Record<string, NodeNarrative> = {
     storyPath: [
       'pete-whelan',
       'program-productions',
+      'tautsec-pty',
       'web4',
       'tautsec',
       'terraform',

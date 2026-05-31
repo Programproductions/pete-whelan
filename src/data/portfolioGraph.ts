@@ -1,3 +1,11 @@
+import {
+  companyEngagements,
+  projectEngagements,
+  type CompanyRole,
+} from './engagements'
+
+export type { CompanyRole }
+
 export type NodeType =
   | 'person'
   | 'company'
@@ -30,6 +38,15 @@ export type PortfolioNode = {
   problemSolved?: string
   ledTo?: string[]
   outcome?: string
+  /** Company nodes: own org vs client */
+  companyRole?: CompanyRole
+  refereeName?: string
+  refereeEmail?: string
+  /** Project nodes: required client company */
+  clientCompanyId?: string
+  contractLength?: string
+  startDate?: string
+  endDate?: string
 }
 
 export type PortfolioEdge = {
@@ -38,7 +55,7 @@ export type PortfolioEdge = {
   label?: string
 }
 
-export const portfolioNodes: PortfolioNode[] = [
+const portfolioNodesRaw: PortfolioNode[] = [
   {
     id: 'pete-whelan',
     label: 'Pete Whelan',
@@ -91,6 +108,24 @@ export const portfolioNodes: PortfolioNode[] = [
     tags: ['companies', 'ai'],
   },
   {
+    id: 'wici',
+    label: 'WICI',
+    type: 'company',
+    summary: 'Client — Florence AI and healthcare conversational delivery.',
+    detail:
+      'Contracted engagement for Florence AI work including therapeutic chatbot concepts and clinical-adjacent conversational design.',
+    tags: ['companies', 'ai'],
+  },
+  {
+    id: 'tautsec-pty',
+    label: 'Tautsec Pty Ltd',
+    type: 'company',
+    summary: 'Client — Tautsec cyber platform and Cyber Pilot.',
+    detail:
+      'Contracted to deliver the Tautsec product — GCP architecture, Identity Platform, Terraform foundations and Cyber Pilot workflows.',
+    tags: ['companies', 'projects', 'cloud'],
+  },
+  {
     id: 'contract-engagements',
     label: 'Contract Engagements',
     type: 'company',
@@ -123,7 +158,7 @@ export const portfolioNodes: PortfolioNode[] = [
     type: 'project',
     summary: 'Cyber security and cyber insurance platform on GCP.',
     detail:
-      'Cyber Pilot and AI-assisted cyber assessment workflows on GCP — Identity Platform, Terraform infrastructure, and production-grade security product delivery.',
+      'Cyber Pilot and AI-assisted cyber assessment workflows on GCP for Tautsec Pty Ltd — with Web4 as engagement partner and Program Productions as delivery vehicle.',
     keyPoints: [
       'GCP architecture with Identity Platform',
       'Terraform-managed infrastructure',
@@ -195,7 +230,7 @@ export const portfolioNodes: PortfolioNode[] = [
     type: 'project',
     summary: 'Healthcare therapeutic conversation concepts.',
     detail:
-      'Early therapeutic chatbot design exploring safe conversational AI in clinical-adjacent contexts.',
+      'Florence AI therapeutic chatbot design for WICI — exploring safe conversational AI in clinical-adjacent contexts.',
     tags: ['projects', 'ai'],
   },
   {
@@ -496,6 +531,33 @@ export const portfolioNodes: PortfolioNode[] = [
   },
 ]
 
+function applyEngagementData(nodes: PortfolioNode[]): PortfolioNode[] {
+  return nodes.map((node) => {
+    const company = companyEngagements[node.id]
+    if (company) {
+      return {
+        ...node,
+        companyRole: company.companyRole,
+        refereeName: company.refereeName,
+        refereeEmail: company.refereeEmail,
+      }
+    }
+    const project = projectEngagements[node.id]
+    if (project) {
+      return {
+        ...node,
+        clientCompanyId: project.clientCompanyId,
+        contractLength: project.contractLength,
+        startDate: project.startDate,
+        endDate: project.endDate,
+      }
+    }
+    return node
+  })
+}
+
+export const portfolioNodes: PortfolioNode[] = applyEngagementData(portfolioNodesRaw)
+
 export const portfolioEdges: PortfolioEdge[] = [
   { source: 'pete-whelan', target: 'program-music', label: 'founded' },
   { source: 'pete-whelan', target: 'program-productions', label: 'leads' },
@@ -507,8 +569,16 @@ export const portfolioEdges: PortfolioEdge[] = [
   { source: 'program-music', target: 'aimi', label: 'built' },
   { source: 'program-productions', target: 'tautsec', label: 'delivered' },
   { source: 'program-productions', target: 'lexi', label: 'delivered' },
+  { source: 'program-productions', target: 'flight-deck', label: 'delivered' },
+  { source: 'program-productions', target: 'paradise-engineering', label: 'delivers' },
+  { source: 'tautsec-pty', target: 'tautsec', label: 'client for' },
   { source: 'web4', target: 'tautsec', label: 'engagement' },
+  { source: 'web4', target: 'tautsec-pty', label: 'partner' },
   { source: 'web4', target: 'lexi', label: 'engagement' },
+  { source: 'wici', target: 'sage-chatbot', label: 'client for' },
+  { source: 'wici', target: 'florence-medical', label: 'Florence AI' },
+  { source: 'pete-whelan', target: 'wici', label: 'delivered' },
+  { source: 'pete-whelan', target: 'tautsec-pty', label: 'architects' },
   { source: 'pete-whelan', target: 'paradise-engineering', label: 'created' },
   { source: 'pete-whelan', target: 'flight-deck', label: 'architected' },
   { source: 'paradise-engineering', target: 'spec-driven-development', label: 'includes' },
@@ -555,6 +625,31 @@ export const portfolioEdges: PortfolioEdge[] = [
 ]
 
 export const nodeById = new Map(portfolioNodes.map((n) => [n.id, n]))
+
+export function getClientCompany(project: PortfolioNode): PortfolioNode | undefined {
+  if (!project.clientCompanyId) return undefined
+  return nodeById.get(project.clientCompanyId)
+}
+
+export function getProjectsForCompany(companyId: string): PortfolioNode[] {
+  return portfolioNodes.filter(
+    (n) => n.type === 'project' && n.clientCompanyId === companyId,
+  )
+}
+
+export function getNodeDisplayLabel(node: PortfolioNode): string {
+  if (node.type === 'company') {
+    if (node.companyRole === 'client') return `${node.label} · Client`
+    if (node.companyRole === 'own') return `${node.label} · Own co.`
+  }
+  return node.label
+}
+
+export function formatEngagementPeriod(node: PortfolioNode): string | null {
+  if (!node.startDate && !node.endDate) return null
+  if (node.startDate && node.endDate) return `${node.startDate} → ${node.endDate}`
+  return node.startDate ?? node.endDate ?? null
+}
 
 export function getConnectedIds(nodeId: string): Set<string> {
   const connected = new Set<string>()

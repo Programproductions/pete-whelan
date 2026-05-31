@@ -46,6 +46,8 @@ export function isEdgeVisible(
 }
 
 function findProjectAnchor(projectId: string): string {
+  const project = nodeById.get(projectId)
+  if (project?.clientCompanyId) return project.clientCompanyId
   for (const edge of portfolioEdges) {
     if (edge.target !== projectId) continue
     const source = nodeById.get(edge.source)
