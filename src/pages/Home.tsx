@@ -57,6 +57,7 @@ export function Home() {
       ) : (
         <>
           <Hero onExploreGraph={openGraph} pdfAvailable={pdfAvailable} />
+          <AiNativeSection />
           <InteractiveGraphSection onOpenGraph={openGraph} />
           <TimelineStrip />
           <InteractiveMethodology />
