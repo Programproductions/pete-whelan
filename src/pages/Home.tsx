@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { SiteHeader } from '../components/SiteHeader'
 import { EarthbancLensBanner } from '../components/EarthbancLensBanner'
 import { AiNativeSection } from '../components/AiNativeSection'
@@ -15,7 +15,6 @@ import { RecruiterView } from '../components/RecruiterView'
 import { WhyNotCvSection } from '../components/WhyNotCvSection'
 import { useEarthbancLens } from '../hooks/useEarthbancLens'
 import { usePortfolioStore } from '../store/usePortfolioStore'
-import { pdfPath } from '../data/cvContent'
 import { timelineMilestones } from '../utils/graphLayout'
 
 function TimelineStrip() {
@@ -36,16 +35,9 @@ function TimelineStrip() {
 }
 
 export function Home() {
-  const [pdfAvailable, setPdfAvailable] = useState(false)
   const [graphOpen, setGraphOpen] = useState(false)
   const siteMode = usePortfolioStore((s) => s.siteMode)
   useEarthbancLens()
-
-  useEffect(() => {
-    fetch(pdfPath, { method: 'HEAD' })
-      .then((res) => setPdfAvailable(res.ok))
-      .catch(() => setPdfAvailable(false))
-  }, [])
 
   const openGraph = () => setGraphOpen(true)
 
@@ -54,10 +46,10 @@ export function Home() {
       <SiteHeader />
       <EarthbancLensBanner />
       {siteMode === 'traditional' ? (
-        <RecruiterView pdfAvailable={pdfAvailable} />
+        <RecruiterView />
       ) : (
         <>
-          <Hero onExploreGraph={openGraph} pdfAvailable={pdfAvailable} />
+          <Hero onExploreGraph={openGraph} />
           <AiNativeSection />
           <InteractiveGraphSection onOpenGraph={openGraph} />
           <TimelineStrip />
@@ -65,7 +57,7 @@ export function Home() {
           <ProjectDeepDive />
           <SkillClusters />
           <WhyNotCvSection />
-          <PdfDownloadButton available={pdfAvailable} />
+          <PdfDownloadButton />
         </>
       )}
       <SiteFooter />

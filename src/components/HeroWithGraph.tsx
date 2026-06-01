@@ -7,11 +7,7 @@ import { GraphToolbar } from './GraphToolbar'
 import { MobileGraphFallback } from './MobileGraphFallback'
 import { IterationNotice } from './IterationNotice'
 
-type HeroWithGraphProps = {
-  pdfAvailable: boolean
-}
-
-export function HeroWithGraph({ pdfAvailable }: HeroWithGraphProps) {
+export function HeroWithGraph() {
   const isMobile = useMediaQuery('(max-width: 767px)')
 
   return (
@@ -65,7 +61,7 @@ export function HeroWithGraph({ pdfAvailable }: HeroWithGraphProps) {
               transition={{ delay: 0.18 }}
               className="mt-8 flex flex-wrap items-center gap-2"
             >
-              <DownloadCvButtons pdfAvailable={pdfAvailable} />
+              <DownloadCvButtons />
               <a
                 href={`mailto:${contact.email}`}
                 className="rounded-lg px-4 py-2 text-sm text-zinc-400 hover:text-zinc-200"

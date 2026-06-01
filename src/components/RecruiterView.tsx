@@ -2,11 +2,7 @@ import { hero, site, projectDeepDives, skillClusters } from '../data/cvContent'
 import { DownloadCvButtons } from './DownloadCvButtons'
 import { nodeById } from '../data/portfolioGraph'
 
-type RecruiterViewProps = {
-  pdfAvailable: boolean
-}
-
-export function RecruiterView({ pdfAvailable }: RecruiterViewProps) {
+export function RecruiterView() {
   return (
     <div className="px-6 pb-20 pt-24 md:px-12 lg:px-20">
       <div className="mx-auto max-w-3xl">
@@ -63,7 +59,7 @@ export function RecruiterView({ pdfAvailable }: RecruiterViewProps) {
         <section className="mt-12 text-center">
           <p className="text-sm text-zinc-500">Need the traditional version?</p>
           <div className="mt-4 flex justify-center">
-            <DownloadCvButtons pdfAvailable={pdfAvailable} />
+            <DownloadCvButtons />
           </div>
           <p className="mt-8 text-xs text-zinc-600">
             Switch to Interactive mode to explore the full relationship graph.
