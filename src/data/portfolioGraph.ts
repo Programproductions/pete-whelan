@@ -136,6 +136,15 @@ const portfolioNodesRaw: PortfolioNode[] = [
     tags: ['companies', 'projects'],
   },
   {
+    id: 'alltasks-it',
+    label: 'AllTasks IT',
+    type: 'company',
+    summary: 'Client — logistics and voice product delivery.',
+    detail:
+      'Client organisation for Alexa voice applications in transport and logistics, including driver-facing delivery workflows.',
+    tags: ['companies', 'ai', 'projects'],
+  },
+  {
     id: 'contract-engagements',
     label: 'Contract Engagements',
     type: 'company',
@@ -250,6 +259,15 @@ const portfolioNodesRaw: PortfolioNode[] = [
     summary: 'Therapeutic chatbot — Program Productions.',
     detail:
       'Sage therapeutic chatbot delivered via Program Productions — safe conversational AI in clinical-adjacent settings (related healthcare domain work).',
+    tags: ['projects', 'ai'],
+  },
+  {
+    id: 'big-red-ronnie',
+    label: 'BigRedRonnie',
+    type: 'project',
+    summary: 'Alexa voice app for Ron Finemore drivers.',
+    detail:
+      'BigRedRonnie — Alexa Voice App for Ron Finemore Transport truck drivers: hands-free logistics, delivery updates and driver workflows delivered for AllTasks IT.',
     tags: ['projects', 'ai'],
   },
   {
@@ -602,7 +620,11 @@ export const portfolioEdges: PortfolioEdge[] = [
   { source: 'voice-ai-pioneer', target: 'florence-ai', label: 'includes' },
   { source: 'program-productions', target: 'sage-chatbot', label: 'delivered' },
   { source: 'florence-medical', target: 'sage-chatbot', label: 'related' },
+  { source: 'alltasks-it', target: 'big-red-ronnie', label: 'client for' },
+  { source: 'pete-whelan', target: 'big-red-ronnie', label: 'built' },
+  { source: 'voice-ai-pioneer', target: 'big-red-ronnie', label: 'includes' },
   { source: 'upwork', target: 'my-paralegal', label: 'client for' },
+  { source: 'pete-whelan', target: 'my-paralegal', label: 'built' },
   { source: 'pete-whelan', target: 'wici', label: 'delivered' },
   { source: 'pete-whelan', target: 'tautsec-pty', label: 'architects' },
   { source: 'pete-whelan', target: 'paradise-engineering', label: 'created' },

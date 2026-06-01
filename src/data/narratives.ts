@@ -85,10 +85,27 @@ export const nodeNarratives: Record<string, NodeNarrative> = {
     outcome: 'Shipped Florence AI as a certified Alexa application for the client.',
     storyPath: ['pete-whelan', 'wici', 'florence-ai', 'florence-medical', 'healthcare-ai'],
   },
+  'big-red-ronnie': {
+    whyExists:
+      'AllTasks IT needed a hands-free Alexa surface for Ron Finemore Transport drivers on the road.',
+    problemSolved:
+      'Drivers needed logistics and delivery updates without taking eyes off the road or hands off the wheel.',
+    ledTo: ['voice-ai-pioneer', 'prompt-engineering'],
+    outcome:
+      'Shipped BigRedRonnie — a certified Alexa Voice App for driver logistics and delivery workflows.',
+    storyPath: ['pete-whelan', 'alltasks-it', 'big-red-ronnie', 'voice-ai-pioneer'],
+  },
   'voice-ai-pioneer': {
     whyExists: 'Voice was the first mass-market conversational surface — before LLM chat became default.',
     problemSolved: 'Making unreliable speech and intent systems feel dependable in production.',
-    ledTo: ['florence-ai', 'alexa-apps', 'my-paralegal', 'prompt-engineering', 'healthcare-ai'],
+    ledTo: [
+      'florence-ai',
+      'big-red-ronnie',
+      'alexa-apps',
+      'my-paralegal',
+      'prompt-engineering',
+      'healthcare-ai',
+    ],
     outcome: 'Foundation for modern context engineering and agent guardrails.',
   },
   'ai-native-engineering': {
@@ -113,6 +130,7 @@ export const ALWAYS_LABELED_NODES = new Set([
   'flight-deck',
   'paradise-engineering',
   'florence-ai',
+  'big-red-ronnie',
 ])
 
 export const EARTHBNC_LENS_NODE_IDS = new Set([
