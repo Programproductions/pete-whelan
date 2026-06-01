@@ -2,6 +2,7 @@ import { useMemo } from 'react'
 import type { PortfolioNode } from '../data/portfolioGraph'
 import { usePortfolioStore } from '../store/usePortfolioStore'
 import { getNodeColor, getNodeScale } from '../utils/nodeColors'
+import { shouldShowGraphNodeLabel } from '../utils/graphLabels'
 import { useGraphDisplay } from '../hooks/useGraphDisplay'
 
 const VB = { width: 900, height: 520, pad: 48 }
@@ -49,11 +50,10 @@ export function Graph2DView({ className = '' }: Graph2DViewProps) {
     const { dimmed, highlighted } = nodeState(node)
     const r = Math.max(5, getNodeScale(node.type, node.featured) * 36)
     const color = getNodeColor(node.type)
-    const showLabel =
-      node.id === 'pete-whelan' ||
-      highlighted ||
-      hoveredNodeId === node.id ||
-      Boolean(node.phase)
+    const showLabel = shouldShowGraphNodeLabel(node, {
+      highlighted,
+      hovered: hoveredNodeId === node.id,
+    })
 
     return (
       <g
