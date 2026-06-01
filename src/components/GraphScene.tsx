@@ -4,6 +4,7 @@ import { Suspense } from 'react'
 import type { NodePosition, PortfolioNode } from '../data/portfolioGraph'
 import { usePortfolioStore } from '../store/usePortfolioStore'
 import { getNodeColor, getNodeScale } from '../utils/nodeColors'
+import { shouldShowGraphNodeLabel } from '../utils/graphLabels'
 import { useGraphDisplay } from '../hooks/useGraphDisplay'
 
 function GraphNode({
@@ -24,6 +25,7 @@ function GraphNode({
   const color = getNodeColor(node.type)
   const scale = getNodeScale(node.type, node.featured)
   const emissive = highlighted ? 0.65 : dimmed ? 0.12 : 0.28
+  const showLabel = shouldShowGraphNodeLabel(node, { highlighted })
 
   return (
     <group position={[position.x, position.y, position.z]}>
@@ -53,9 +55,9 @@ function GraphNode({
           metalness={0.3}
         />
       </mesh>
-      {(highlighted || node.id === 'pete-whelan' || node.phase) && (
+      {showLabel && (
         <Html distanceFactor={12} center style={{ pointerEvents: 'none' }}>
-          <div className="text-center">
+          <div className={`text-center transition-opacity ${dimmed ? 'opacity-55' : 'opacity-100'}`}>
             <span className="whitespace-nowrap rounded bg-black/70 px-2 py-0.5 text-[10px] text-zinc-200 backdrop-blur">
               {node.label}
             </span>
