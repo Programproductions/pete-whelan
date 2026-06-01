@@ -83,7 +83,7 @@ export const nodeNarratives: Record<string, NodeNarrative> = {
     problemSolved: 'Voice-first clinical-adjacent assistance with certification and intent reliability.',
     ledTo: ['healthcare-ai', 'prompt-engineering', 'voice-ai-pioneer'],
     outcome: 'Shipped Florence AI as a certified Alexa application for the client.',
-    storyPath: ['pete-whelan', 'wici', 'florence-ai', 'florence-medical', 'healthcare-ai'],
+    storyPath: ['pete-whelan', 'wici', 'florence-ai', 'healthcare-ai'],
   },
   'big-red-ronnie': {
     whyExists:

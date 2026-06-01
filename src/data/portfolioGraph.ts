@@ -101,15 +101,6 @@ const portfolioNodesRaw: PortfolioNode[] = [
     tags: ['companies', 'projects', 'cloud'],
   },
   {
-    id: 'florence-medical',
-    label: 'Florence Medical',
-    type: 'company',
-    summary: 'Healthcare AI and clinical workflow technology.',
-    detail:
-      'Healthcare technology context including therapeutic chatbot concepts and clinical AI workflow design.',
-    tags: ['companies', 'ai'],
-  },
-  {
     id: 'wici',
     label: 'WICI',
     type: 'company',
@@ -249,7 +240,7 @@ const portfolioNodesRaw: PortfolioNode[] = [
     type: 'project',
     summary: 'Healthcare Alexa voice application.',
     detail:
-      'Florence AI — production Alexa app for WICI, with Florence Medical as healthcare context. Voice intents, certification and conversational UX in clinical-adjacent settings.',
+      'Florence AI — production Alexa app for WICI. Voice intents, certification and conversational UX in clinical-adjacent healthcare settings.',
     tags: ['projects', 'ai'],
   },
   {
@@ -309,7 +300,7 @@ const portfolioNodesRaw: PortfolioNode[] = [
     label: 'Healthcare AI',
     type: 'domain',
     summary: 'Clinical-adjacent AI workflows and therapeutic concepts.',
-    detail: 'Healthcare AI including Florence Medical context and therapeutic chatbot design.',
+    detail: 'Healthcare AI including voice applications and therapeutic chatbot design.',
     tags: ['domains', 'ai'],
   },
   {
@@ -601,7 +592,6 @@ export const portfolioEdges: PortfolioEdge[] = [
   { source: 'pete-whelan', target: 'program-music', label: 'founded' },
   { source: 'pete-whelan', target: 'program-productions', label: 'leads' },
   { source: 'pete-whelan', target: 'web4', label: 'architects' },
-  { source: 'pete-whelan', target: 'florence-medical', label: 'delivered' },
   { source: 'pete-whelan', target: 'ai-native-engineering', label: 'practices' },
   { source: 'pete-whelan', target: 'cloud-architecture', label: 'practices' },
   { source: 'pete-whelan', target: 'voice-ai-pioneer', label: 'pioneered' },
@@ -616,10 +606,10 @@ export const portfolioEdges: PortfolioEdge[] = [
   { source: 'web4', target: 'lexi', label: 'engagement' },
   { source: 'wici', target: 'florence-ai', label: 'client for' },
   { source: 'pete-whelan', target: 'florence-ai', label: 'built' },
-  { source: 'florence-medical', target: 'florence-ai', label: 'healthcare context' },
+  { source: 'florence-ai', target: 'healthcare-ai', label: 'domain' },
   { source: 'voice-ai-pioneer', target: 'florence-ai', label: 'includes' },
   { source: 'program-productions', target: 'sage-chatbot', label: 'delivered' },
-  { source: 'florence-medical', target: 'sage-chatbot', label: 'related' },
+  { source: 'sage-chatbot', target: 'healthcare-ai', label: 'domain' },
   { source: 'alltasks-it', target: 'big-red-ronnie', label: 'client for' },
   { source: 'pete-whelan', target: 'big-red-ronnie', label: 'built' },
   { source: 'voice-ai-pioneer', target: 'big-red-ronnie', label: 'includes' },
@@ -650,7 +640,6 @@ export const portfolioEdges: PortfolioEdge[] = [
   { source: 'tautsec', target: 'insurance', label: 'domain' },
   { source: 'lexi', target: 'horse-racing-analytics', label: 'domain' },
   { source: 'lexi', target: 'nodejs', label: 'stack' },
-  { source: 'florence-medical', target: 'healthcare-ai', label: 'domain' },
   { source: 'pete-whelan', target: 'alexa-apps', label: 'built' },
   { source: 'pete-whelan', target: 'my-paralegal', label: 'built' },
   { source: 'voice-ai-pioneer', target: 'alexa-apps', label: 'includes' },
