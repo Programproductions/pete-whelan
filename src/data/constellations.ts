@@ -92,7 +92,6 @@ export const constellations: Constellation[] = [
       'florence-ai',
       'big-red-ronnie',
       'sage-chatbot',
-      'florence-medical',
       'wici',
       'alltasks-it',
       'healthcare-ai',

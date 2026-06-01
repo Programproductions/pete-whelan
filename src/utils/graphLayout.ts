@@ -6,7 +6,6 @@ const TIMELINE_ORDER = [
   'voice-ai-pioneer',
   'alexa-apps',
   'healthcare-ai',
-  'florence-medical',
   'cloud-architecture',
   'ai-native-engineering',
   'paradise-engineering',

@@ -26,7 +26,6 @@ export const companyEngagements: Record<string, CompanyEngagement> = {
   'program-music': { companyRole: 'own' },
   'program-productions': { companyRole: 'own' },
   web4: { companyRole: 'client' },
-  'florence-medical': { companyRole: 'client' },
   wici: { companyRole: 'client' },
   'tautsec-pty': { companyRole: 'client' },
   upwork: { companyRole: 'client' },
