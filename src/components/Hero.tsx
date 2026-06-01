@@ -4,10 +4,9 @@ import { CvEntryChoice } from './CvEntryChoice'
 
 type HeroProps = {
   onExploreGraph: () => void
-  pdfAvailable: boolean
 }
 
-export function Hero({ onExploreGraph, pdfAvailable }: HeroProps) {
+export function Hero({ onExploreGraph }: HeroProps) {
   return (
     <section className="relative overflow-hidden px-6 pb-16 pt-28 md:px-12 md:pt-36 lg:px-20">
       <div
@@ -56,7 +55,7 @@ export function Hero({ onExploreGraph, pdfAvailable }: HeroProps) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55, delay: 0.2 }}
         >
-          <CvEntryChoice onExploreInteractive={onExploreGraph} pdfAvailable={pdfAvailable} />
+          <CvEntryChoice onExploreInteractive={onExploreGraph} />
         </motion.div>
 
         <motion.div

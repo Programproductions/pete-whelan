@@ -1,14 +1,12 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { pdfPath } from '../data/cvContent'
 import { downloadCvPdf } from '../utils/downloadCvPdf'
 
 type CvEntryChoiceProps = {
   onExploreInteractive: () => void
-  pdfAvailable: boolean
 }
 
-export function CvEntryChoice({ onExploreInteractive, pdfAvailable }: CvEntryChoiceProps) {
+export function CvEntryChoice({ onExploreInteractive }: CvEntryChoiceProps) {
   const [generating, setGenerating] = useState(false)
 
   const handleGeneratePdf = async () => {
@@ -45,16 +43,6 @@ export function CvEntryChoice({ onExploreInteractive, pdfAvailable }: CvEntryCho
           <span className="mt-2 block text-sm leading-relaxed text-red-200/60">
             The familiar résumé — structured, printable, recruiter-ready.
           </span>
-          {pdfAvailable && (
-            <a
-              href={pdfPath}
-              download
-              onClick={(e) => e.stopPropagation()}
-              className="mt-4 inline-block text-xs text-red-300/80 underline-offset-2 hover:text-red-200 hover:underline"
-            >
-              Or download static copy
-            </a>
-          )}
         </motion.button>
 
         <motion.button

@@ -177,5 +177,3 @@ export const contact = {
   email: 'hello@petewhelan.dev',
   linkedin: 'https://www.linkedin.com/in/petewhelan',
 }
-
-export const pdfPath = '/Pete-Whelan-CV.pdf'
