@@ -69,6 +69,29 @@
         }
       }
     },
+    "team": {
+      "type": "object",
+      "description": "Visible on platform card — team vs solo (maps to projectDeepDives.delivery)",
+      "required": ["label", "summary"],
+      "additionalProperties": false,
+      "properties": {
+        "label": {
+          "type": "string",
+          "maxLength": 80,
+          "description": "e.g. Lead platform architect · team delivery"
+        },
+        "summary": {
+          "type": "string",
+          "maxLength": 400,
+          "description": "Who else was involved; what Pete led vs shared"
+        },
+        "organizations": {
+          "type": "array",
+          "items": { "type": "string" },
+          "maxItems": 6
+        }
+      }
+    },
     "delivery": {
       "type": "object",
       "required": ["role", "architecture", "technologies", "aiCapabilities"],

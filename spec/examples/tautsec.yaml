@@ -24,11 +24,21 @@ card:
     remediation and Chubb insurance — across self-serve, broker and MSP channels.
     Live at tautsec.com.au.
 
+team:
+  label: Lead platform architect · team delivery
+  summary: >-
+    Delivered with Web4 and Program Productions for Tautsec Pty Ltd — Pete led GCP
+    platform architecture, identity and AI search; product, frontend and wider engineering
+    as a shared team effort.
+  organizations:
+    - Tautsec Pty Ltd
+    - Web4
+    - Program Productions
+
 delivery:
   role: >-
-    Lead architect — GCP serverless platform, Firebase Identity multi-tenant auth,
-    workspace-scoped Terraform, per-tenant databases, and the AI search pipeline.
-    Delivered for Tautsec Pty Ltd with Web4 and Program Productions.
+    Lead architect — serverless GCP platform, Firebase Identity multi-tenant auth,
+    workspace-scoped Terraform, per-tenant databases, and CyberPilot vector search.
   architecture: >-
     Three pricing tiers and dedicated flows per sales channel; 127+ Cloud Functions
     in australia-southeast1 with Terraform-managed dev/staging/prod and per-developer

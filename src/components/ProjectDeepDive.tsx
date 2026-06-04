@@ -2,11 +2,34 @@ import { motion } from 'framer-motion'
 import {
   PLATFORM_DEEP_DIVE_IDS,
   projectDeepDives,
+  type DeliveryContext,
   type ProjectDeepDive,
 } from '../data/cvContent'
 import { nodeById } from '../data/portfolioGraph'
 import { usePortfolioStore } from '../store/usePortfolioStore'
 import { ArchitectureDiagram } from './ArchitectureDiagram'
+
+function DeliveryContextBlock({ delivery }: { delivery: DeliveryContext }) {
+  return (
+    <div className="mt-4 rounded-xl border border-zinc-700/60 bg-zinc-950/50 px-4 py-4">
+      <p className="text-xs font-medium uppercase tracking-wider text-violet-400/90">Delivery</p>
+      <p className="mt-1 text-sm font-medium text-zinc-200">{delivery.label}</p>
+      <p className="mt-2 text-sm leading-relaxed text-zinc-400">{delivery.summary}</p>
+      {delivery.organizations && delivery.organizations.length > 0 && (
+        <div className="mt-3 flex flex-wrap gap-2">
+          {delivery.organizations.map((org) => (
+            <span
+              key={org}
+              className="rounded-md border border-zinc-700/80 bg-zinc-900/80 px-2.5 py-1 text-xs text-zinc-400"
+            >
+              {org}
+            </span>
+          ))}
+        </div>
+      )}
+    </div>
+  )
+}
 
 function PlatformCard({
   project,
@@ -38,6 +61,8 @@ function PlatformCard({
           </button>
         )}
       </div>
+
+      <DeliveryContextBlock delivery={project.delivery} />
 
       <ArchitectureDiagram projectId={project.id} />
 
@@ -122,8 +147,9 @@ export function ProjectDeepDive() {
           Intelligence platforms
         </h2>
         <p className="mt-3 max-w-2xl text-zinc-500">
-          Problem → intelligence → outcome. The commercial story behind each platform — technical
-          detail when you need it.
+          Problem → intelligence → outcome. Platforms I’ve founded or helped deliver as part of a
+          team — my role and partners are called out on each card; technical detail when you need
+          it.
         </p>
 
         <div className="mt-12 space-y-12">

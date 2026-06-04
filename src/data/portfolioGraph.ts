@@ -62,9 +62,9 @@ const portfolioNodesRaw: PortfolioNode[] = [
     id: 'pete-whelan',
     label: 'Pete Whelan',
     type: 'person',
-    summary: 'Solutions Architect · AI-Native Engineer · Cloud Platform Builder',
+    summary: 'AI systems architect · founder & lead architect on delivery teams',
     detail:
-      'I design and build cloud-native platforms, AI-driven products and internal engineering systems that help teams move from idea to production faster, safer and with better architectural control.',
+      'I architect cloud-native and AI-powered platforms — as founder on AIMI and as lead or solutions architect alongside partners such as Web4, Program Productions and client product teams (e.g. Tautsec).',
     keyPoints: [
       'Solutions architecture across music tech, voice AI, healthcare and cyber',
       'AI-native delivery: spec-driven development, agent workflows, evaluation loops',

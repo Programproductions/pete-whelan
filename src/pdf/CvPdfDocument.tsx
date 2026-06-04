@@ -60,6 +60,9 @@ export function CvPdfDocument() {
             <Text style={styles.projectTitle}>
               {nodeById.get(project.id)?.label ?? project.id}
             </Text>
+            <Text style={styles.bullet}>
+              {project.delivery.label}: {project.delivery.summary}
+            </Text>
             <Text style={styles.paragraph}>{project.problem}</Text>
             <Text style={styles.paragraph}>{project.intelligence}</Text>
             <Text style={styles.paragraph}>{project.outcome}</Text>
