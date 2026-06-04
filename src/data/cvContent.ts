@@ -248,9 +248,9 @@ export const projectDeepDives: ProjectDeepDive[] = [
     intelligence:
       'Paradise Engineering — an experimental 3D visual interpretation of software architecture, coupled with documentation, exploring security modelling and spec-driven components as they apply to what is being built on Tautsec.',
     delivery: {
-      label: 'Creator · in development for Tautsec',
+      label: 'Creator · work in progress',
       summary:
-        'Program Productions internal experiment — 3D architecture views and linked docs, actively being developed against the Tautsec platform.',
+        'Program Productions internal experiment — 3D architecture views and linked docs, work in progress for the Tautsec platform.',
       organizations: ['Program Productions Pty Ltd', 'Tautsec'],
     },
     role: 'Creator — 3D architecture visualisation, documentation and security/spec component exploration for Tautsec.',
@@ -270,7 +270,7 @@ export const projectDeepDives: ProjectDeepDive[] = [
       'Documentation coupled to the live 3D view',
     ],
     outcome:
-      'A working experiment in how teams read architecture, security and specs together — in development for Tautsec.',
+      'A working experiment in how teams read architecture, security and specs together — work in progress for Tautsec.',
     earthbancRelevance:
       'Useful where regulated platforms need architecture and security intent visible before implementation hardens.',
   },
@@ -281,9 +281,9 @@ export const projectDeepDives: ProjectDeepDive[] = [
     intelligence:
       'Flight Deck — release governance so technical and non-technical stakeholders can approve, test and promote from dev through production safely.',
     delivery: {
-      label: 'Creator · Program Productions',
+      label: 'Creator · work in progress',
       summary:
-        'Release governance platform for Program Productions — Terraform promotion workflows with stakeholder visibility.',
+        'Release governance platform for Program Productions — Terraform promotion workflows with stakeholder visibility. Work in progress.',
       organizations: ['Program Productions Pty Ltd'],
     },
     role: 'Creator and architect — internal platform and governance workflows.',
@@ -292,7 +292,7 @@ export const projectDeepDives: ProjectDeepDive[] = [
     technologies: ['Terraform', 'GCP', 'CI/CD', 'Internal web tooling', 'IAM'],
     aiNative: ['Process automation', 'Visibility for non-technical approvers', 'Safer promotion guardrails'],
     outcome:
-      'Teams ship infrastructure changes with governance, auditability and reduced promotion friction.',
+      'Terraform promotion governance with stakeholder visibility — work in progress at Program Productions.',
     earthbancRelevance:
       'Platform engineering and deployment governance essential for regulated cloud products.',
   },
@@ -337,19 +337,19 @@ export const resumeExperience: ResumeRole[] = [
   {
     id: 'paradise-engineering',
     headline: 'Creator — Paradise Engineering',
-    context: 'In development · Tautsec platform · Program Productions Pty Ltd',
+    context: 'Work in progress · Tautsec platform · Program Productions Pty Ltd',
     bullets: [
       'Experimental 3D visual interpretation of software architecture, coupled with documentation.',
-      'Exploring security modelling and spec-driven components — in active development for the Tautsec platform.',
+      'Exploring security modelling and spec-driven components — work in progress for the Tautsec platform.',
     ],
   },
   {
     id: 'flight-deck',
     headline: 'Creator — Flight Deck',
-    context: 'Developed 2026 · Program Productions Pty Ltd',
+    context: 'Work in progress · Program Productions Pty Ltd',
     bullets: [
       'Terraform release governance — approval, test and promotion from dev through production with stakeholder visibility.',
-      'Built for Program Productions delivery teams shipping regulated cloud products.',
+      'Work in progress — internal platform for Program Productions delivery teams.',
     ],
   },
 ]

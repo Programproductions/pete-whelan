@@ -22,7 +22,7 @@ export const nodeNarratives: Record<string, NodeNarrative> = {
       'Opaque, risky infrastructure promotion blocked on technical gatekeepers; non-technical stakeholders lacked visibility.',
     ledTo: ['platform-engineering', 'cicd', 'terraform', 'internal-tooling'],
     outcome:
-      'Enabled technical and non-technical stakeholders to safely promote infrastructure and applications from development through production.',
+      'Terraform promotion governance for technical and non-technical stakeholders — work in progress at Program Productions.',
     storyPath: [
       'pete-whelan',
       'program-productions',
@@ -78,7 +78,7 @@ export const nodeNarratives: Record<string, NodeNarrative> = {
       'Architecture and security intent were hard to communicate from docs alone while Tautsec was evolving.',
     ledTo: ['tautsec', 'spec-driven-development', 'cyber-security', 'claude', 'cursor'],
     outcome:
-      'Experimental 3D architecture view with documentation — in development for the Tautsec platform.',
+      'Experimental 3D architecture view with documentation — work in progress for the Tautsec platform.',
     storyPath: [
       'pete-whelan',
       'program-productions',

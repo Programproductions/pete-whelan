@@ -196,12 +196,12 @@ const portfolioNodesRaw: PortfolioNode[] = [
     summary:
       'Experimental 3D visual interpretation of software architecture, coupled with documentation.',
     detail:
-      'An exploratory build that maps system architecture in 3D alongside live documentation — testing how security boundaries and spec-driven components read when teams can walk the model. In active development for the Tautsec platform.',
+      'An exploratory build that maps system architecture in 3D alongside live documentation — testing how security boundaries and spec-driven components read when teams can walk the model. Work in progress for the Tautsec platform.',
     keyPoints: [
       '3D architecture visualisation linked to documentation',
       'Security and trust-boundary exploration',
       'Spec-driven component modelling',
-      'In development for Tautsec',
+      'Work in progress — Tautsec platform',
     ],
     tags: ['ai', 'internal-tools', 'projects'],
     featured: true,
@@ -212,14 +212,14 @@ const portfolioNodesRaw: PortfolioNode[] = [
     id: 'flight-deck',
     label: 'Flight Deck',
     type: 'project',
-    summary: 'Internal platform engineering and Terraform release governance.',
+    summary: 'Internal Terraform release governance — work in progress.',
     detail:
-      'Release governance system solving Terraform environment promotion as team complexity grew — enabling technical and non-technical stakeholders to approve, test and promote applications from dev through staging to production.',
+      'Release governance system for Terraform environment promotion as team complexity grows — enabling technical and non-technical stakeholders to approve, test and promote applications from dev through staging to production. Work in progress at Program Productions.',
     keyPoints: [
       'Terraform promotion workflows',
       'Approval gates for technical and non-technical stakeholders',
       'Environment visibility from dev → staging → production',
-      'Safer deployment governance at scale',
+      'Work in progress',
     ],
     tags: ['projects', 'internal-tools', 'cloud'],
     featured: true,
@@ -616,9 +616,9 @@ export const portfolioEdgesCore: PortfolioEdge[] = [
   { source: 'program-music', target: 'aimi', label: 'built' },
   { source: 'program-productions', target: 'tautsec', label: 'delivered' },
   { source: 'program-productions', target: 'lexi', label: 'delivered' },
-  { source: 'program-productions', target: 'flight-deck', label: 'delivered' },
+  { source: 'program-productions', target: 'flight-deck', label: 'building' },
   { source: 'program-productions', target: 'paradise-engineering', label: 'building' },
-  { source: 'paradise-engineering', target: 'tautsec', label: 'in development for' },
+  { source: 'paradise-engineering', target: 'tautsec', label: 'work in progress for' },
   { source: 'tautsec-pty', target: 'tautsec', label: 'client for' },
   { source: 'web4', target: 'tautsec', label: 'engagement' },
   { source: 'web4', target: 'tautsec-pty', label: 'partner' },
@@ -713,7 +713,7 @@ export function formatEngagementPeriod(node: PortfolioNode): string | null {
   return node.startDate ?? node.endDate ?? null
 }
 
-/** e.g. "Contract · Jan 2026 – ongoing" or "Developed 2026" when not a contract engagement */
+/** e.g. "Contract · Jan 2026 – ongoing" or "Work in progress" when not a contract engagement */
 export function formatContractEngagement(node: PortfolioNode): string | null {
   const period = formatEngagementPeriod(node)
   if (!period) return null
