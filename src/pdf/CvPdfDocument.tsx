@@ -1,12 +1,5 @@
 import { Document, Page, Text, View, Link } from '@react-pdf/renderer'
-import {
-  hero,
-  site,
-  contact,
-  aiNativeStatement,
-  skillClusters,
-  resumeExperience,
-} from '../data/cvContent'
+import { hero, site, contact, aiNativeStatement, skillClusters, resumeExperience } from '../data/cvContent'
 import { pdfStyles as s } from './cvPdfStyles'
 
 function Bullet({ children }: { children: string }) {
@@ -19,6 +12,10 @@ function Bullet({ children }: { children: string }) {
 }
 
 export function CvPdfDocument() {
+  const summaryText = [hero.tagline, hero.proofLine, aiNativeStatement.paragraphs[0]]
+    .filter(Boolean)
+    .join(' ')
+
   return (
     <Document
       title={`${hero.name} — Résumé`}
@@ -29,17 +26,10 @@ export function CvPdfDocument() {
         <View style={s.header}>
           <Text style={s.name}>{hero.name}</Text>
           <Text style={s.title}>{hero.title}</Text>
-          <Link src={`mailto:${contact.email}`} style={[s.contact, s.contactLink]}>
-            {contact.email}
-          </Link>
-          <Link src={contact.linkedin} style={[s.contact, s.contactLink]}>
-            linkedin.com/in/pawhelan
-          </Link>
         </View>
 
         <Text style={s.sectionTitle}>PROFESSIONAL SUMMARY</Text>
-        <Text style={s.summary}>{hero.tagline}</Text>
-        {hero.proofLine ? <Text style={s.summary}>{hero.proofLine}</Text> : null}
+        <Text style={s.summary}>{summaryText}</Text>
 
         <Text style={s.sectionTitle}>TECHNICAL SKILLS</Text>
         {skillClusters.map((cluster) => (
@@ -51,7 +41,7 @@ export function CvPdfDocument() {
 
         <Text style={s.sectionTitle}>PROFESSIONAL EXPERIENCE</Text>
         {resumeExperience.map((role) => (
-          <View key={role.id} style={s.roleBlock} wrap={false}>
+          <View key={role.id} style={s.roleBlock}>
             <Text style={s.roleHeadline}>{role.headline}</Text>
             <Text style={s.roleContext}>{role.context}</Text>
             {role.bullets.map((bullet) => (
@@ -60,12 +50,19 @@ export function CvPdfDocument() {
           </View>
         ))}
 
-        <Text style={s.sectionTitle}>AI-NATIVE DELIVERY</Text>
-        <Text style={s.summary}>{aiNativeStatement.paragraphs[0]}</Text>
-
-        <Text style={s.footer} fixed>
-          {site.brandLabel} · Résumé generated from pete-whelan portfolio
-        </Text>
+        <View style={s.footer} fixed>
+          <Text>
+            <Link src={`mailto:${contact.email}`} style={s.footerLink}>
+              {contact.email}
+            </Link>
+            {' · '}
+            <Link src={contact.linkedin} style={s.footerLink}>
+              linkedin.com/in/pawhelan
+            </Link>
+            {' · '}
+            {site.brandLabel}
+          </Text>
+        </View>
       </Page>
     </Document>
   )

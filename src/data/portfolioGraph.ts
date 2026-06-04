@@ -192,7 +192,7 @@ const portfolioNodesRaw: PortfolioNode[] = [
   {
     id: 'paradise-engineering',
     label: 'Paradise Engineering',
-    type: 'methodology',
+    type: 'project',
     summary: 'AI-native software delivery methodology.',
     detail:
       'Spec-driven development with Claude and Codex workflows — agent-assisted planning, implementation, review and continuous improvement of engineering process.',
@@ -616,7 +616,7 @@ export const portfolioEdgesCore: PortfolioEdge[] = [
   { source: 'program-productions', target: 'tautsec', label: 'delivered' },
   { source: 'program-productions', target: 'lexi', label: 'delivered' },
   { source: 'program-productions', target: 'flight-deck', label: 'delivered' },
-  { source: 'program-productions', target: 'paradise-engineering', label: 'delivers' },
+  { source: 'program-music', target: 'paradise-engineering', label: 'built' },
   { source: 'tautsec-pty', target: 'tautsec', label: 'client for' },
   { source: 'web4', target: 'tautsec', label: 'engagement' },
   { source: 'web4', target: 'tautsec-pty', label: 'partner' },
