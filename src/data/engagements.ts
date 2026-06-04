@@ -10,6 +10,11 @@ export type CompanyEngagement = {
   refereeEmail?: string
 }
 
+export type EngagementPeriod = {
+  startDate: string
+  endDate: string
+}
+
 export type ProjectEngagement = {
   /** Company / client organisation this delivery was for */
   clientCompanyId: string
@@ -20,6 +25,8 @@ export type ProjectEngagement = {
   contractLength?: string
   startDate?: string
   endDate?: string
+  /** Earlier contract windows (most recent primary period stays on startDate/endDate) */
+  priorPeriods?: EngagementPeriod[]
 }
 
 export const companyEngagements: Record<string, CompanyEngagement> = {
@@ -46,6 +53,7 @@ export const projectEngagements: Record<string, ProjectEngagement> = {
     contractLength: 'Contract',
     startDate: 'Jan 2026',
     endDate: 'ongoing',
+    priorPeriods: [{ startDate: 'Mar 2023', endDate: 'Jan 2024' }],
     website: 'https://tautsec.com.au',
     phase: 'Live',
   },

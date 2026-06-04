@@ -49,6 +49,7 @@ export type PortfolioNode = {
   contractLength?: string
   startDate?: string
   endDate?: string
+  priorPeriods?: { startDate: string; endDate: string }[]
 }
 
 export type PortfolioEdge = {
@@ -159,7 +160,7 @@ const portfolioNodesRaw: PortfolioNode[] = [
     type: 'project',
     summary: 'TautSec Cyber Protect — posture, insurance and CyberPilot for Australian SMBs.',
     detail:
-      'Chubb-underwritten cyber insurance plus compliance dashboard: Essential Eight, Protection Index, supply chain risk, and CyberPilot AI. Direct, Broker and MSP channels on GCP — Tautsec Pty Ltd with Web4 and Program Productions. Earlier Web4 delivery Mar 2024 – Jan 2025.',
+      'Chubb-underwritten cyber insurance plus compliance dashboard: Essential Eight, Protection Index, supply chain risk, and CyberPilot AI. Direct, Broker and MSP channels on GCP — Tautsec Pty Ltd with Web4 and Program Productions. Earlier contract Mar 2023 – Jan 2024; current engagement Jan 2026 – ongoing.',
     keyPoints: [
       'Chubb cyber insurance + SaaS compliance (3 tiers)',
       'Direct, Broker and MSP sales channels',
@@ -572,6 +573,7 @@ function applyEngagementData(nodes: PortfolioNode[]): PortfolioNode[] {
         contractLength: project.contractLength,
         startDate: project.startDate,
         endDate: project.endDate,
+        priorPeriods: project.priorPeriods,
       }
     }
     return node
@@ -711,12 +713,41 @@ export function formatEngagementPeriod(node: PortfolioNode): string | null {
   return node.startDate ?? node.endDate ?? null
 }
 
-/** e.g. "Contract · Jan 2026 – ongoing" or "Developed 2026" when not a contract engagement */
-export function formatContractEngagement(node: PortfolioNode): string | null {
-  const period = formatEngagementPeriod(node)
-  if (!period) return null
+function formatPeriodRange(startDate: string, endDate: string): string {
+  return `${startDate} – ${endDate}`
+}
+
+function formatContractPeriodLine(
+  node: PortfolioNode,
+  startDate: string,
+  endDate: string,
+): string {
+  const period = formatPeriodRange(startDate, endDate)
   if (!node.contractLength) return period
   return `${node.contractLength} · ${period}`
+}
+
+/** One line per contract window — primary period first, then priorPeriods */
+export function formatContractEngagementLines(node: PortfolioNode): string[] {
+  const lines: string[] = []
+  const primary = formatEngagementPeriod(node)
+  if (primary) {
+    lines.push(
+      node.contractLength ? `${node.contractLength} · ${primary}` : primary,
+    )
+  }
+  for (const prior of node.priorPeriods ?? []) {
+    lines.push(formatContractPeriodLine(node, prior.startDate, prior.endDate))
+  }
+  return lines
+}
+
+/** e.g. "Contract · Jan 2026 – ongoing" or combined when prior periods exist */
+export function formatContractEngagement(node: PortfolioNode): string | null {
+  const lines = formatContractEngagementLines(node)
+  if (lines.length === 0) return null
+  if (lines.length === 1) return lines[0]
+  return lines.join('; ')
 }
 
 /** Subtitle under project nodes in the graph */

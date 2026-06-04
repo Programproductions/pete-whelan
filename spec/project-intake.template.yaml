@@ -83,6 +83,9 @@ engagement:
   contractLength: ""
   startDate: ""
   endDate: ""
+  # priorPeriods:  # optional earlier contract windows
+  #   - startDate: ""
+  #     endDate: ""
 
 narrative:
   whyExists: ""
