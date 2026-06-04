@@ -1,0 +1,98 @@
+# Portfolio project intake — copy this file to spec/intake/<project-id>.yaml
+# See spec/README.md and spec/AGENT-WORKFLOW.md
+
+version: "1.0"
+
+# Stable id (kebab-case). Must match graph node id everywhere.
+id: my-project
+
+# Graph label (short)
+displayName: My Project
+
+# Optional product/marketing name
+productName: ""
+
+# true = home page "Intelligence platforms" card + hero bullet
+featured: false
+
+hero:
+  name: My Project
+  subtitle: "" # optional, e.g. client or domain
+  outcome: "" # ONE line — what executives buy (max ~15 words)
+
+card:
+  problem: ""
+  # Industry pain. No GCP/React. Who suffers and why it costs money?
+
+  intelligence: ""
+  # What the platform does: data → intelligence → action. Name AI product if any.
+
+  outcome: ""
+  # Commercial result. Optional: "Live at example.com"
+
+delivery:
+  role: ""
+  # Your role + delivery context (partners, client org)
+
+  architecture: ""
+  # Collapsible detail: channels, tiers, infra, integrations (2–4 sentences)
+
+  technologies:
+    - React
+    - GCP
+
+  aiCapabilities:
+    - ""
+    # 2–6 bullets — maps to aiNative in cvContent.ts
+
+  earthbancRelevance: ""
+  # Optional — regulated/fintech parallel (legacy field name)
+
+  partners:
+    - ""
+
+graph:
+  summary: ""
+  # One line for graph node hover
+
+  detail: ""
+  # Two sentences max for graph panel
+
+  keyPoints:
+    - ""
+    - ""
+    - ""
+
+  tags:
+    - projects
+    - ai
+    - cloud
+
+  edgeHints:
+    - source: pete-whelan
+      target: my-project
+      label: architects
+    - source: my-project
+      target: gcp
+      label: hosted on
+
+engagement:
+  clientCompanyId: "" # required — company node id
+  website: ""
+  phase: "" # e.g. Live, Private beta
+  contractLength: ""
+  startDate: ""
+  endDate: ""
+
+narrative:
+  whyExists: ""
+  problemSolved: ""
+  outcome: ""
+  ledTo: []
+  storyPath: []
+
+source:
+  fullBrief: |
+    Paste the long product brief here for the implementing agent.
+  references: []
+  notes: ""

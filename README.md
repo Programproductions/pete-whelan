@@ -39,3 +39,5 @@ Place a static PDF at `public/Pete-Whelan-CV.pdf`. The download button enables a
 ## Content model
 
 All graph nodes and edges live in `src/data/portfolioGraph.ts`. Page copy and project deep dives are in `src/data/cvContent.ts`.
+
+**Spec-driven project intake (for agents):** see [`spec/README.md`](./spec/README.md) — YAML template, JSON Schema, examples (AiMi, Tautsec), and implement checklist.

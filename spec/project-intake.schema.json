@@ -1,0 +1,188 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Programproductions/pete-whelan/spec/project-intake.schema.json",
+  "title": "PortfolioProjectIntake",
+  "description": "Spec-driven intake for a platform/project on pete-whelan portfolio",
+  "type": "object",
+  "required": ["version", "id", "displayName", "hero", "card", "delivery", "graph", "engagement"],
+  "additionalProperties": false,
+  "properties": {
+    "version": {
+      "type": "string",
+      "const": "1.0",
+      "description": "Intake format version"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]*$",
+      "description": "Stable kebab-case key; must match portfolioGraph node id"
+    },
+    "displayName": {
+      "type": "string",
+      "description": "Short label for graph and cards (e.g. Tautsec, Lexi)"
+    },
+    "productName": {
+      "type": "string",
+      "description": "Marketing/product name if different (e.g. TautSec Cyber Protect)"
+    },
+    "featured": {
+      "type": "boolean",
+      "default": false,
+      "description": "If true, show on home page Intelligence platforms section"
+    },
+    "hero": {
+      "type": "object",
+      "required": ["name", "outcome"],
+      "additionalProperties": false,
+      "properties": {
+        "name": { "type": "string", "maxLength": 48 },
+        "subtitle": { "type": "string", "maxLength": 32 },
+        "outcome": {
+          "type": "string",
+          "maxLength": 120,
+          "description": "One-line commercial outcome for hero bullet"
+        }
+      }
+    },
+    "card": {
+      "type": "object",
+      "required": ["problem", "intelligence", "outcome"],
+      "additionalProperties": false,
+      "properties": {
+        "problem": {
+          "type": "string",
+          "minLength": 40,
+          "maxLength": 320,
+          "description": "Industry pain; no stack names"
+        },
+        "intelligence": {
+          "type": "string",
+          "minLength": 40,
+          "maxLength": 420,
+          "description": "How the platform turns data into actionable intelligence"
+        },
+        "outcome": {
+          "type": "string",
+          "minLength": 20,
+          "maxLength": 280,
+          "description": "Commercial result; may include live URL"
+        }
+      }
+    },
+    "delivery": {
+      "type": "object",
+      "required": ["role", "architecture", "technologies", "aiCapabilities"],
+      "additionalProperties": false,
+      "properties": {
+        "role": { "type": "string", "maxLength": 400 },
+        "architecture": { "type": "string", "maxLength": 900 },
+        "technologies": {
+          "type": "array",
+          "items": { "type": "string" },
+          "minItems": 4,
+          "maxItems": 20
+        },
+        "aiCapabilities": {
+          "type": "array",
+          "items": { "type": "string", "maxLength": 120 },
+          "minItems": 2,
+          "maxItems": 8,
+          "description": "Maps to aiNative[] in cvContent"
+        },
+        "earthbancRelevance": {
+          "type": "string",
+          "maxLength": 280,
+          "description": "Optional regulated/fintech angle for legacy field"
+        },
+        "partners": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Delivery partners (e.g. Web4, Program Productions)"
+        }
+      }
+    },
+    "graph": {
+      "type": "object",
+      "required": ["summary", "detail", "keyPoints", "tags"],
+      "additionalProperties": false,
+      "properties": {
+        "summary": { "type": "string", "maxLength": 100 },
+        "detail": { "type": "string", "maxLength": 280 },
+        "keyPoints": {
+          "type": "array",
+          "items": { "type": "string", "maxLength": 80 },
+          "minItems": 3,
+          "maxItems": 5
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["projects", "ai", "cloud", "internal-tools"]
+          },
+          "minItems": 1
+        },
+        "edgeHints": {
+          "type": "array",
+          "description": "Suggested graph edges for implementer",
+          "items": {
+            "type": "object",
+            "required": ["source", "target"],
+            "properties": {
+              "source": { "type": "string" },
+              "target": { "type": "string" },
+              "label": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+    "engagement": {
+      "type": "object",
+      "required": ["clientCompanyId"],
+      "additionalProperties": false,
+      "properties": {
+        "clientCompanyId": {
+          "type": "string",
+          "description": "Must exist in portfolioGraph companies + companyEngagements"
+        },
+        "website": { "type": "string", "format": "uri" },
+        "phase": { "type": "string", "maxLength": 64 },
+        "contractLength": { "type": "string" },
+        "startDate": { "type": "string" },
+        "endDate": { "type": "string" }
+      }
+    },
+    "narrative": {
+      "type": "object",
+      "description": "Graph story-path copy (recommended for featured projects)",
+      "properties": {
+        "whyExists": { "type": "string", "maxLength": 200 },
+        "problemSolved": { "type": "string", "maxLength": 200 },
+        "outcome": { "type": "string", "maxLength": 200 },
+        "ledTo": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Node ids this project connects to (domains, tech)"
+        },
+        "storyPath": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Ordered node ids for guided graph tour"
+        }
+      }
+    },
+    "source": {
+      "type": "object",
+      "description": "Reference material for agents; not rendered on site",
+      "properties": {
+        "fullBrief": { "type": "string" },
+        "references": {
+          "type": "array",
+          "items": { "type": "string", "format": "uri" }
+        },
+        "notes": { "type": "string" }
+      }
+    }
+  }
+}
