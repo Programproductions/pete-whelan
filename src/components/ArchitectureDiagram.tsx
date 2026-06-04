@@ -202,35 +202,41 @@ const diagrams: Record<string, ReactNode> = {
     </svg>
   ),
   'paradise-engineering': (
-    <svg viewBox="0 0 400 200" className="h-auto w-full" aria-label="Paradise Engineering flow">
+    <svg viewBox="0 0 400 200" className="h-auto w-full" aria-label="Paradise Engineering 3D architecture view">
       <rect width="400" height="200" fill="#0c0d10" rx="8" />
-      {['Spec', 'Plan', 'Build', 'Review', 'Ship'].map((label, i) => (
-        <g key={label}>
-          <rect
-            x={30 + i * 72}
-            y="75"
-            width="60"
-            height="45"
-            rx="6"
-            fill="#181b22"
-            stroke="#a78bfa"
-            strokeOpacity={0.3 + i * 0.1}
-          />
-          <text x={60 + i * 72} y="102" textAnchor="middle" fill="#c4b5fd" fontSize="9">
-            {label}
-          </text>
-          {i < 4 && (
-            <path
-              d={`M${90 + i * 72} 97 L${102 + i * 72} 97`}
-              stroke="#22d3ee"
-              strokeOpacity="0.5"
-              strokeWidth="1.5"
-            />
-          )}
-        </g>
-      ))}
-      <text x="200" y="155" textAnchor="middle" fill="#71717a" fontSize="10">
-        Claude · Agents · Evaluation loops
+      <polygon
+        points="200,35 280,95 240,165 160,165 120,95"
+        fill="#181b22"
+        stroke="#a78bfa"
+        strokeOpacity="0.45"
+        strokeWidth="1.5"
+      />
+      <polygon
+        points="200,55 255,100 225,145 175,145 145,100"
+        fill="#0f1118"
+        stroke="#22d3ee"
+        strokeOpacity="0.35"
+        strokeWidth="1"
+      />
+      <text x="200" y="108" textAnchor="middle" fill="#c4b5fd" fontSize="10">
+        3D architecture
+      </text>
+      <rect x="40" y="78" width="72" height="36" rx="6" fill="#181b22" stroke="#71717a" strokeOpacity="0.5" />
+      <text x="76" y="100" textAnchor="middle" fill="#a1a1aa" fontSize="9">
+        Docs
+      </text>
+      <rect x="288" y="78" width="72" height="36" rx="6" fill="#181b22" stroke="#71717a" strokeOpacity="0.5" />
+      <text x="324" y="100" textAnchor="middle" fill="#a1a1aa" fontSize="9">
+        Security
+      </text>
+      <rect x="164" y="168" width="72" height="22" rx="4" fill="#181b22" stroke="#22d3ee" strokeOpacity="0.4" />
+      <text x="200" y="183" textAnchor="middle" fill="#67e8f9" fontSize="9">
+        Spec components
+      </text>
+      <path d="M112 96 L145 100" stroke="#22d3ee" strokeOpacity="0.4" strokeWidth="1" />
+      <path d="M288 96 L255 100" stroke="#22d3ee" strokeOpacity="0.4" strokeWidth="1" />
+      <text x="200" y="24" textAnchor="middle" fill="#71717a" fontSize="10">
+        In development · Tautsec platform
       </text>
     </svg>
   ),

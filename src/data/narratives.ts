@@ -73,18 +73,19 @@ export const nodeNarratives: Record<string, NodeNarrative> = {
   },
   'paradise-engineering': {
     whyExists:
-      'Traditional delivery breaks when AI agents become part of the engineering team without structure.',
-    problemSolved: 'Ad-hoc AI usage created inconsistent quality, context loss and ungoverned changes.',
-    ledTo: ['spec-driven-development', 'claude', 'cursor', 'codex', 'agentic-workflows'],
-    outcome: 'Repeatable AI-native practice — this portfolio is a live proof-of-work.',
+      'Teams need to see how security boundaries and spec-driven components fit the platform they are building — not only in flat diagrams.',
+    problemSolved:
+      'Architecture and security intent were hard to communicate from docs alone while Tautsec was evolving.',
+    ledTo: ['tautsec', 'spec-driven-development', 'cyber-security', 'claude', 'cursor'],
+    outcome:
+      'Experimental 3D architecture view with documentation — in development for the Tautsec platform.',
     storyPath: [
       'pete-whelan',
       'program-productions',
       'paradise-engineering',
+      'tautsec',
       'spec-driven-development',
-      'claude',
-      'cursor',
-      'agentic-workflows',
+      'cyber-security',
     ],
   },
   'florence-ai': {

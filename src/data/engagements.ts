@@ -77,7 +77,7 @@ export const projectEngagements: Record<string, ProjectEngagement> = {
   },
   'paradise-engineering': {
     clientCompanyId: 'program-productions',
-    startDate: 'Developed 2026',
+    phase: 'In development — Tautsec platform',
   },
   'flight-deck': {
     clientCompanyId: 'program-productions',

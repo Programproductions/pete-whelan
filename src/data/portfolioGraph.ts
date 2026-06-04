@@ -193,19 +193,20 @@ const portfolioNodesRaw: PortfolioNode[] = [
     id: 'paradise-engineering',
     label: 'Paradise Engineering',
     type: 'project',
-    summary: 'AI-native software delivery methodology.',
+    summary:
+      'Experimental 3D visual interpretation of software architecture, coupled with documentation.',
     detail:
-      'Spec-driven development with Claude and Codex workflows — agent-assisted planning, implementation, review and continuous improvement of engineering process.',
+      'An exploratory build that maps system architecture in 3D alongside live documentation — testing how security boundaries and spec-driven components read when teams can walk the model. In active development for the Tautsec platform.',
     keyPoints: [
-      'Spec-first discovery and scoping',
-      'Agent-assisted planning and implementation',
-      'Structured review and evaluation loops',
-      'Process innovation for AI-native teams',
+      '3D architecture visualisation linked to documentation',
+      'Security and trust-boundary exploration',
+      'Spec-driven component modelling',
+      'In development for Tautsec',
     ],
     tags: ['ai', 'internal-tools', 'projects'],
     featured: true,
     earthbancRelevance:
-      'Direct proof of AI-native engineering practice — how Pete rebuilds delivery around agents, specs and guardrails.',
+      'Shows how architecture, security and spec discipline are communicated before code ships — relevant for regulated platform delivery.',
   },
   {
     id: 'flight-deck',
@@ -416,7 +417,7 @@ const portfolioNodesRaw: PortfolioNode[] = [
     label: 'OpenAI Codex',
     type: 'technology',
     summary: 'Code generation and agent-assisted implementation.',
-    detail: 'Used within Paradise Engineering workflows alongside Claude.',
+    detail: 'Used for spec-driven exploration in Paradise Engineering and client delivery workflows.',
     tags: ['ai', 'skills'],
   },
   {
@@ -441,7 +442,7 @@ const portfolioNodesRaw: PortfolioNode[] = [
     type: 'technology',
     summary: 'Agent-assisted engineering and review.',
     detail:
-      'Claude and Claude Code in Paradise Engineering workflows — planning, implementation and structured review.',
+      'Claude and Claude Code for spec-driven architecture exploration, implementation and structured review.',
     tags: ['ai', 'skills'],
   },
   {
@@ -616,7 +617,8 @@ export const portfolioEdgesCore: PortfolioEdge[] = [
   { source: 'program-productions', target: 'tautsec', label: 'delivered' },
   { source: 'program-productions', target: 'lexi', label: 'delivered' },
   { source: 'program-productions', target: 'flight-deck', label: 'delivered' },
-  { source: 'program-productions', target: 'paradise-engineering', label: 'delivered' },
+  { source: 'program-productions', target: 'paradise-engineering', label: 'building' },
+  { source: 'paradise-engineering', target: 'tautsec', label: 'in development for' },
   { source: 'tautsec-pty', target: 'tautsec', label: 'client for' },
   { source: 'web4', target: 'tautsec', label: 'engagement' },
   { source: 'web4', target: 'tautsec-pty', label: 'partner' },

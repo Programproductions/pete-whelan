@@ -243,28 +243,36 @@ export const projectDeepDives: ProjectDeepDive[] = [
   },
   {
     id: 'paradise-engineering',
-    problem: 'Traditional delivery breaks down when AI agents become part of the engineering team.',
+    problem:
+      'Flat diagrams and scattered docs make it hard to see how security boundaries and spec-driven components fit together on a live platform.',
     intelligence:
-      'Paradise Engineering — spec-first delivery with agents as structured partners across planning, implementation, review and promotion.',
+      'Paradise Engineering — an experimental 3D visual interpretation of software architecture, coupled with documentation, exploring security modelling and spec-driven components as they apply to what is being built on Tautsec.',
     delivery: {
-      label: 'Creator · Program Productions',
+      label: 'Creator · in development for Tautsec',
       summary:
-        'AI-native delivery methodology — applied across client platforms, AIMI and this portfolio.',
-      organizations: ['Program Productions Pty Ltd'],
+        'Program Productions internal experiment — 3D architecture views and linked docs, actively being developed against the Tautsec platform.',
+      organizations: ['Program Productions Pty Ltd', 'Tautsec'],
     },
-    role: 'Creator — methodology and internal practice; specs, agents and review connect.',
+    role: 'Creator — 3D architecture visualisation, documentation and security/spec component exploration for Tautsec.',
     architecture:
-      'Spec-first workflow: discovery → agent planning → implementation → evaluation → promotion, with Claude/Codex as structured partners.',
-    technologies: ['Claude Code', 'Codex', 'Git', 'CI/CD', 'Spec documents'],
-    aiNative: [
-      'Agent-assisted planning',
-      'Context engineering',
-      'Evaluation loops',
-      'This portfolio as proof-of-work',
+      '3D system model with documentation in the same surface — security boundaries and spec-defined components rendered as navigable structure, aligned to the evolving Tautsec platform architecture.',
+    technologies: [
+      '3D architecture visualisation',
+      'Spec-driven components',
+      'Architecture documentation',
+      'Security modelling',
+      'Claude',
+      'Cursor',
     ],
-    outcome: 'Repeatable AI-native delivery practice that scales with team complexity.',
+    aiNative: [
+      'Spec-driven component definitions',
+      'Security exploration in the architecture model',
+      'Documentation coupled to the live 3D view',
+    ],
+    outcome:
+      'A working experiment in how teams read architecture, security and specs together — in development for Tautsec.',
     earthbancRelevance:
-      'Demonstrates how Pete rebuilds engineering around AI — the core signal for AI-native leadership roles.',
+      'Useful where regulated platforms need architecture and security intent visible before implementation hardens.',
   },
   {
     id: 'flight-deck',
@@ -329,10 +337,10 @@ export const resumeExperience: ResumeRole[] = [
   {
     id: 'paradise-engineering',
     headline: 'Creator — Paradise Engineering',
-    context: 'Developed 2026 · Program Productions Pty Ltd',
+    context: 'In development · Tautsec platform · Program Productions Pty Ltd',
     bullets: [
-      'Spec-first AI-native delivery methodology — Claude, Codex and Cursor as structured partners across planning, build and review.',
-      'Applied across AIMI, client platforms and this portfolio as live proof-of-work.',
+      'Experimental 3D visual interpretation of software architecture, coupled with documentation.',
+      'Exploring security modelling and spec-driven components — in active development for the Tautsec platform.',
     ],
   },
   {
