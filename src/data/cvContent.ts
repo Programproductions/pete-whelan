@@ -10,8 +10,8 @@ export type ProjectDeepDive = {
 }
 
 export const site = {
-  pageTitle: 'Pete Whelan | Resume',
-  brandLabel: 'Pete Whelan | Resume',
+  pageTitle: 'Pete Whelan: Resume',
+  brandLabel: 'Pete Whelan: Resume',
 }
 
 export const hero = {
