@@ -17,6 +17,19 @@ export const DEFAULT_GRAPH_LAYERS: GraphLayers = {
   skills: false,
 }
 
+/** Merge stored layer flags with defaults (drops legacy keys like `capabilities`). */
+export function normalizeGraphLayers(
+  layers: Partial<GraphLayers> & Record<string, boolean | undefined>,
+): GraphLayers {
+  const merged = { ...DEFAULT_GRAPH_LAYERS, ...layers }
+  return {
+    organizations: Boolean(merged.organizations),
+    projects: Boolean(merged.projects),
+    domains: Boolean(merged.domains),
+    skills: Boolean(merged.skills),
+  }
+}
+
 const PETE_ID = 'pete-whelan'
 const R_ORG = 4.2
 const R_PROJECT = 7.8
@@ -60,6 +73,15 @@ export function isEdgeVisible(
   visibleIds: Set<string>,
 ): boolean {
   return visibleIds.has(sourceId) && visibleIds.has(targetId)
+}
+
+export function filterEdgesForVisibleNodes<T extends { source: string; target: string }>(
+  edges: T[],
+  visibleIds: Set<string>,
+): T[] {
+  return edges.filter(
+    (edge) => visibleIds.has(edge.source) && visibleIds.has(edge.target),
+  )
 }
 
 function findProjectAnchor(projectId: string): string {

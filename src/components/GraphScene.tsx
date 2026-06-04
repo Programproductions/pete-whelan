@@ -84,7 +84,7 @@ function GraphNode({
 function SceneContent() {
   const { selectNodeWithPath, setHoveredNodeId, hoveredNodeId, graphLayers } =
     usePortfolioStore()
-  const { filtered, positionMap, edges, nodeState } = useGraphDisplay()
+  const { filtered, positionMap, edges, nodeState, visibleIds } = useGraphDisplay()
   const domainsLayer = graphLayers.domains
   const skillsLayer = graphLayers.skills
 
@@ -95,6 +95,7 @@ function SceneContent() {
       <pointLight position={[10, 10, 10]} intensity={0.85} color="#22d3ee" />
       <pointLight position={[-8, -4, -6]} intensity={0.45} color="#a78bfa" />
       {edges.map((edge) => {
+        if (!visibleIds.has(edge.source) || !visibleIds.has(edge.target)) return null
         const a = positionMap.get(edge.source)
         const b = positionMap.get(edge.target)
         if (!a || !b) return null

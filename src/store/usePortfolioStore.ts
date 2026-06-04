@@ -3,7 +3,11 @@ import type { ConstellationId } from '../data/constellations'
 import type { FilterCategory, PortfolioNode } from '../data/portfolioGraph'
 import { getRelationshipPath } from '../utils/graphPath'
 import type { GraphViewMode } from '../utils/graphLayout'
-import { DEFAULT_GRAPH_LAYERS, type GraphLayers } from '../utils/graphLayers'
+import {
+  DEFAULT_GRAPH_LAYERS,
+  normalizeGraphLayers,
+  type GraphLayers,
+} from '../utils/graphLayers'
 
 export type SiteMode = 'interactive' | 'traditional'
 export type PortfolioLens = 'default' | 'earthbanc'
@@ -55,7 +59,7 @@ export const usePortfolioStore = create<PortfolioState>((set) => ({
   setConstellation: (constellation) => set({ constellation }),
   setGraphLayer: (layer, enabled) =>
     set((s) => ({
-      graphLayers: { ...s.graphLayers, [layer]: enabled },
+      graphLayers: normalizeGraphLayers({ ...s.graphLayers, [layer]: enabled }),
     })),
   setActiveMethodologyStage: (activeMethodologyStage) => set({ activeMethodologyStage }),
   selectNodeWithPath: (node) => {

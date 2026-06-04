@@ -9,8 +9,9 @@ import {
 import { usePortfolioStore } from '../store/usePortfolioStore'
 import {
   computeSemanticLayout,
-  isEdgeVisible,
+  filterEdgesForVisibleNodes,
   isNodeVisibleInLayers,
+  normalizeGraphLayers,
 } from '../utils/graphLayers'
 
 const PETE_ID = 'pete-whelan'
@@ -19,10 +20,15 @@ export function useGraphDisplay() {
   const {
     filter,
     search,
-    graphLayers,
+    graphLayers: rawGraphLayers,
     selectedNode,
     hoveredNodeId,
   } = usePortfolioStore()
+
+  const graphLayers = useMemo(
+    () => normalizeGraphLayers(rawGraphLayers),
+    [rawGraphLayers],
+  )
 
   const layerNodes = useMemo(
     () => portfolioNodes.filter((n) => isNodeVisibleInLayers(n, graphLayers)),
@@ -57,9 +63,7 @@ export function useGraphDisplay() {
   const hasFocus = focusId !== null
 
   const edges = useMemo(() => {
-    return portfolioEdges
-      .filter((e) => isEdgeVisible(e.source, e.target, visibleIds))
-      .map((edge) => {
+    return filterEdgesForVisibleNodes(portfolioEdges, visibleIds).map((edge) => {
         const active =
           !hasFocus ||
           highlightIds.has(edge.source) ||
