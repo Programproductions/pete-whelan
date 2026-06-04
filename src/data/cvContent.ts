@@ -30,16 +30,6 @@ export const aiNativeStatement = {
   ],
 }
 
-export const methodologySteps = [
-  'Idea',
-  'Spec',
-  'Agent Planning',
-  'Implementation',
-  'Review',
-  'Promotion',
-  'Production',
-]
-
 export const skillClusters = [
   {
     title: 'AI & Agent Systems',
