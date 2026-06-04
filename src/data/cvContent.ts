@@ -247,9 +247,10 @@ export const projectDeepDives: ProjectDeepDive[] = [
     intelligence:
       'Paradise Engineering — spec-first delivery with agents as structured partners across planning, implementation, review and promotion.',
     delivery: {
-      label: 'Internal practice · Program Productions',
-      summary: 'Methodology created and applied across Pete’s delivery teams and client engagements.',
-      organizations: ['Program Productions Pty Ltd'],
+      label: 'Founder · internal practice',
+      summary:
+        'AI-native delivery methodology created at Program Music — applied across AIMI, client platforms and this portfolio.',
+      organizations: ['Program Music Ltd'],
     },
     role: 'Creator of methodology and internal practice — shaping how specs, agents and review connect.',
     architecture:
@@ -302,9 +303,8 @@ export const resumeExperience: ResumeRole[] = [
     headline: 'Lead Platform Architect — TautSec Cyber Protect',
     context: 'Contract · Jan 2026 – ongoing · Tautsec Pty Ltd with Web4 & Program Productions',
     bullets: [
-      'Architected serverless GCP platform (127+ Cloud Functions), Firebase Identity multi-tenancy, Terraform-managed environments, and CyberPilot AI (vector search over compliance knowledge).',
-      'Integrated Chubb cyber insurance, Essential Eight assessments, Protection Index, and Direct / Broker / MSP channel workflows — live at tautsec.com.au.',
-      'Led platform, identity and AI pipeline architecture within a multi-disciplinary team (product, frontend and wider engineering).',
+      'Led GCP platform architecture (serverless, Identity Platform, Terraform, CyberPilot AI) within a multi-disciplinary delivery team.',
+      'Chubb cyber insurance, Essential Eight, Protection Index and Direct / Broker / MSP channels — tautsec.com.au.',
     ],
   },
   {
@@ -312,9 +312,8 @@ export const resumeExperience: ResumeRole[] = [
     headline: 'Solutions Architect — LEXI (lexi.tips)',
     context: 'Contract · Jan 2025 – Jan 2026 · Web4 via Program Productions',
     bullets: [
-      'Owned architecture and AI analysis layer for horse-racing intelligence product ingesting form, pricing and market data on GCP.',
-      'Delivered predictions, twice-daily tips and conversational LEXI guide using BigQuery, vector retrieval and LangChain pipelines.',
-      'Worked as part of a shared product and engineering team on a Web4 client engagement.',
+      'Architecture and AI layer for racing intelligence on GCP — form, pricing and market data to predictions and daily tips.',
+      'Delivered as part of a shared Web4 / Program Productions engineering team.',
     ],
   },
   {
@@ -322,9 +321,17 @@ export const resumeExperience: ResumeRole[] = [
     headline: 'Founder & Solutions Architect — AIMI',
     context: 'Contract · Jun 2023 – ongoing · Program Music Ltd · Private beta, invite only',
     bullets: [
-      'Founded and built music-rights intelligence platform combining catalogue matching (LLM + vector search) with guided creator dispute workflows.',
-      'Designed multi-tenant GCP foundations (Terraform, BigQuery, LangChain, human-in-the-loop audit) and Firebase-backed creator flows.',
-      'Primary architect and hands-on builder — private beta for rights holders and creators.',
+      'Music-rights intelligence — LLM + vector catalogue matching and guided creator dispute workflows.',
+      'Multi-tenant GCP and Firebase platform; primary architect and hands-on builder.',
+    ],
+  },
+  {
+    id: 'paradise-engineering',
+    headline: 'Creator — Paradise Engineering',
+    context: 'Contract · 2023 – ongoing · Program Music Ltd',
+    bullets: [
+      'Spec-first AI-native delivery methodology — Claude, Codex and Cursor as structured partners across planning, build and review.',
+      'Applied across AIMI, client platforms and this portfolio as live proof-of-work.',
     ],
   },
 ]

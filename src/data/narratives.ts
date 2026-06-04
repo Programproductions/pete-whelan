@@ -79,6 +79,7 @@ export const nodeNarratives: Record<string, NodeNarrative> = {
     outcome: 'Repeatable AI-native practice — this portfolio is a live proof-of-work.',
     storyPath: [
       'pete-whelan',
+      'program-music',
       'paradise-engineering',
       'spec-driven-development',
       'claude',
