@@ -18,13 +18,9 @@ export function AiNativeSection() {
         >
           {aiNativeStatement.heading}
         </motion.h2>
-        <div className="mt-8 grid gap-8 md:grid-cols-2">
-          {aiNativeStatement.paragraphs.map((p) => (
-            <p key={p.slice(0, 40)} className="text-base leading-relaxed text-zinc-400">
-              {p}
-            </p>
-          ))}
-        </div>
+        <p className="mt-6 max-w-3xl text-base leading-relaxed text-zinc-400 md:text-lg">
+          {aiNativeStatement.paragraphs[0]}
+        </p>
 
         <div className="mt-16 rounded-2xl border border-zinc-800 bg-zinc-900/40 p-8 md:p-10">
           <h3 className="text-sm font-medium uppercase tracking-wider text-zinc-500">

@@ -60,10 +60,10 @@ export function CareerGraphModal({ open, onClose }: CareerGraphModalProps) {
             <header className="flex shrink-0 items-start justify-between gap-4 border-b border-zinc-800 px-5 py-4 md:px-6">
               <div>
                 <h2 id="career-graph-title" className="text-lg font-semibold text-zinc-100 md:text-xl">
-                  Interactive career graph
+                  Platform ecosystem graph
                 </h2>
                 <p className="mt-1 text-sm text-zinc-500">
-                  Click a node for detail · drag to pan the 2D view or orbit in 3D when available
+                  Products, domains and technologies behind the platforms · click a node for detail
                 </p>
               </div>
               <button
