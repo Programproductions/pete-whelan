@@ -63,7 +63,7 @@ delivery:
     applicable to financial and rights-heavy data products.
 
 engagement:
-  clientCompanyId: aimi-platform
+  clientCompanyId: program-music
   phase: Private beta — invite only
 
 graph:
@@ -100,7 +100,6 @@ narrative:
   storyPath:
     - pete-whelan
     - program-music
-    - aimi-platform
     - aimi
     - music-rights
     - openai

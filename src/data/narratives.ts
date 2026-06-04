@@ -59,7 +59,7 @@ export const nodeNarratives: Record<string, NodeNarrative> = {
     ledTo: ['music-rights', 'program-music', 'agentic-workflows', 'openai'],
     outcome:
       'AIMI — recover royalties, route disputes safely, audit with human-in-the-loop; private beta, invite only.',
-    storyPath: ['pete-whelan', 'program-music', 'aimi-platform', 'aimi', 'music-rights', 'openai'],
+    storyPath: ['pete-whelan', 'program-music', 'aimi', 'music-rights', 'openai'],
   },
   lexi: {
     whyExists:
