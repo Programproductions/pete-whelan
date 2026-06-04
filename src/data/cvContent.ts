@@ -36,8 +36,7 @@ export const hero = {
   platformsIntro: 'Current platforms include:',
   platforms: [
     {
-      name: 'TautSec Cyber Protect',
-      subtitle: 'Tautsec',
+      name: 'Tautsec',
       outcome: 'Posture management, Chubb cyber insurance and CyberPilot AI for Australian SMBs',
     },
     {
