@@ -151,30 +151,33 @@ export const projectDeepDives: ProjectDeepDive[] = [
   },
   {
     id: 'lexi',
-    problem: 'Racing intelligence requires real-time data fusion and decision support across volatile markets.',
-    role: 'Architect for event-driven platform and Betfair integration.',
+    problem:
+      'Punters need reliable racing tips, but form, pricing and market signals are scattered and hard to turn into timely predictions.',
+    role: 'Architect for the LEXI platform (Learned Expert Intelligence) at lexi.tips.',
     architecture:
-      'Event-driven services on GCP with Terraform, BigQuery analytics, vector retrieval and LangChain for predictive workflows — Betfair integration and real-time intelligence surfaces.',
+      'lexi.tips ingests form, pricing and race-market inputs, runs them through AI analysis on GCP (BigQuery, vector retrieval, LangChain) and surfaces intelligence, predictions and twice-daily tips — plus chat with LEXI.',
     technologies: [
-      'Node.js',
-      'Betfair API',
-      'JavaScript',
       'React',
+      'Node.js',
+      'JavaScript',
       'GCP',
       'Terraform',
       'BigQuery',
       'Vector database',
       'LangChain',
       'AI tooling',
+      'Betfair API',
     ],
     aiNative: [
-      'Predictive models',
+      'AI-driven analysis across form, pricing and race data',
+      'Predictive tips and performance tracking',
       'LangChain and vector-backed feature pipelines',
-      'Decision-support UX',
+      'Conversational LEXI guide (chat)',
     ],
-    outcome: 'Analytics platform delivering timely intelligence for racing market decisions.',
+    outcome:
+      'Production tipping product — daily AI-powered tips and predictions for Australian racing at lexi.tips.',
     earthbancRelevance:
-      'Event-driven data products and external API integration at scale — common fintech architecture patterns.',
+      'High-volume structured inputs → ML predictions → consumer intelligence surfaces — patterns common in fintech and markets products.',
   },
   {
     id: 'paradise-engineering',

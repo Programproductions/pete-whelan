@@ -114,30 +114,75 @@ const diagrams: Record<string, ReactNode> = {
     </svg>
   ),
   lexi: (
-    <svg viewBox="0 0 400 200" className="h-auto w-full" aria-label="Lexi architecture">
-      <rect width="400" height="200" fill="#0c0d10" rx="8" />
-      <rect x="40" y="75" width="90" height="45" rx="6" fill="#181b22" stroke="#22d3ee" strokeOpacity="0.4" />
-      <text x="85" y="102" textAnchor="middle" fill="#a1a1aa" fontSize="10">
-        Betfair API
+    <svg viewBox="0 0 400 220" className="h-auto w-full" aria-label="Lexi architecture">
+      <defs>
+        <linearGradient id="lexi-flow" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stopColor="#22d3ee" stopOpacity="0.45" />
+          <stop offset="100%" stopColor="#a78bfa" stopOpacity="0.45" />
+        </linearGradient>
+      </defs>
+      <rect width="400" height="220" fill="#0c0d10" rx="8" />
+      <text x="200" y="22" textAnchor="middle" fill="#71717a" fontSize="9">
+        lexi.tips — AI-powered racing tips
       </text>
-      <rect x="160" y="50" width="100" height="45" rx="6" fill="#181b22" stroke="#34d399" strokeOpacity="0.5" />
-      <text x="210" y="77" textAnchor="middle" fill="#6ee7b7" fontSize="10">
-        Event Bus
+      <rect x="12" y="42" width="88" height="44" rx="6" fill="#181b22" stroke="#22d3ee" strokeOpacity="0.45" />
+      <text x="56" y="60" textAnchor="middle" fill="#67e8f9" fontSize="9">
+        Form &amp; pricing
       </text>
-      <rect x="160" y="110" width="100" height="45" rx="6" fill="#181b22" stroke="#a78bfa" strokeOpacity="0.4" />
-      <text x="210" y="137" textAnchor="middle" fill="#a1a1aa" fontSize="10">
-        Analytics
+      <text x="56" y="76" textAnchor="middle" fill="#71717a" fontSize="8">
+        + race markets
       </text>
-      <rect x="290" y="75" width="80" height="45" rx="6" fill="#181b22" stroke="#22d3ee" strokeOpacity="0.4" />
-      <text x="330" y="102" textAnchor="middle" fill="#a1a1aa" fontSize="10">
-        Intelligence UI
+      <rect x="112" y="42" width="72" height="44" rx="6" fill="#181b22" stroke="#34d399" strokeOpacity="0.5" />
+      <text x="148" y="62" textAnchor="middle" fill="#6ee7b7" fontSize="9">
+        Data ingest
+      </text>
+      <text x="148" y="76" textAnchor="middle" fill="#71717a" fontSize="8">
+        &amp; features
+      </text>
+      <rect x="196" y="42" width="72" height="44" rx="6" fill="#181b22" stroke="#a78bfa" strokeOpacity="0.55" />
+      <text x="232" y="62" textAnchor="middle" fill="#c4b5fd" fontSize="9">
+        LEXI AI
+      </text>
+      <text x="232" y="76" textAnchor="middle" fill="#71717a" fontSize="8">
+        analysis
+      </text>
+      <rect x="280" y="42" width="52" height="44" rx="6" fill="#181b22" stroke="#22d3ee" strokeOpacity="0.4" />
+      <text x="306" y="62" textAnchor="middle" fill="#a1a1aa" fontSize="9">
+        Predict-
+      </text>
+      <text x="306" y="74" textAnchor="middle" fill="#a1a1aa" fontSize="8">
+        ions
+      </text>
+      <rect x="344" y="42" width="44" height="44" rx="6" fill="#181b22" stroke="#34d399" strokeOpacity="0.4" />
+      <text x="366" y="62" textAnchor="middle" fill="#a1a1aa" fontSize="8">
+        Tips
+      </text>
+      <text x="366" y="74" textAnchor="middle" fill="#71717a" fontSize="8">
+        &amp; chat
       </text>
       <path
-        d="M130 97 L160 72 M130 97 L160 132 M260 72 L290 97 M260 132 L290 97"
-        stroke="#3f3f46"
+        d="M100 64 H112 M184 64 H196 M268 64 H280 M332 64 H344"
+        stroke="url(#lexi-flow)"
         strokeWidth="1.5"
         fill="none"
       />
+      <rect x="24" y="108" width="352" height="48" rx="6" fill="#12151a" stroke="#3f3f46" strokeOpacity="0.8" />
+      <text x="200" y="126" textAnchor="middle" fill="#71717a" fontSize="8">
+        GCP · Terraform · BigQuery · vector DB · LangChain
+      </text>
+      <text x="200" y="142" textAnchor="middle" fill="#a1a1aa" fontSize="9">
+        Twice-daily tips · performance tracking · Australian race calendar
+      </text>
+      <path
+        d="M148 86 V108 M232 86 V108 M306 86 V108"
+        stroke="#3f3f46"
+        strokeWidth="1"
+        strokeDasharray="3 2"
+        fill="none"
+      />
+      <text x="200" y="178" textAnchor="middle" fill="#52525b" fontSize="8">
+        Inputs → intelligence → predictions for punters
+      </text>
     </svg>
   ),
   'paradise-engineering': (

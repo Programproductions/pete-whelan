@@ -57,10 +57,13 @@ export const nodeNarratives: Record<string, NodeNarrative> = {
     storyPath: ['pete-whelan', 'program-music', 'aimi', 'music-rights', 'openai'],
   },
   lexi: {
-    whyExists: 'Racing intelligence requires real-time fusion of market data and predictive signals.',
-    problemSolved: 'Fragmented data sources and slow decision support for time-sensitive markets.',
-    ledTo: ['horse-racing-analytics', 'nodejs', 'openai'],
-    outcome: 'Event-driven analytics platform with Betfair integration and predictive surfaces.',
+    whyExists:
+      'Racing punters needed AI tips grounded in form, pricing and live market data — not gut feel or stale form guides.',
+    problemSolved:
+      'Turning fragmented form and pricing inputs into timely predictions and twice-daily tips at scale.',
+    ledTo: ['horse-racing-analytics', 'nodejs', 'openai', 'prompt-engineering'],
+    outcome:
+      'Shipped lexi.tips — LEXI analyses race data and delivers intelligence, predictions and tips.',
     storyPath: ['pete-whelan', 'program-productions', 'web4', 'lexi', 'horse-racing-analytics'],
   },
   'paradise-engineering': {
