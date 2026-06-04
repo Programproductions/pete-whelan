@@ -49,12 +49,12 @@ export function Home() {
       ) : (
         <>
           <Hero onExploreGraph={openGraph} />
-          <AiNativeSection />
-          <InteractiveGraphSection onOpenGraph={openGraph} />
-          <TimelineStrip />
           <ProjectDeepDive />
-          <SkillClusters />
+          <InteractiveGraphSection onOpenGraph={openGraph} />
+          <AiNativeSection />
+          <TimelineStrip />
           <WhyNotCvSection />
+          <SkillClusters />
           <PdfDownloadButton />
         </>
       )}

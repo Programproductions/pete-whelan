@@ -41,6 +41,11 @@ export function CvPdfDocument() {
         <Text style={styles.name}>{site.brandLabel}</Text>
         <Text style={styles.title}>{hero.title}</Text>
         <Text style={styles.tagline}>{hero.tagline}</Text>
+        {hero.platforms.map((p) => (
+          <Text key={p.name} style={styles.bullet}>
+            • {p.name}: {p.outcome}
+          </Text>
+        ))}
 
         <Text style={styles.sectionTitle}>{aiNativeStatement.heading}</Text>
         {aiNativeStatement.paragraphs.map((p) => (
@@ -56,6 +61,7 @@ export function CvPdfDocument() {
               {nodeById.get(project.id)?.label ?? project.id}
             </Text>
             <Text style={styles.paragraph}>{project.problem}</Text>
+            <Text style={styles.paragraph}>{project.intelligence}</Text>
             <Text style={styles.paragraph}>{project.outcome}</Text>
             <Text style={styles.bullet}>
               Technologies: {project.technologies.join(', ')}

@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { hero, site } from '../data/cvContent'
-import { CvEntryChoice } from './CvEntryChoice'
+import { HeroCTA } from './HeroCTA'
 
 type HeroProps = {
   onExploreGraph: () => void
@@ -53,9 +53,32 @@ export function Hero({ onExploreGraph }: HeroProps) {
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.55, delay: 0.2 }}
+          transition={{ duration: 0.55, delay: 0.18 }}
+          className="mt-8"
         >
-          <CvEntryChoice onExploreInteractive={onExploreGraph} />
+          <p className="text-sm font-medium text-zinc-500">{hero.platformsIntro}</p>
+          <ul className="mt-3 space-y-2">
+            {hero.platforms.map((platform) => (
+              <li key={platform.name} className="flex gap-2 text-sm text-zinc-300 md:text-base">
+                <span className="text-cyan-400/90">•</span>
+                <span>
+                  <span className="font-medium text-zinc-100">{platform.name}</span>
+                  {platform.subtitle && (
+                    <span className="text-zinc-500"> ({platform.subtitle})</span>
+                  )}
+                  <span className="text-zinc-400"> — {platform.outcome}</span>
+                </span>
+              </li>
+            ))}
+          </ul>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.55, delay: 0.22 }}
+        >
+          <HeroCTA onViewArchitecture={onExploreGraph} />
         </motion.div>
       </div>
     </section>

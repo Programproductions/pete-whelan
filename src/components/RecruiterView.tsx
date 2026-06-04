@@ -12,12 +12,13 @@ export function RecruiterView() {
         <section className="mt-12">
           <h2 className="text-lg font-semibold text-zinc-200">Executive summary</h2>
           <p className="mt-4 leading-relaxed text-zinc-400">{hero.tagline}</p>
-          <p className="mt-4 leading-relaxed text-zinc-400">
-            Solutions architect with a career spanning music technology, voice AI, healthcare,
-            cyber security and AI-native platform engineering. Builds cloud-native products,
-            agent-driven delivery systems and internal governance platforms — including multi-tenant
-            SaaS, GCP architectures and Terraform release tooling.
-          </p>
+          <ul className="mt-4 space-y-2 text-zinc-400">
+            {hero.platforms.map((p) => (
+              <li key={p.name}>
+                <span className="font-medium text-zinc-200">{p.name}</span> — {p.outcome}
+              </li>
+            ))}
+          </ul>
         </section>
 
         <section className="mt-12">
