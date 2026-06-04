@@ -1,7 +1,7 @@
 import { pdf } from '@react-pdf/renderer'
 import { CvPdfDocument } from '../pdf/CvPdfDocument'
 
-const GENERATED_FILENAME = 'Pete-Whelan-CV.pdf'
+const GENERATED_FILENAME = 'Pete-Whelan-Portfolio.pdf'
 
 export async function downloadCvPdf(): Promise<void> {
   const blob = await pdf(<CvPdfDocument />).toBlob()
