@@ -1,0 +1,85 @@
+version: "1.0"
+id: aimi
+displayName: AiMi
+productName: AiMi
+featured: true
+
+hero:
+  name: AiMi
+  outcome: Music rights intelligence and royalty recovery
+
+card:
+  problem: >-
+    Labels and publishers lose revenue when catalogue and rights metadata are
+    fragmented — royalty auditing is manual, slow and error-prone.
+  intelligence: >-
+    AiMi ingests catalogue and rights data, matches metadata with LLM orchestration
+    and vector search, and surfaces auditable intelligence so teams recover missing
+    royalties — not just report on them.
+  outcome: >-
+    Recover missing royalties. Turn catalogue chaos into auditable, scalable rights
+    intelligence.
+
+delivery:
+  role: Founder & solutions architect — platform design through production delivery.
+  architecture: >-
+    Multi-tenant SaaS on GCP with Terraform-managed infrastructure, BigQuery analytics,
+    vector retrieval and LangChain orchestration for catalogue ingestion, rights
+    matching and audit workflows; human-in-the-loop review for compliance-grade outputs.
+  technologies:
+    - React
+    - JavaScript
+    - Node.js
+    - OpenAI
+    - GCP
+    - Terraform
+    - BigQuery
+    - Vector database
+    - LangChain
+    - Firestore
+    - Cloud Functions
+  aiCapabilities:
+    - LangChain orchestration pipelines
+    - Vector search and retrieval
+    - Structured evaluation of match quality
+    - Human-in-the-loop review gates
+  earthbancRelevance: >-
+    Regulated-domain AI with audit trails and multi-tenant isolation — applicable to
+    financial product engineering.
+
+graph:
+  summary: AI-native music rights and royalty intelligence platform.
+  detail: >-
+    Multi-tenant SaaS for catalogue ingestion, rights matching and audit workflows
+    with LLM orchestration and vector search on GCP.
+  keyPoints:
+    - Catalogue and rights metadata ingestion
+    - LLM + vector matching for royalty recovery
+    - Human-in-the-loop audit workflows
+    - GCP · BigQuery · LangChain · multi-tenant SaaS
+  tags:
+    - projects
+    - ai
+    - cloud
+
+engagement:
+  clientCompanyId: program-music
+  phase: Private beta — invite only
+
+narrative:
+  whyExists: Music catalogues and rights metadata are fragmented; royalty auditing does not scale manually.
+  problemSolved: Rights teams drowning in catalogue complexity and inconsistent metadata.
+  outcome: Multi-tenant SaaS with LLM orchestration and human-in-the-loop audit workflows.
+  ledTo:
+    - music-rights
+    - openai
+    - program-music
+  storyPath:
+    - pete-whelan
+    - program-music
+    - aimi
+    - music-rights
+    - openai
+
+source:
+  notes: Shorter example — use when brief is already outcome-focused.

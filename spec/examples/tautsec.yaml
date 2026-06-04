@@ -1,0 +1,143 @@
+version: "1.0"
+id: tautsec
+displayName: Tautsec
+productName: TautSec Cyber Protect
+featured: true
+
+hero:
+  name: TautSec Cyber Protect
+  subtitle: Tautsec
+  outcome: Posture management, Chubb cyber insurance and CyberPilot AI for Australian SMBs
+
+card:
+  problem: >-
+    Australian SMBs had no single platform connecting ongoing cyber posture to
+    insurance-ready outcomes — compliance evidence and cover lived in separate
+    tools and channels.
+  intelligence: >-
+    TautSec Cyber Protect bundles Chubb-underwritten cyber insurance with a
+    compliance dashboard across Direct, Broker and MSP paths. Essential Eight at
+    three ACSC levels, a 0–100 Protection Index, supply chain mapping, and
+    CyberPilot — AI with vector search over a compliance knowledge base.
+  outcome: >-
+    One workflow from scanning and posture management to CyberPilot-assisted
+    remediation and Chubb insurance — across self-serve, broker and MSP channels.
+    Live at tautsec.com.au.
+
+delivery:
+  role: >-
+    Lead architect — GCP serverless platform, Firebase Identity multi-tenant auth,
+    workspace-scoped Terraform, per-tenant databases, and the AI search pipeline.
+    Delivered for Tautsec Pty Ltd with Web4 and Program Productions.
+  architecture: >-
+    Three pricing tiers and dedicated flows per sales channel; 127+ Cloud Functions
+    in australia-southeast1 with Terraform-managed dev/staging/prod and per-developer
+    namespaces. Firestore for transactions, MongoDB Atlas per tenant plus shared KB
+    for AI, BigQuery analytics. CyberPilot quick actions include site scanning,
+    executive reports, 90-day plans, policy drafts, and CVE alerts cross-referenced
+    to live inventory. Integrations: Chubb Cyber ERM, ABR, Stripe, Attvest, SendGrid, NVD.
+  technologies:
+    - React
+    - TypeScript
+    - Next.js
+    - GCP
+    - Cloud Functions
+    - Terraform
+    - Firestore
+    - MongoDB Atlas
+    - BigQuery
+    - Identity Platform
+    - OpenAI
+    - Vector search
+    - Stripe
+    - Vercel
+  aiCapabilities:
+    - CyberPilot — vector search, session memory and source citations
+    - Per-control coaching adapted to persona (solo, SMB, corporate)
+    - CVE alerts vs live IT inventory and Essential Eight status
+    - Guided onboarding and MFA trainer with live web research
+  earthbancRelevance: >-
+    Risk, compliance and assessment automation patterns relevant to regulated
+    fintech platforms.
+  partners:
+    - Web4
+    - Program Productions
+    - Tautsec Pty Ltd
+
+graph:
+  summary: TautSec Cyber Protect — posture, insurance and CyberPilot for Australian SMBs.
+  detail: >-
+    Chubb-underwritten cyber insurance plus compliance dashboard: Essential Eight,
+    Protection Index, supply chain risk, and CyberPilot AI. Direct, Broker and MSP
+    channels on GCP — Tautsec Pty Ltd with Web4 and Program Productions.
+  keyPoints:
+    - Chubb cyber insurance + SaaS compliance (3 tiers)
+    - Direct, Broker and MSP sales channels
+    - Essential Eight · Protection Index · CyberPilot AI
+    - GCP · Identity Platform · Terraform · MongoDB · BigQuery
+  tags:
+    - projects
+    - ai
+    - cloud
+  edgeHints:
+    - { source: program-productions, target: tautsec, label: delivered }
+    - { source: tautsec-pty, target: tautsec, label: client for }
+    - { source: web4, target: tautsec, label: engagement }
+    - { source: pete-whelan, target: tautsec-pty, label: architects }
+    - { source: tautsec, target: gcp, label: hosted on }
+    - { source: tautsec, target: cyber-security, label: domain }
+    - { source: tautsec, target: insurance, label: domain }
+
+engagement:
+  clientCompanyId: tautsec-pty
+  website: https://tautsec.com.au
+  phase: Live
+
+narrative:
+  whyExists: >-
+    Australian SMBs needed one path from ongoing posture to insurance-ready
+    outcomes across direct, broker and MSP channels.
+  problemSolved: >-
+    Fragmented scans, manual Essential Eight work and insurance applications
+    disconnected from live compliance evidence.
+  outcome: >-
+    TautSec Cyber Protect — Chubb cover, compliance dashboard and CyberPilot AI
+    on GCP (tautsec.com.au).
+  ledTo:
+    - cyber-security
+    - insurance
+    - identity-platform
+    - agentic-workflows
+  storyPath:
+    - pete-whelan
+    - program-productions
+    - tautsec-pty
+    - web4
+    - tautsec
+    - terraform
+    - identity-platform
+    - gcp
+
+source:
+  references:
+    - https://tautsec.com.au
+  notes: >-
+    Distilled from full product brief (May 2026). Long-form kept for implementers
+    in portfolio repo history / client docs.
+  fullBrief: |
+    FULL VERSION (agent reference — do not paste verbatim onto card)
+
+    Problem: Australian SMBs faced fragmented cyber risk — point-in-time scans,
+    manual Essential Eight, insurance treating compliance as afterthought.
+
+    Platform: Chubb-underwritten insurance + SaaS dashboard; tiers Essentials /
+    Professional / Enterprise; channels Direct, Broker, MSP.
+
+    AI: CyberPilot — vector search, quick actions (scan, reports, 90-day plans,
+    policies, CVE vs inventory), persona-scoped coaching, onboarding assistant,
+    MFA trainer.
+
+    Stack: React/Vite, Next.js admin, GCP Cloud Functions, Terraform, Firestore,
+    MongoDB Atlas, BigQuery, OpenAI embeddings + GPT-4o.
+
+    Integrations: Chubb Cyber ERM, ABR, Stripe, Attvest, SendGrid, NVD.
