@@ -320,7 +320,7 @@ export const resumeExperience: ResumeRole[] = [
   {
     id: 'aimi',
     headline: 'Founder & Solutions Architect — AIMI',
-    context: 'Contract · Jun 2023 – ongoing · Program Music Ltd · Private beta, invite only',
+    context: 'Founder project · Jun 2023 – ongoing · Program Music Ltd · Private beta, invite only',
     bullets: [
       'Music-rights intelligence — LLM + vector catalogue matching and guided creator dispute workflows.',
       'Multi-tenant GCP and Firebase platform; primary architect and hands-on builder.',

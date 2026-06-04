@@ -36,7 +36,7 @@ export const companyEngagements: Record<string, CompanyEngagement> = {
 export const projectEngagements: Record<string, ProjectEngagement> = {
   aimi: {
     clientCompanyId: 'program-music',
-    contractLength: 'Contract',
+    contractLength: 'Founder project',
     startDate: 'Jun 2023',
     endDate: 'ongoing',
     phase: 'Private beta — invite only',
