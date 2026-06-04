@@ -1,10 +1,10 @@
 import { motion } from 'framer-motion'
 
 type HeroCTAProps = {
-  onViewArchitecture: () => void
+  onExplorePortfolio: () => void
 }
 
-export function HeroCTA({ onViewArchitecture }: HeroCTAProps) {
+export function HeroCTA({ onExplorePortfolio }: HeroCTAProps) {
   const scrollToPlatforms = () => {
     document.getElementById('platforms')?.scrollIntoView({ behavior: 'smooth' })
   }
@@ -24,10 +24,10 @@ export function HeroCTA({ onViewArchitecture }: HeroCTAProps) {
         type="button"
         whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.98 }}
-        onClick={onViewArchitecture}
+        onClick={onExplorePortfolio}
         className="rounded-lg bg-zinc-800/80 px-5 py-2.5 text-sm font-semibold text-zinc-200 ring-1 ring-zinc-700 transition hover:bg-zinc-800"
       >
-        View architecture
+        Explore portfolio
       </motion.button>
     </div>
   )

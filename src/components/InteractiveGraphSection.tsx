@@ -12,11 +12,11 @@ export function InteractiveGraphSection({ onOpenGraph }: InteractiveGraphSection
     <section id="graph" className="border-t border-zinc-800/80 px-6 py-20 md:px-12 lg:px-20">
       <div className="mx-auto max-w-6xl">
         <h2 className="text-2xl font-semibold tracking-tight text-zinc-100 md:text-3xl">
-          Platform ecosystem
+          Interactive portfolio
         </h2>
         <p className="mt-3 max-w-2xl text-zinc-500">
-          Explore the ecosystem of products, domains and technologies behind the platforms
-          I&apos;ve built — not just a résumé timeline. Open the graph and click any node for detail.
+          Explore products, domains, teams and technologies as a connected graph — not a flat
+          résumé. Click any node for detail.
         </p>
 
         <motion.button
@@ -51,7 +51,7 @@ export function InteractiveGraphSection({ onOpenGraph }: InteractiveGraphSection
             3D graph · 52 nodes · 72 connections
           </span>
           <span className="mt-2 block text-xl font-semibold text-zinc-100 group-hover:text-cyan-100">
-            Open platform graph
+            Explore portfolio
           </span>
           <span className="mt-2 block text-sm text-zinc-500">
             {inPreviewEmbed
