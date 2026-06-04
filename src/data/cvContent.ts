@@ -288,6 +288,47 @@ export const projectDeepDives: ProjectDeepDive[] = [
   },
 ]
 
+/** Traditional résumé entries — used for PDF export (not the interactive platform story) */
+export type ResumeRole = {
+  id: string
+  headline: string
+  context: string
+  bullets: string[]
+}
+
+export const resumeExperience: ResumeRole[] = [
+  {
+    id: 'tautsec',
+    headline: 'Lead Platform Architect — TautSec Cyber Protect',
+    context: 'Tautsec Pty Ltd · Team delivery with Web4 & Program Productions',
+    bullets: [
+      'Architected serverless GCP platform (127+ Cloud Functions), Firebase Identity multi-tenancy, Terraform-managed environments, and CyberPilot AI (vector search over compliance knowledge).',
+      'Integrated Chubb cyber insurance, Essential Eight assessments, Protection Index, and Direct / Broker / MSP channel workflows — live at tautsec.com.au.',
+      'Led platform, identity and AI pipeline architecture within a multi-disciplinary team (product, frontend and wider engineering).',
+    ],
+  },
+  {
+    id: 'lexi',
+    headline: 'Solutions Architect — LEXI (lexi.tips)',
+    context: 'Web4 engagement · Delivered via Program Productions',
+    bullets: [
+      'Owned architecture and AI analysis layer for horse-racing intelligence product ingesting form, pricing and market data on GCP.',
+      'Delivered predictions, twice-daily tips and conversational LEXI guide using BigQuery, vector retrieval and LangChain pipelines.',
+      'Worked as part of a shared product and engineering team on a Web4 client engagement.',
+    ],
+  },
+  {
+    id: 'aimi',
+    headline: 'Founder & Solutions Architect — AIMI',
+    context: 'Program Music Ltd · Private beta, invite only',
+    bullets: [
+      'Founded and built music-rights intelligence platform combining catalogue matching (LLM + vector search) with guided creator dispute workflows.',
+      'Designed multi-tenant GCP foundations (Terraform, BigQuery, LangChain, human-in-the-loop audit) and Firebase-backed creator flows.',
+      'Primary architect and hands-on builder — private beta for rights holders and creators.',
+    ],
+  },
+]
+
 export const contact = {
   email: 'petewhelan2020@gmail.com',
   linkedin: 'https://www.linkedin.com/in/pawhelan/',

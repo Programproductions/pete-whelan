@@ -49,9 +49,9 @@ export function Home() {
       ) : (
         <>
           <Hero onExploreGraph={openGraph} />
+          <AiNativeSection />
           <ProjectDeepDive />
           <InteractiveGraphSection onOpenGraph={openGraph} />
-          <AiNativeSection />
           <TimelineStrip />
           <WhyNotCvSection />
           <SkillClusters />
