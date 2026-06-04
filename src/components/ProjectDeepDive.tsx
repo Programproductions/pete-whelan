@@ -146,11 +146,7 @@ export function ProjectDeepDive() {
         <h2 className="text-2xl font-semibold tracking-tight text-zinc-100 md:text-3xl">
           Intelligence platforms
         </h2>
-        <p className="mt-3 max-w-2xl text-zinc-500">
-          Problem → intelligence → outcome. Platforms I’ve founded or helped deliver as part of a
-          team — my role and partners are called out on each card; technical detail when you need
-          it.
-        </p>
+        <p className="mt-3 max-w-2xl text-zinc-500">Problem → intelligence → outcome.</p>
 
         <div className="mt-12 space-y-12">
           {platforms.map((project, i) => (
