@@ -32,15 +32,12 @@ export function CvEntryChoice({ onExploreInteractive }: CvEntryChoiceProps) {
           whileTap={{ scale: 0.98 }}
           onClick={() => void handleGeneratePdf()}
           disabled={generating}
-          className="group relative overflow-hidden rounded-2xl border border-red-500/40 bg-gradient-to-br from-red-950/80 to-zinc-950 p-6 text-left ring-1 ring-red-500/20 transition hover:border-red-400/60 hover:shadow-[0_0_32px_rgba(239,68,68,0.15)] disabled:opacity-60"
+          className="group relative overflow-hidden rounded-2xl border border-zinc-700/60 bg-gradient-to-br from-zinc-900/80 to-zinc-950 p-6 text-left ring-1 ring-zinc-700/40 transition hover:border-zinc-600 hover:shadow-[0_0_32px_rgba(255,255,255,0.04)] disabled:opacity-60"
         >
-          <span className="inline-block rounded-full bg-red-500/20 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-red-300">
-            Red pill
-          </span>
-          <span className="mt-3 block text-lg font-semibold text-red-100">
+          <span className="block text-lg font-semibold text-zinc-100">
             {generating ? 'Generating…' : 'Generate PDF'}
           </span>
-          <span className="mt-2 block text-sm leading-relaxed text-red-200/60">
+          <span className="mt-2 block text-sm leading-relaxed text-zinc-400">
             The familiar résumé — structured, printable, recruiter-ready.
           </span>
         </motion.button>
@@ -52,10 +49,7 @@ export function CvEntryChoice({ onExploreInteractive }: CvEntryChoiceProps) {
           onClick={onExploreInteractive}
           className="group relative overflow-hidden rounded-2xl border border-cyan-500/40 bg-gradient-to-br from-cyan-950/50 to-zinc-950 p-6 text-left ring-1 ring-cyan-500/20 transition hover:border-cyan-400/60 hover:shadow-[0_0_32px_rgba(34,211,238,0.15)]"
         >
-          <span className="inline-block rounded-full bg-cyan-500/20 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-cyan-300">
-            Blue pill
-          </span>
-          <span className="mt-3 block text-lg font-semibold text-cyan-100">
+          <span className="block text-lg font-semibold text-cyan-100">
             Explore interactive CV
           </span>
           <span className="mt-2 block text-sm leading-relaxed text-cyan-200/60">
