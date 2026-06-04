@@ -6,7 +6,7 @@ type ArchitectureDiagramProps = {
 
 const diagrams: Record<string, ReactNode> = {
   aimi: (
-    <svg viewBox="0 0 400 200" className="h-auto w-full" aria-label="AiMi architecture">
+    <svg viewBox="0 0 400 200" className="h-auto w-full" aria-label="AIMI architecture">
       <defs>
         <linearGradient id="aimi-g" x1="0%" y1="0%" x2="100%" y2="0%">
           <stop offset="0%" stopColor="#22d3ee" stopOpacity="0.3" />
@@ -15,26 +15,29 @@ const diagrams: Record<string, ReactNode> = {
       </defs>
       <rect width="400" height="200" fill="#0c0d10" rx="8" />
       <rect x="20" y="70" width="90" height="50" rx="6" fill="#181b22" stroke="#22d3ee" strokeOpacity="0.4" />
-      <text x="65" y="100" textAnchor="middle" fill="#a1a1aa" fontSize="10">
-        Catalogue
+      <text x="65" y="95" textAnchor="middle" fill="#a1a1aa" fontSize="10">
+        Identity &
       </text>
-      <rect x="130" y="40" width="100" height="50" rx="6" fill="#181b22" stroke="#22d3ee" strokeOpacity="0.5" />
-      <text x="180" y="70" textAnchor="middle" fill="#67e8f9" fontSize="10">
-        LLM Orchestration
+      <text x="65" y="108" textAnchor="middle" fill="#a1a1aa" fontSize="10">
+        Works intake
       </text>
-      <rect x="130" y="110" width="100" height="50" rx="6" fill="#181b22" stroke="#a78bfa" strokeOpacity="0.4" />
+      <rect x="130" y="55" width="100" height="50" rx="6" fill="#181b22" stroke="#22d3ee" strokeOpacity="0.5" />
+      <text x="180" y="85" textAnchor="middle" fill="#67e8f9" fontSize="10">
+        Pattern AI
+      </text>
+      <rect x="130" y="115" width="100" height="40" rx="6" fill="#181b22" stroke="#a78bfa" strokeOpacity="0.4" />
       <text x="180" y="140" textAnchor="middle" fill="#a1a1aa" fontSize="10">
-        Rights Matching
+        Dispute routing
       </text>
       <rect x="260" y="70" width="120" height="50" rx="6" fill="#181b22" stroke="#34d399" strokeOpacity="0.4" />
-      <text x="320" y="92" textAnchor="middle" fill="#a1a1aa" fontSize="10">
-        Multi-tenant SaaS
+      <text x="320" y="95" textAnchor="middle" fill="#a1a1aa" fontSize="10">
+        Evidence-led
       </text>
       <text x="320" y="108" textAnchor="middle" fill="#71717a" fontSize="9">
-        HITL Review
+        handoff
       </text>
       <path
-        d="M110 95 L130 65 M110 95 L130 135 M230 65 L260 95 M230 135 L260 95"
+        d="M110 95 L130 80 M110 95 L130 135 M230 80 L260 95 M230 135 L260 95"
         stroke="url(#aimi-g)"
         strokeWidth="1.5"
         fill="none"
