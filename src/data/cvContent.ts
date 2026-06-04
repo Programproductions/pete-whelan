@@ -25,12 +25,6 @@ export const hero = {
   platformsIntro: 'Current platforms include:',
   platforms: [
     {
-      name: 'AIMI',
-      subtitle: 'aimi.app',
-      outcome:
-        'Music rights intelligence, royalty recovery and guided dispute workflows for creators and rights holders',
-    },
-    {
       name: 'TautSec Cyber Protect',
       subtitle: 'Tautsec',
       outcome: 'Posture management, Chubb cyber insurance and CyberPilot AI for Australian SMBs',
@@ -39,6 +33,12 @@ export const hero = {
       name: 'Lexi',
       subtitle: 'lexi.tips',
       outcome: 'Horse racing intelligence, predictions and daily tips',
+    },
+    {
+      name: 'AIMI',
+      subtitle: 'Program Music',
+      outcome:
+        'Music rights intelligence, royalty recovery and guided dispute workflows — private beta, invite only',
     },
   ],
 }
@@ -51,7 +51,7 @@ export const aiNativeStatement = {
 }
 
 /** Flagship platforms — Problem → Intelligence → Outcome on the home page */
-export const PLATFORM_DEEP_DIVE_IDS = ['aimi', 'tautsec', 'lexi'] as const
+export const PLATFORM_DEEP_DIVE_IDS = ['tautsec', 'lexi', 'aimi'] as const
 
 export const skillClusters = [
   {
@@ -118,7 +118,7 @@ export const projectDeepDives: ProjectDeepDive[] = [
       'AIMI combines guided creator workflows (identity, works intake, evidence-led disputes) with pattern detection and LLM-orchestrated catalogue matching on vector search — turning messy rights data into auditable intelligence, not just reports.',
     role: 'Founder & solutions architect — platform design from multi-tenant rights intelligence through creator-facing pilot delivery (Program Music / AIMI Platform).',
     architecture:
-      'Multi-tenant SaaS foundations on GCP (Terraform, BigQuery, LangChain, vector retrieval, human-in-the-loop audit) plus agent-first React surfaces and Firebase-backed functions for guided creator flows, dispute routing and conflict detection at aimi.app.',
+      'Multi-tenant SaaS foundations on GCP (Terraform, BigQuery, LangChain, vector retrieval, human-in-the-loop audit) plus agent-first React surfaces and Firebase-backed functions for guided creator flows, dispute routing and conflict detection.',
     technologies: [
       'React',
       'Node.js',
@@ -140,7 +140,7 @@ export const projectDeepDives: ProjectDeepDive[] = [
       'Human-in-the-loop review for compliance-grade audit outputs',
     ],
     outcome:
-      'Recover missing royalties and handle disputed records faster and safer — from catalogue-scale matching to creator-ready dispute routing. Pilot at aimi.app.',
+      'Recover missing royalties and handle disputed records faster and safer — from catalogue-scale matching to creator-ready dispute routing. Private beta, invite only.',
     earthbancRelevance:
       'Regulated-domain AI with audit trails, dispute evidence and multi-tenant isolation — applicable to financial and rights-heavy data products.',
   },

@@ -47,7 +47,7 @@ const diagrams: Record<string, ReactNode> = {
         Royalty recovery
       </text>
       <text x="318" y="104" textAnchor="middle" fill="#71717a" fontSize="8">
-        HITL audit · aimi.app
+        HITL audit · invite-only beta
       </text>
       <path
         d="M100 76 L118 70 M100 129 L118 130 M222 70 L248 90 M222 130 L248 105"

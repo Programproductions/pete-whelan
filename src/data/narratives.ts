@@ -58,7 +58,7 @@ export const nodeNarratives: Record<string, NodeNarrative> = {
       'Fragmented metadata, slow royalty auditing and ambiguous disputed records across creators and rights holders.',
     ledTo: ['music-rights', 'program-music', 'agentic-workflows', 'openai'],
     outcome:
-      'AIMI at aimi.app — recover royalties, route disputes safely, audit with human-in-the-loop where it matters.',
+      'AIMI — recover royalties, route disputes safely, audit with human-in-the-loop; private beta, invite only.',
     storyPath: ['pete-whelan', 'program-music', 'aimi-platform', 'aimi', 'music-rights', 'openai'],
   },
   lexi: {
