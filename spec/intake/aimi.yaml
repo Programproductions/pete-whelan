@@ -1,0 +1,59 @@
+version: "1.0"
+id: aimi
+displayName: AIMI
+featured: false
+hero:
+  name: AIMI
+  subtitle: AI-enabled creator royalties platform
+  outcome: Improved rights confidence through guided catalog and dispute workflows.
+card:
+  problem: Creator rights operations were manual, fragmented, and slow.
+  intelligence: Pattern-based catalog insights and conflict detection reduced ambiguity.
+  outcome: Faster, safer handling of disputed or ambiguous royalty records.
+delivery:
+  role: Platform and workflow design across creator identity and catalogue processes.
+  architecture: Agent-first routing with modular React data surfaces and backend function orchestration.
+  technologies:
+    - React
+    - Node.js
+    - Firebase
+  aiCapabilities:
+    - Dispute routing suggestions
+    - Pattern discovery
+  earthbancRelevance: >-
+    Structured dispute and catalog workflows with audit-friendly handoffs — applicable to
+    regulated data products and evidence-led review.
+engagement:
+  clientCompanyId: aimi-platform
+  website: https://aimi.app
+  phase: pilot
+graph:
+  summary: Creator-focused portfolio and disputes workflow with AI-assisted triage.
+  detail: >-
+    A modular platform where creators move through guided workflows for identity, works intake,
+    discrepancy detection, and evidence-led handoff.
+  keyPoints:
+    - Reduces manual catalog-risk work through guided flow design
+    - Improves rights confidence via structured catalog + dispute logic
+    - Supports scalable AI assistance for routing, detection, and escalation
+  tags:
+    - projects
+    - ai
+    - cloud
+narrative:
+  whyExists: Creators need guided rights workflows instead of fragmented manual catalog operations.
+  problemSolved: Manual, slow rights ops with high ambiguity on disputed royalty records.
+  outcome: Pilot platform at aimi.app with AI-assisted triage and dispute routing.
+  ledTo:
+    - music-rights
+    - agentic-workflows
+    - react
+  storyPath:
+    - pete-whelan
+    - program-productions
+    - aimi-platform
+    - aimi
+    - music-rights
+source:
+  fullBrief: |
+    Short example used for validation and smoke tests.

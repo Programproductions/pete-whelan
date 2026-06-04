@@ -25,10 +25,6 @@ export const hero = {
   platformsIntro: 'Current platforms include:',
   platforms: [
     {
-      name: 'AiMi',
-      outcome: 'Music rights intelligence and royalty recovery',
-    },
-    {
       name: 'TautSec Cyber Protect',
       subtitle: 'Tautsec',
       outcome: 'Posture management, Chubb cyber insurance and CyberPilot AI for Australian SMBs',
@@ -49,7 +45,7 @@ export const aiNativeStatement = {
 }
 
 /** Flagship platforms — Problem → Intelligence → Outcome on the home page */
-export const PLATFORM_DEEP_DIVE_IDS = ['aimi', 'tautsec', 'lexi'] as const
+export const PLATFORM_DEEP_DIVE_IDS = ['tautsec', 'lexi'] as const
 
 export const skillClusters = [
   {
@@ -110,37 +106,17 @@ export const skillClusters = [
 export const projectDeepDives: ProjectDeepDive[] = [
   {
     id: 'aimi',
-    problem:
-      'Labels and publishers lose revenue when catalogue and rights metadata are fragmented — royalty auditing is manual, slow and error-prone.',
+    problem: 'Creator rights operations were manual, fragmented, and slow.',
     intelligence:
-      'AiMi ingests catalogue and rights data, matches metadata with LLM orchestration and vector search, and surfaces auditable intelligence so teams recover missing royalties — not just report on them.',
-    role: 'Founder & solutions architect — platform design through production delivery.',
+      'Pattern-based catalog insights and conflict detection reduced ambiguity.',
+    role: 'Platform and workflow design across creator identity and catalogue processes.',
     architecture:
-      'Multi-tenant SaaS on GCP with Terraform-managed infrastructure, BigQuery analytics, vector retrieval and LangChain orchestration for catalogue ingestion, rights matching and audit workflows; human-in-the-loop review for compliance-grade outputs.',
-    technologies: [
-      'React',
-      'JavaScript',
-      'Node.js',
-      'OpenAI',
-      'GCP',
-      'Terraform',
-      'BigQuery',
-      'Vector database',
-      'LangChain',
-      'AI tooling',
-      'Firestore',
-      'Cloud Functions',
-    ],
-    aiNative: [
-      'LangChain orchestration pipelines',
-      'Vector search and retrieval',
-      'Structured evaluation of match quality',
-      'Human-in-the-loop review gates',
-    ],
-    outcome:
-      'Recover missing royalties. Turn catalogue chaos into auditable, scalable rights intelligence.',
+      'Agent-first routing with modular React data surfaces and backend function orchestration.',
+    technologies: ['React', 'Node.js', 'Firebase'],
+    aiNative: ['Dispute routing suggestions', 'Pattern discovery'],
+    outcome: 'Faster, safer handling of disputed or ambiguous royalty records.',
     earthbancRelevance:
-      'Regulated-domain AI with audit trails and multi-tenant isolation — directly applicable to financial product engineering.',
+      'Structured dispute and catalog workflows with audit-friendly handoffs — applicable to regulated data products and evidence-led review.',
   },
   {
     id: 'tautsec',

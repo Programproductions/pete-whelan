@@ -52,11 +52,11 @@ export const nodeNarratives: Record<string, NodeNarrative> = {
     ],
   },
   aimi: {
-    whyExists: 'Music catalogues and rights metadata are fragmented; royalty auditing does not scale manually.',
-    problemSolved: 'Rights teams drowning in catalogue complexity and inconsistent metadata.',
-    ledTo: ['music-rights', 'openai', 'program-music'],
-    outcome: 'Multi-tenant SaaS with LLM orchestration and human-in-the-loop audit workflows.',
-    storyPath: ['pete-whelan', 'program-music', 'aimi', 'music-rights', 'openai'],
+    whyExists: 'Creators need guided rights workflows instead of fragmented manual catalog operations.',
+    problemSolved: 'Manual, slow rights ops with high ambiguity on disputed royalty records.',
+    ledTo: ['music-rights', 'agentic-workflows', 'react'],
+    outcome: 'Pilot platform at aimi.app with AI-assisted triage and dispute routing.',
+    storyPath: ['pete-whelan', 'program-productions', 'aimi-platform', 'aimi', 'music-rights'],
   },
   lexi: {
     whyExists:
