@@ -588,7 +588,32 @@ function applyEngagementData(nodes: PortfolioNode[]): PortfolioNode[] {
 
 export const portfolioNodes: PortfolioNode[] = applyEngagementData(portfolioNodesRaw)
 
-export const portfolioEdges: PortfolioEdge[] = [
+const CAPABILITY_TYPES: PortfolioNode['type'][] = [
+  'skill',
+  'technology',
+  'domain',
+  'methodology',
+]
+
+function withPeteCapabilityLinks(
+  edges: PortfolioEdge[],
+  nodes: PortfolioNode[],
+): PortfolioEdge[] {
+  const hasPeteLink = new Set<string>()
+  for (const edge of edges) {
+    if (edge.source === 'pete-whelan') hasPeteLink.add(edge.target)
+    if (edge.target === 'pete-whelan') hasPeteLink.add(edge.source)
+  }
+  const extra: PortfolioEdge[] = []
+  for (const node of nodes) {
+    if (!CAPABILITY_TYPES.includes(node.type)) continue
+    if (hasPeteLink.has(node.id)) continue
+    extra.push({ source: 'pete-whelan', target: node.id, label: 'applies' })
+  }
+  return [...edges, ...extra]
+}
+
+export const portfolioEdgesCore: PortfolioEdge[] = [
   { source: 'pete-whelan', target: 'program-music', label: 'founded' },
   { source: 'pete-whelan', target: 'program-productions', label: 'leads' },
   { source: 'pete-whelan', target: 'web4', label: 'architects' },
@@ -659,6 +684,11 @@ export const portfolioEdges: PortfolioEdge[] = [
   { source: 'pete-whelan', target: 'music-industry', label: 'career' },
   { source: 'pete-whelan', target: 'healthcare-ai', label: 'career' },
 ]
+
+export const portfolioEdges: PortfolioEdge[] = withPeteCapabilityLinks(
+  portfolioEdgesCore,
+  portfolioNodes,
+)
 
 export const nodeById = new Map(portfolioNodes.map((n) => [n.id, n]))
 

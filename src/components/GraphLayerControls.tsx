@@ -4,7 +4,11 @@ import { usePortfolioStore } from '../store/usePortfolioStore'
 const layers: { id: GraphLayerId; label: string; hint: string }[] = [
   { id: 'organizations', label: 'Companies & clients', hint: 'Inner ring around Pete' },
   { id: 'projects', label: 'Projects', hint: 'Delivery work per organisation' },
-  { id: 'capabilities', label: 'Capabilities', hint: 'Skills, tech & domains' },
+  {
+    id: 'capabilities',
+    label: 'Capabilities',
+    hint: 'Below Pete — linked to Pete and to projects',
+  },
 ]
 
 export function GraphLayerControls() {
