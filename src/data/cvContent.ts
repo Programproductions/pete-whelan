@@ -12,8 +12,8 @@ export type ProjectDeepDive = {
 }
 
 export const site = {
-  pageTitle: 'Pete Whelan — AI Systems Architect',
-  brandLabel: 'Pete Whelan',
+  pageTitle: 'Pete Whelan: Portfolio',
+  brandLabel: 'Pete Whelan: Portfolio',
 }
 
 export const hero = {
@@ -245,6 +245,6 @@ export const projectDeepDives: ProjectDeepDive[] = [
 ]
 
 export const contact = {
-  email: 'hello@petewhelan.dev',
-  linkedin: 'https://www.linkedin.com/in/petewhelan',
+  email: 'petewhelan2020@gmail.com',
+  linkedin: 'https://www.linkedin.com/in/pawhelan/',
 }
