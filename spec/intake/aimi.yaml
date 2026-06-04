@@ -6,8 +6,10 @@ featured: true
 
 hero:
   name: AIMI
-  subtitle: aimi.app · music rights intelligence
-  outcome: Recover missing royalties and resolve disputed catalog records with guided, AI-assisted workflows.
+  subtitle: Program Music
+  outcome: >-
+    Music rights intelligence, royalty recovery and guided dispute workflows —
+    private beta, invite only.
 
 card:
   problem: >-
@@ -20,16 +22,16 @@ card:
     rights data into auditable intelligence, not just reports.
   outcome: >-
     Recover missing royalties and handle disputed records faster and safer — from catalogue-scale
-    matching to creator-ready dispute routing. Pilot at aimi.app.
+    matching to creator-ready dispute routing. Private beta, invite only.
 
 delivery:
   role: >-
     Founder & solutions architect — platform design from multi-tenant rights intelligence
-    through creator-facing pilot delivery (Program Music / AIMI Platform).
+    through creator-facing beta delivery (Program Music / AIMI Platform).
   architecture: >-
     Multi-tenant SaaS foundations on GCP (Terraform, BigQuery, LangChain, vector retrieval,
     human-in-the-loop audit) plus agent-first React surfaces and Firebase-backed functions for
-    guided creator flows, dispute routing and conflict detection at aimi.app.
+    guided creator flows, dispute routing and conflict detection.
   technologies:
     - React
     - Node.js
@@ -54,19 +56,19 @@ delivery:
 
 engagement:
   clientCompanyId: aimi-platform
-  website: https://aimi.app
-  phase: Pilot — catalogue intelligence and creator workflows
+  phase: Private beta — invite only
 
 graph:
-  summary: Music rights intelligence and creator dispute workflows — AI-assisted matching at aimi.app.
+  summary: Music rights intelligence and creator dispute workflows — AI-assisted matching.
   detail: >-
     Blends label/publisher-grade catalogue ingestion and royalty recovery with guided creator
-    flows for disputes — LLM orchestration, vector search and agent-first routing on GCP and Firebase.
+    flows for disputes — LLM orchestration, vector search and agent-first routing on GCP and
+    Firebase. Private beta, invite only.
   keyPoints:
     - Catalogue and rights matching with LLM + vector search
     - Guided creator identity, works intake and dispute handoff
     - Pattern detection and conflict reduction across catalogues
-    - GCP multi-tenant SaaS · Firebase pilot surfaces · aimi.app
+    - GCP multi-tenant SaaS · Firebase · invite-only beta
   tags:
     - projects
     - ai
@@ -80,8 +82,8 @@ narrative:
     Fragmented metadata, slow royalty auditing and ambiguous disputed records across creators
     and rights holders.
   outcome: >-
-    AIMI at aimi.app — recover royalties, route disputes safely, audit with human-in-the-loop
-    where it matters.
+    AIMI — recover royalties, route disputes safely, audit with human-in-the-loop; private beta,
+    invite only.
   ledTo:
     - music-rights
     - program-music
@@ -97,5 +99,6 @@ narrative:
 
 source:
   fullBrief: |
-    Blend of label/publisher royalty recovery platform (GCP, LangChain, vector, HITL) and
-    aimi.app creator pilot (guided workflows, disputes, Firebase, pattern AI).
+    Blend of label/publisher royalty recovery (GCP, LangChain, vector, HITL) and creator
+    workflows (disputes, Firebase, pattern AI). Not publicly launched — invite-only beta only.
+    Do not describe as generally available at a public URL.

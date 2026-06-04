@@ -139,23 +139,23 @@ const portfolioNodesRaw: PortfolioNode[] = [
     id: 'aimi-platform',
     label: 'AIMI Platform',
     type: 'company',
-    summary: 'Client — aimi.app pilot (creator workflows and rights intelligence).',
+    summary: 'Client — AIMI platform (creator workflows and rights intelligence).',
     detail:
-      'Organisation behind the aimi.app pilot — guided creator disputes plus catalogue-scale rights intelligence delivered with Program Music and Program Productions.',
+      'Organisation behind AIMI — guided creator disputes plus catalogue-scale rights intelligence; private beta with Program Music and Program Productions.',
     tags: ['companies', 'projects', 'ai'],
   },
   {
     id: 'aimi',
     label: 'AIMI',
     type: 'project',
-    summary: 'Music rights intelligence and creator dispute workflows — aimi.app.',
+    summary: 'Music rights intelligence and creator dispute workflows.',
     detail:
-      'Blends label/publisher-grade catalogue ingestion and royalty recovery with guided creator flows for disputes — LLM orchestration, vector search and agent-first routing on GCP and Firebase.',
+      'Blends label/publisher-grade catalogue ingestion and royalty recovery with guided creator flows for disputes — LLM orchestration, vector search and agent-first routing on GCP and Firebase. Private beta, invite only.',
     keyPoints: [
       'Catalogue and rights matching with LLM + vector search',
       'Guided creator identity, works intake and dispute handoff',
       'Pattern detection and conflict reduction across catalogues',
-      'GCP multi-tenant SaaS · Firebase pilot · aimi.app',
+      'GCP multi-tenant SaaS · Firebase · invite-only beta',
     ],
     tags: ['projects', 'ai', 'cloud'],
     featured: true,

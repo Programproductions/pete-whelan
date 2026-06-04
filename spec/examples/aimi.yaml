@@ -1,58 +1,20 @@
-# Canonical AIMI intake lives at spec/intake/aimi.yaml (blend: rights intelligence + aimi.app pilot).
-# This file is a shortened reference — copy intake/aimi.yaml for full field set.
+# Canonical AIMI intake: spec/intake/aimi.yaml
 
 version: "1.0"
 id: aimi
 displayName: AIMI
-productName: AIMI
 featured: true
 
 hero:
   name: AIMI
-  subtitle: aimi.app · music rights intelligence
-  outcome: Recover missing royalties and resolve disputed catalog records with guided, AI-assisted workflows.
+  subtitle: Program Music
+  outcome: Music rights intelligence and dispute workflows — private beta, invite only.
 
 card:
-  problem: >-
-    Creators, labels and publishers lose time and revenue when catalogue and rights data are
-    fragmented — manual auditing, slow dispute handling and inconsistent metadata leave money
-    on the table.
-  intelligence: >-
-    AIMI combines guided creator workflows with LLM-orchestrated catalogue matching on vector
-    search — auditable intelligence, not just reports.
-  outcome: >-
-    Recover missing royalties and handle disputed records faster and safer. Pilot at aimi.app.
-
-delivery:
-  role: Founder & solutions architect — rights intelligence and creator pilot at aimi.app.
-  architecture: GCP multi-tenant SaaS plus Firebase-backed creator flows and dispute routing.
-  technologies:
-    - React
-    - Node.js
-    - Firebase
-    - GCP
-    - LangChain
-    - Vector search
-    - BigQuery
-    - Terraform
-  aiCapabilities:
-    - Vector-backed catalogue matching
-    - Pattern discovery and dispute routing
-    - Human-in-the-loop audit outputs
+  problem: Fragmented catalogue and rights data costs creators and rights holders time and revenue.
+  intelligence: Guided creator workflows plus LLM/vector catalogue matching — auditable intelligence.
+  outcome: Recover royalties and resolve disputes faster. Private beta, invite only.
 
 engagement:
   clientCompanyId: aimi-platform
-  website: https://aimi.app
-  phase: Pilot
-
-graph:
-  summary: Music rights intelligence and creator dispute workflows — aimi.app.
-  detail: Catalogue recovery plus guided creator disputes on GCP and Firebase.
-  keyPoints:
-    - LLM + vector catalogue matching
-    - Creator dispute workflows
-    - aimi.app pilot
-  tags:
-    - projects
-    - ai
-    - cloud
+  phase: Private beta — invite only
