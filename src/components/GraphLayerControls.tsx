@@ -6,8 +6,8 @@ const layers: { id: GraphLayerId; label: string; hint: string }[] = [
   { id: 'projects', label: 'Projects', hint: 'Delivery work per organisation' },
   {
     id: 'capabilities',
-    label: 'Capabilities',
-    hint: 'Below Pete — linked to Pete and to projects',
+    label: 'Skills & domains',
+    hint: 'Skills, tech, domains & methods — below Pete, linked to projects',
   },
 ]
 
