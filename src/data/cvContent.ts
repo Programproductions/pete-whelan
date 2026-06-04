@@ -32,7 +32,7 @@ export const hero = {
   title: 'AI Systems Architect | Founder | Intelligence Platforms',
   tagline:
     'I architect AI-powered intelligence platforms — as founder or lead architect within delivery teams that ship production-grade products.',
-  proofLine: 'Cross-domain intelligence architect — music, cyber, analytics & more',
+  proofLine: 'Built from a spec. Structured as a graph. Designed for AI-native engineering.',
   platformsIntro: 'Current platforms include:',
   platforms: [
     {
