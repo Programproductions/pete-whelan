@@ -42,33 +42,75 @@ const diagrams: Record<string, ReactNode> = {
     </svg>
   ),
   tautsec: (
-    <svg viewBox="0 0 400 200" className="h-auto w-full" aria-label="Tautsec architecture">
-      <rect width="400" height="200" fill="#0c0d10" rx="8" />
-      <rect x="30" y="75" width="80" height="45" rx="6" fill="#181b22" stroke="#22d3ee" strokeOpacity="0.4" />
-      <text x="70" y="102" textAnchor="middle" fill="#a1a1aa" fontSize="10">
-        Identity
+    <svg viewBox="0 0 400 220" className="h-auto w-full" aria-label="Tautsec architecture">
+      <defs>
+        <linearGradient id="tautsec-flow" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stopColor="#22d3ee" stopOpacity="0.45" />
+          <stop offset="100%" stopColor="#34d399" stopOpacity="0.45" />
+        </linearGradient>
+      </defs>
+      <rect width="400" height="220" fill="#0c0d10" rx="8" />
+      <text x="200" y="22" textAnchor="middle" fill="#71717a" fontSize="9">
+        Cyber insurance &amp; protection for Australian SMBs
       </text>
-      <rect x="140" y="35" width="110" height="45" rx="6" fill="#181b22" stroke="#34d399" strokeOpacity="0.5" />
-      <text x="195" y="62" textAnchor="middle" fill="#6ee7b7" fontSize="10">
+      <rect x="16" y="42" width="72" height="44" rx="6" fill="#181b22" stroke="#22d3ee" strokeOpacity="0.45" />
+      <text x="52" y="62" textAnchor="middle" fill="#a1a1aa" fontSize="9">
+        SMB /
+      </text>
+      <text x="52" y="76" textAnchor="middle" fill="#67e8f9" fontSize="9">
+        Partner
+      </text>
+      <rect x="100" y="42" width="78" height="44" rx="6" fill="#181b22" stroke="#34d399" strokeOpacity="0.55" />
+      <text x="139" y="62" textAnchor="middle" fill="#6ee7b7" fontSize="9">
         Cyber Pilot
       </text>
-      <rect x="140" y="115" width="110" height="45" rx="6" fill="#181b22" stroke="#a78bfa" strokeOpacity="0.4" />
-      <text x="195" y="142" textAnchor="middle" fill="#a1a1aa" fontSize="10">
-        AI Assessment
+      <text x="139" y="76" textAnchor="middle" fill="#71717a" fontSize="8">
+        Assessment
       </text>
-      <rect x="280" y="75" width="90" height="45" rx="6" fill="#181b22" stroke="#22d3ee" strokeOpacity="0.4" />
-      <text x="325" y="95" textAnchor="middle" fill="#a1a1aa" fontSize="10">
-        GCP
+      <rect x="190" y="42" width="78" height="44" rx="6" fill="#181b22" stroke="#a78bfa" strokeOpacity="0.5" />
+      <text x="229" y="62" textAnchor="middle" fill="#c4b5fd" fontSize="9">
+        AI risk
       </text>
-      <text x="325" y="110" textAnchor="middle" fill="#71717a" fontSize="9">
-        Terraform
+      <text x="229" y="76" textAnchor="middle" fill="#71717a" fontSize="8">
+        &amp; evidence
+      </text>
+      <rect x="280" y="42" width="52" height="44" rx="6" fill="#181b22" stroke="#22d3ee" strokeOpacity="0.4" />
+      <text x="306" y="62" textAnchor="middle" fill="#a1a1aa" fontSize="9">
+        Risk
+      </text>
+      <text x="306" y="76" textAnchor="middle" fill="#71717a" fontSize="8">
+        score
+      </text>
+      <rect x="344" y="42" width="40" height="44" rx="6" fill="#181b22" stroke="#34d399" strokeOpacity="0.4" />
+      <text x="364" y="62" textAnchor="middle" fill="#a1a1aa" fontSize="8">
+        Insur-
+      </text>
+      <text x="364" y="74" textAnchor="middle" fill="#a1a1aa" fontSize="8">
+        ance
       </text>
       <path
-        d="M110 97 L140 57 M110 97 L140 137 M250 57 L280 97 M250 137 L280 97"
-        stroke="#3f3f46"
+        d="M88 64 H100 M178 64 H190 M268 64 H280 M332 64 H344"
+        stroke="url(#tautsec-flow)"
         strokeWidth="1.5"
         fill="none"
       />
+      <rect x="24" y="108" width="352" height="48" rx="6" fill="#12151a" stroke="#3f3f46" strokeOpacity="0.8" />
+      <text x="200" y="126" textAnchor="middle" fill="#71717a" fontSize="8">
+        GCP platform (Terraform)
+      </text>
+      <text x="200" y="142" textAnchor="middle" fill="#a1a1aa" fontSize="9">
+        Identity Platform · MongoDB · BigQuery · LangChain / vector AI
+      </text>
+      <path
+        d="M139 86 V108 M229 86 V108 M306 86 V108"
+        stroke="#3f3f46"
+        strokeWidth="1"
+        strokeDasharray="3 2"
+        fill="none"
+      />
+      <text x="200" y="178" textAnchor="middle" fill="#52525b" fontSize="8">
+        Assess → improve posture → insurance-ready outcomes
+      </text>
     </svg>
   ),
   lexi: (
