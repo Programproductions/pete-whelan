@@ -14,30 +14,43 @@ const diagrams: Record<string, ReactNode> = {
         </linearGradient>
       </defs>
       <rect width="400" height="200" fill="#0c0d10" rx="8" />
-      <rect x="20" y="70" width="90" height="50" rx="6" fill="#181b22" stroke="#22d3ee" strokeOpacity="0.4" />
-      <text x="65" y="95" textAnchor="middle" fill="#a1a1aa" fontSize="10">
-        Identity &
+      <rect x="12" y="55" width="88" height="42" rx="6" fill="#181b22" stroke="#22d3ee" strokeOpacity="0.4" />
+      <text x="56" y="72" textAnchor="middle" fill="#a1a1aa" fontSize="9">
+        Catalogue &
       </text>
-      <text x="65" y="108" textAnchor="middle" fill="#a1a1aa" fontSize="10">
-        Works intake
+      <text x="56" y="84" textAnchor="middle" fill="#a1a1aa" fontSize="9">
+        rights data
       </text>
-      <rect x="130" y="55" width="100" height="50" rx="6" fill="#181b22" stroke="#22d3ee" strokeOpacity="0.5" />
-      <text x="180" y="85" textAnchor="middle" fill="#67e8f9" fontSize="10">
-        Pattern AI
+      <rect x="12" y="108" width="88" height="42" rx="6" fill="#181b22" stroke="#a78bfa" strokeOpacity="0.4" />
+      <text x="56" y="125" textAnchor="middle" fill="#a1a1aa" fontSize="9">
+        Creator works
       </text>
-      <rect x="130" y="115" width="100" height="40" rx="6" fill="#181b22" stroke="#a78bfa" strokeOpacity="0.4" />
-      <text x="180" y="140" textAnchor="middle" fill="#a1a1aa" fontSize="10">
-        Dispute routing
+      <text x="56" y="137" textAnchor="middle" fill="#a1a1aa" fontSize="9">
+        & disputes
       </text>
-      <rect x="260" y="70" width="120" height="50" rx="6" fill="#181b22" stroke="#34d399" strokeOpacity="0.4" />
-      <text x="320" y="95" textAnchor="middle" fill="#a1a1aa" fontSize="10">
-        Evidence-led
+      <rect x="118" y="48" width="104" height="44" rx="6" fill="#181b22" stroke="#22d3ee" strokeOpacity="0.5" />
+      <text x="170" y="68" textAnchor="middle" fill="#67e8f9" fontSize="9">
+        LLM + vector
       </text>
-      <text x="320" y="108" textAnchor="middle" fill="#71717a" fontSize="9">
-        handoff
+      <text x="170" y="80" textAnchor="middle" fill="#71717a" fontSize="8">
+        matching
+      </text>
+      <rect x="118" y="108" width="104" height="44" rx="6" fill="#181b22" stroke="#a78bfa" strokeOpacity="0.45" />
+      <text x="170" y="128" textAnchor="middle" fill="#a1a1aa" fontSize="9">
+        Pattern AI &
+      </text>
+      <text x="170" y="140" textAnchor="middle" fill="#a1a1aa" fontSize="9">
+        dispute routing
+      </text>
+      <rect x="248" y="70" width="140" height="50" rx="6" fill="#181b22" stroke="#34d399" strokeOpacity="0.4" />
+      <text x="318" y="92" textAnchor="middle" fill="#a1a1aa" fontSize="9">
+        Royalty recovery
+      </text>
+      <text x="318" y="104" textAnchor="middle" fill="#71717a" fontSize="8">
+        HITL audit · aimi.app
       </text>
       <path
-        d="M110 95 L130 80 M110 95 L130 135 M230 80 L260 95 M230 135 L260 95"
+        d="M100 76 L118 70 M100 129 L118 130 M222 70 L248 90 M222 130 L248 105"
         stroke="url(#aimi-g)"
         strokeWidth="1.5"
         fill="none"

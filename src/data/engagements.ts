@@ -38,7 +38,7 @@ export const projectEngagements: Record<string, ProjectEngagement> = {
   aimi: {
     clientCompanyId: 'aimi-platform',
     website: 'https://aimi.app',
-    phase: 'Pilot',
+    phase: 'Pilot — catalogue intelligence and creator workflows',
   },
   tautsec: {
     clientCompanyId: 'tautsec-pty',
