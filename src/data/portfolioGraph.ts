@@ -136,15 +136,6 @@ const portfolioNodesRaw: PortfolioNode[] = [
     tags: ['companies', 'ai', 'projects'],
   },
   {
-    id: 'contract-engagements',
-    label: 'Contract Engagements',
-    type: 'company',
-    summary: 'Architecture and delivery across domains.',
-    detail:
-      'Select contract architecture work spanning voice AI and cloud platform modernisation.',
-    tags: ['companies'],
-  },
-  {
     id: 'aimi',
     label: 'AiMi',
     type: 'project',
@@ -470,6 +461,15 @@ const portfolioNodesRaw: PortfolioNode[] = [
     tags: ['ai', 'skills'],
   },
   {
+    id: 'alexa-apps',
+    label: 'Alexa Skills',
+    type: 'skill',
+    summary: 'Alexa voice platform — intents, certification and production UX.',
+    detail:
+      'Capability across Florence AI, BigRedRonnie, My Paralegal and other certified Alexa voice applications — intent design, certification and conversational UX.',
+    tags: ['ai', 'skills'],
+  },
+  {
     id: 'context-engineering',
     label: 'Context Engineering',
     type: 'skill',
@@ -548,14 +548,6 @@ const portfolioNodesRaw: PortfolioNode[] = [
     summary: 'IaC, promotion and operational safety.',
     detail: 'Terraform automation with governance layers for growing engineering teams.',
     tags: ['cloud', 'internal-tools'],
-  },
-  {
-    id: 'alexa-apps',
-    label: 'Alexa Apps',
-    type: 'project',
-    summary: 'Production voice applications on Alexa.',
-    detail: 'Early voice-AI product delivery — intents, certification and conversational UX.',
-    tags: ['projects', 'ai'],
   },
 ]
 
@@ -665,8 +657,10 @@ export const portfolioEdgesCore: PortfolioEdge[] = [
   { source: 'tautsec', target: 'insurance', label: 'domain' },
   { source: 'lexi', target: 'horse-racing-analytics', label: 'domain' },
   { source: 'lexi', target: 'nodejs', label: 'stack' },
-  { source: 'pete-whelan', target: 'alexa-apps', label: 'built' },
   { source: 'pete-whelan', target: 'my-paralegal', label: 'built' },
+  { source: 'florence-ai', target: 'alexa-apps', label: 'platform' },
+  { source: 'big-red-ronnie', target: 'alexa-apps', label: 'platform' },
+  { source: 'my-paralegal', target: 'alexa-apps', label: 'platform' },
   { source: 'voice-ai-pioneer', target: 'alexa-apps', label: 'includes' },
   { source: 'voice-ai-pioneer', target: 'prompt-engineering', label: 'evolved to' },
   { source: 'ai-native-engineering', target: 'context-engineering', label: 'includes' },

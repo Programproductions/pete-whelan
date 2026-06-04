@@ -48,7 +48,7 @@ export function InteractiveGraphSection({ onOpenGraph }: InteractiveGraphSection
             </svg>
           </div>
           <span className="font-mono text-xs uppercase tracking-wider text-cyan-400/80">
-            3D graph · 53 nodes · 69 connections
+            3D graph · 52 nodes · 72 connections
           </span>
           <span className="mt-2 block text-xl font-semibold text-zinc-100 group-hover:text-cyan-100">
             Open career graph

@@ -30,7 +30,6 @@ export const companyEngagements: Record<string, CompanyEngagement> = {
   'tautsec-pty': { companyRole: 'client' },
   upwork: { companyRole: 'client' },
   'alltasks-it': { companyRole: 'client' },
-  'contract-engagements': { companyRole: 'client' },
 }
 
 /** Review and fill optional dates / contract length as you confirm them */
@@ -54,5 +53,4 @@ export const projectEngagements: Record<string, ProjectEngagement> = {
   'sage-chatbot': { clientCompanyId: 'program-productions' },
   'my-paralegal': { clientCompanyId: 'upwork' },
   'big-red-ronnie': { clientCompanyId: 'alltasks-it' },
-  'alexa-apps': { clientCompanyId: 'contract-engagements' },
 }
