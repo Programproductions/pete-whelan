@@ -34,10 +34,12 @@ export const nodeNarratives: Record<string, NodeNarrative> = {
   },
   tautsec: {
     whyExists:
-      'Organisations needed faster, evidence-based cyber assessment aligned with insurance and risk workflows.',
-    problemSolved: 'Manual cyber assessments were slow, inconsistent and hard to scale across clients.',
+      'Australian SMBs needed one path from ongoing posture to insurance-ready outcomes across direct, broker and MSP channels.',
+    problemSolved:
+      'Fragmented scans, manual Essential Eight work and insurance applications disconnected from live compliance evidence.',
     ledTo: ['cyber-security', 'insurance', 'identity-platform', 'agentic-workflows'],
-    outcome: 'Production cyber platform with Cyber Pilot and AI-assisted assessment on GCP.',
+    outcome:
+      'TautSec Cyber Protect — Chubb cover, compliance dashboard and CyberPilot AI on GCP (tautsec.com.au).',
     storyPath: [
       'pete-whelan',
       'program-productions',
