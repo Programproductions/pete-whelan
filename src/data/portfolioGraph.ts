@@ -673,7 +673,6 @@ export const portfolioEdgesCore: PortfolioEdge[] = [
   { source: 'aimi', target: 'javascript', label: 'stack' },
   { source: 'aimi', target: 'firestore', label: 'data' },
   { source: 'tautsec', target: 'agentic-workflows', label: 'AI workflows' },
-  { source: 'lexi', target: 'mongodb-atlas', label: 'data' },
   { source: 'pete-whelan', target: 'music-industry', label: 'career' },
   { source: 'pete-whelan', target: 'healthcare-ai', label: 'career' },
 ]

@@ -59,7 +59,7 @@ export const nodeNarratives: Record<string, NodeNarrative> = {
   lexi: {
     whyExists: 'Racing intelligence requires real-time fusion of market data and predictive signals.',
     problemSolved: 'Fragmented data sources and slow decision support for time-sensitive markets.',
-    ledTo: ['horse-racing-analytics', 'nodejs', 'mongodb-atlas'],
+    ledTo: ['horse-racing-analytics', 'nodejs', 'openai'],
     outcome: 'Event-driven analytics platform with Betfair integration and predictive surfaces.',
     storyPath: ['pete-whelan', 'program-productions', 'web4', 'lexi', 'horse-racing-analytics'],
   },
