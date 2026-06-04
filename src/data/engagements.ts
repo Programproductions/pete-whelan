@@ -77,10 +77,11 @@ export const projectEngagements: Record<string, ProjectEngagement> = {
   },
   'paradise-engineering': {
     clientCompanyId: 'program-productions',
-    contractLength: 'Contract',
-    startDate: '2023',
-    endDate: 'ongoing',
+    startDate: 'Developed 2026',
   },
-  'flight-deck': { clientCompanyId: 'program-productions' },
+  'flight-deck': {
+    clientCompanyId: 'program-productions',
+    startDate: 'Developed 2026',
+  },
   'sage-chatbot': { clientCompanyId: 'program-productions' },
 }
