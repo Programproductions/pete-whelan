@@ -118,6 +118,7 @@ function PlatformCard({
 
 function SupportingCard({ project, index }: { project: ProjectDeepDive; index: number }) {
   const node = nodeById.get(project.id)
+  const statusLine = node ? formatContractEngagement(node) : null
   return (
     <motion.article
       key={project.id}
@@ -128,6 +129,16 @@ function SupportingCard({ project, index }: { project: ProjectDeepDive; index: n
       className="rounded-xl border border-zinc-800 bg-zinc-900/30 p-6"
     >
       <h3 className="text-lg font-semibold text-zinc-200">{node?.label ?? project.id}</h3>
+      {statusLine && (
+        <p className="mt-1 font-mono text-xs tracking-wide text-zinc-500">{statusLine}</p>
+      )}
+      {node?.phase && (
+        <p className="mt-1 text-xs font-medium text-violet-400/90">{node.phase}</p>
+      )}
+      {node?.summary && (
+        <p className="mt-2 text-sm text-zinc-400">{node.summary}</p>
+      )}
+      <p className="mt-2 text-xs font-medium text-zinc-500">{project.delivery.label}</p>
       <p className="mt-2 text-sm text-zinc-500">{project.problem}</p>
       <p className="mt-3 text-sm text-zinc-400">{project.outcome}</p>
     </motion.article>
