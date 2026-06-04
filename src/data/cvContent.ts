@@ -247,12 +247,12 @@ export const projectDeepDives: ProjectDeepDive[] = [
     intelligence:
       'Paradise Engineering — spec-first delivery with agents as structured partners across planning, implementation, review and promotion.',
     delivery: {
-      label: 'Internal practice · Program Productions',
+      label: 'Creator · Program Productions',
       summary:
-        'AI-native delivery methodology created and applied across client platforms, AIMI and this portfolio.',
+        'AI-native delivery methodology — applied across client platforms, AIMI and this portfolio.',
       organizations: ['Program Productions Pty Ltd'],
     },
-    role: 'Creator of methodology and internal practice — shaping how specs, agents and review connect.',
+    role: 'Creator — methodology and internal practice; specs, agents and review connect.',
     architecture:
       'Spec-first workflow: discovery → agent planning → implementation → evaluation → promotion, with Claude/Codex as structured partners.',
     technologies: ['Claude Code', 'Codex', 'Git', 'CI/CD', 'Spec documents'],
@@ -273,11 +273,12 @@ export const projectDeepDives: ProjectDeepDive[] = [
     intelligence:
       'Flight Deck — release governance so technical and non-technical stakeholders can approve, test and promote from dev through production safely.',
     delivery: {
-      label: 'Internal platform · Program Productions',
-      summary: 'Built for Program Productions delivery teams — architecture and tooling to govern promotions.',
+      label: 'Creator · Program Productions',
+      summary:
+        'Release governance platform for Program Productions — Terraform promotion workflows with stakeholder visibility.',
       organizations: ['Program Productions Pty Ltd'],
     },
-    role: 'Architect of internal platform and governance workflows.',
+    role: 'Creator and architect — internal platform and governance workflows.',
     architecture:
       'Release governance layer over Terraform-managed apps — approval, test and promotion from dev → staging → production with stakeholder visibility.',
     technologies: ['Terraform', 'GCP', 'CI/CD', 'Internal web tooling', 'IAM'],
@@ -328,10 +329,19 @@ export const resumeExperience: ResumeRole[] = [
   {
     id: 'paradise-engineering',
     headline: 'Creator — Paradise Engineering',
-    context: 'Contract · 2023 – ongoing · Program Productions Pty Ltd',
+    context: 'Developed 2026 · Program Productions Pty Ltd',
     bullets: [
       'Spec-first AI-native delivery methodology — Claude, Codex and Cursor as structured partners across planning, build and review.',
       'Applied across AIMI, client platforms and this portfolio as live proof-of-work.',
+    ],
+  },
+  {
+    id: 'flight-deck',
+    headline: 'Creator — Flight Deck',
+    context: 'Developed 2026 · Program Productions Pty Ltd',
+    bullets: [
+      'Terraform release governance — approval, test and promotion from dev through production with stakeholder visibility.',
+      'Built for Program Productions delivery teams shipping regulated cloud products.',
     ],
   },
 ]

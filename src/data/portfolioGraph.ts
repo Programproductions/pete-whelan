@@ -711,12 +711,12 @@ export function formatEngagementPeriod(node: PortfolioNode): string | null {
   return node.startDate ?? node.endDate ?? null
 }
 
-/** e.g. "Contract · Jan 2026 – ongoing" */
+/** e.g. "Contract · Jan 2026 – ongoing" or "Developed 2026" when not a contract engagement */
 export function formatContractEngagement(node: PortfolioNode): string | null {
   const period = formatEngagementPeriod(node)
   if (!period) return null
-  const kind = node.contractLength ?? 'Contract'
-  return `${kind} · ${period}`
+  if (!node.contractLength) return period
+  return `${node.contractLength} · ${period}`
 }
 
 /** Subtitle under project nodes in the graph */
