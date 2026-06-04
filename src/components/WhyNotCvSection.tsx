@@ -4,7 +4,7 @@ const paragraphs = [
   'Most CVs list roles and tools in sequence. That works for screening, but it rarely shows how experience connects across domains.',
   'I wanted a clearer picture: how music technology, voice AI, cloud platforms and agent-driven delivery relate to each other — and to the work I do today.',
   'So this site models my career as a graph: projects, organisations, technologies and outcomes linked by real relationships.',
-  'It was built the same way I build products — with a written spec, structured data, and AI-native tooling in the loop (not as a one-shot demo).',
+  'It was built the same way I build products — with a written spec, structured data, and AI-native tooling in the loop.',
   'If you prefer a conventional format, the PDF download is there. This page is mainly for people who want to see how the pieces fit together.',
 ]
 
