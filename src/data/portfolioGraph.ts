@@ -616,7 +616,7 @@ export const portfolioEdgesCore: PortfolioEdge[] = [
   { source: 'program-productions', target: 'tautsec', label: 'delivered' },
   { source: 'program-productions', target: 'lexi', label: 'delivered' },
   { source: 'program-productions', target: 'flight-deck', label: 'delivered' },
-  { source: 'program-music', target: 'paradise-engineering', label: 'built' },
+  { source: 'program-productions', target: 'paradise-engineering', label: 'delivered' },
   { source: 'tautsec-pty', target: 'tautsec', label: 'client for' },
   { source: 'web4', target: 'tautsec', label: 'engagement' },
   { source: 'web4', target: 'tautsec-pty', label: 'partner' },
