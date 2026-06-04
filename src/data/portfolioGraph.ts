@@ -284,7 +284,7 @@ const portfolioNodesRaw: PortfolioNode[] = [
     type: 'domain',
     summary: 'Product engineering at the intersection of music and software.',
     detail: 'From music industry operations to production-grade music technology platforms.',
-    tags: ['domains', 'projects'],
+    tags: ['domains'],
   },
   {
     id: 'healthcare-ai',
@@ -507,7 +507,7 @@ const portfolioNodesRaw: PortfolioNode[] = [
     type: 'domain',
     summary: 'Security product and assessment domains.',
     detail: 'Tautsec and cyber insurance workflow expertise.',
-    tags: ['domains', 'projects'],
+    tags: ['domains'],
   },
   {
     id: 'insurance',
@@ -523,7 +523,7 @@ const portfolioNodesRaw: PortfolioNode[] = [
     type: 'domain',
     summary: 'Royalties, metadata and catalogue intelligence.',
     detail: 'Core domain for AiMi — rights matching and audit at scale.',
-    tags: ['domains', 'projects'],
+    tags: ['domains'],
   },
   {
     id: 'horse-racing-analytics',
@@ -531,7 +531,7 @@ const portfolioNodesRaw: PortfolioNode[] = [
     type: 'domain',
     summary: 'Predictive intelligence for racing markets.',
     detail: 'Lexi domain — analytics, Betfair data and event-driven pipelines.',
-    tags: ['domains', 'projects'],
+    tags: ['domains'],
   },
   {
     id: 'internal-tooling',
