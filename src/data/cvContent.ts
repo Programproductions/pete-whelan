@@ -122,10 +122,10 @@ export const projectDeepDives: ProjectDeepDive[] = [
   {
     id: 'tautsec',
     problem:
-      'Organisations need faster, evidence-based cyber assessment and insurance-aligned risk workflows.',
+      'Australian SMBs need a clear path from cyber assessment to improved posture and insurance-ready outcomes — not disconnected scans and paperwork.',
     role: 'Lead architect for GCP platform, identity and Terraform foundations.',
     architecture:
-      'GCP-native product with Identity Platform, Terraform-managed environments, BigQuery and vector-backed AI workflows, LangChain orchestration and MongoDB for operational data — plus AI-assisted assessment (Cyber Pilot).',
+      'Tautsec Cyber Protect: partners and SMEs run Cyber Pilot assessments, AI-assisted risk and evidence capture, quantified risk scoring, then insurance-aligned workflows — on GCP with Identity Platform, Terraform, MongoDB, BigQuery and LangChain/vector tooling.',
     technologies: [
       'GCP',
       'Terraform',
