@@ -38,7 +38,7 @@ type Graph2DViewProps = {
 export function Graph2DView({ className = '' }: Graph2DViewProps) {
   const { selectNodeWithPath, setHoveredNodeId, hoveredNodeId, graphLayers } =
     usePortfolioStore()
-  const { filtered, positionMap, edges, nodeState } = useGraphDisplay()
+  const { filtered, positionMap, edges, nodeState, visibleIds } = useGraphDisplay()
   const domainsLayer = graphLayers.domains
   const skillsLayer = graphLayers.skills
 
@@ -119,6 +119,7 @@ export function Graph2DView({ className = '' }: Graph2DViewProps) {
         <rect width={VB.width} height={VB.height} fill="#050608" />
         <g>
           {edges.map((e) => {
+            if (!visibleIds.has(e.source) || !visibleIds.has(e.target)) return null
             const a = coords.get(e.source)
             const b = coords.get(e.target)
             if (!a || !b) return null

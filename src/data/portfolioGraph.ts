@@ -657,7 +657,6 @@ export const portfolioEdgesCore: PortfolioEdge[] = [
   { source: 'tautsec', target: 'insurance', label: 'domain' },
   { source: 'lexi', target: 'horse-racing-analytics', label: 'domain' },
   { source: 'lexi', target: 'nodejs', label: 'stack' },
-  { source: 'pete-whelan', target: 'my-paralegal', label: 'built' },
   { source: 'florence-ai', target: 'alexa-apps', label: 'platform' },
   { source: 'big-red-ronnie', target: 'alexa-apps', label: 'platform' },
   { source: 'my-paralegal', target: 'alexa-apps', label: 'platform' },
