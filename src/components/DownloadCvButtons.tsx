@@ -29,7 +29,7 @@ export function DownloadCvButtons({ className = '' }: DownloadCvButtonsProps) {
       disabled={generating}
       className={`${buttonClass} ${className}`.trim()}
     >
-      {generating ? 'Generating…' : 'Generate PDF'}
+      {generating ? 'Generating…' : 'Download résumé (PDF)'}
     </button>
   )
 }
