@@ -76,7 +76,7 @@ export const projectEngagements: Record<string, ProjectEngagement> = {
     endDate: '2023',
   },
   'paradise-engineering': {
-    clientCompanyId: 'program-music',
+    clientCompanyId: 'program-productions',
     contractLength: 'Contract',
     startDate: '2023',
     endDate: 'ongoing',

@@ -247,10 +247,10 @@ export const projectDeepDives: ProjectDeepDive[] = [
     intelligence:
       'Paradise Engineering — spec-first delivery with agents as structured partners across planning, implementation, review and promotion.',
     delivery: {
-      label: 'Founder · internal practice',
+      label: 'Internal practice · Program Productions',
       summary:
-        'AI-native delivery methodology created at Program Music — applied across AIMI, client platforms and this portfolio.',
-      organizations: ['Program Music Ltd'],
+        'AI-native delivery methodology created and applied across client platforms, AIMI and this portfolio.',
+      organizations: ['Program Productions Pty Ltd'],
     },
     role: 'Creator of methodology and internal practice — shaping how specs, agents and review connect.',
     architecture:
@@ -328,7 +328,7 @@ export const resumeExperience: ResumeRole[] = [
   {
     id: 'paradise-engineering',
     headline: 'Creator — Paradise Engineering',
-    context: 'Contract · 2023 – ongoing · Program Music Ltd',
+    context: 'Contract · 2023 – ongoing · Program Productions Pty Ltd',
     bullets: [
       'Spec-first AI-native delivery methodology — Claude, Codex and Cursor as structured partners across planning, build and review.',
       'Applied across AIMI, client platforms and this portfolio as live proof-of-work.',
