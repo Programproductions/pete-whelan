@@ -1,8 +1,19 @@
+/** How Pete's involvement and the delivery team are framed on the platform card */
+export type DeliveryContext = {
+  /** e.g. "Lead platform architect · team delivery" */
+  label: string
+  /** Visible on the card — clarifies team vs solo */
+  summary: string
+  organizations?: string[]
+}
+
 export type ProjectDeepDive = {
   id: string
   problem: string
   /** How the platform turns data into intelligence (shown as primary narrative) */
   intelligence: string
+  delivery: DeliveryContext
+  /** Technical scope — shown in collapsible details */
   role: string
   architecture: string
   technologies: string[]
@@ -20,7 +31,7 @@ export const hero = {
   name: 'Pete Whelan',
   title: 'AI Systems Architect | Founder | Intelligence Platforms',
   tagline:
-    'I architect and build AI-powered platforms that transform complex, messy industry data into actionable intelligence and commercial outcomes.',
+    'I architect AI-powered intelligence platforms — as founder or lead architect within delivery teams that ship production-grade products.',
   proofLine: 'Cross-domain intelligence architect — music, cyber, analytics & more',
   platformsIntro: 'Current platforms include:',
   platforms: [
@@ -111,46 +122,18 @@ export const skillClusters = [
 
 export const projectDeepDives: ProjectDeepDive[] = [
   {
-    id: 'aimi',
-    problem:
-      'Creators, labels and publishers lose time and revenue when catalogue and rights data are fragmented — manual auditing, slow dispute handling and inconsistent metadata leave money on the table.',
-    intelligence:
-      'AIMI combines guided creator workflows (identity, works intake, evidence-led disputes) with pattern detection and LLM-orchestrated catalogue matching on vector search — turning messy rights data into auditable intelligence, not just reports.',
-    role: 'Founder & solutions architect — platform design from multi-tenant rights intelligence through creator-facing pilot delivery (Program Music / AIMI Platform).',
-    architecture:
-      'Multi-tenant SaaS foundations on GCP (Terraform, BigQuery, LangChain, vector retrieval, human-in-the-loop audit) plus agent-first React surfaces and Firebase-backed functions for guided creator flows, dispute routing and conflict detection.',
-    technologies: [
-      'React',
-      'Node.js',
-      'JavaScript',
-      'Firebase',
-      'GCP',
-      'Terraform',
-      'BigQuery',
-      'LangChain',
-      'Vector search',
-      'OpenAI',
-      'Firestore',
-      'Cloud Functions',
-    ],
-    aiNative: [
-      'LangChain and vector-backed catalogue matching',
-      'Pattern discovery and conflict detection across catalogues',
-      'Dispute routing suggestions with evidence-led handoff',
-      'Human-in-the-loop review for compliance-grade audit outputs',
-    ],
-    outcome:
-      'Recover missing royalties and handle disputed records faster and safer — from catalogue-scale matching to creator-ready dispute routing. Private beta, invite only.',
-    earthbancRelevance:
-      'Regulated-domain AI with audit trails, dispute evidence and multi-tenant isolation — applicable to financial and rights-heavy data products.',
-  },
-  {
     id: 'tautsec',
     problem:
       'Australian SMBs had no single platform connecting ongoing cyber posture to insurance-ready outcomes — compliance evidence and cover lived in separate tools and channels.',
     intelligence:
       'TautSec Cyber Protect bundles Chubb-underwritten cyber insurance with a compliance dashboard across Direct, Broker and MSP paths. Essential Eight at three ACSC levels, a 0–100 Protection Index, supply chain mapping, and CyberPilot — AI with vector search over a compliance knowledge base.',
-    role: 'Lead architect — GCP serverless platform, Firebase Identity multi-tenant auth, workspace-scoped Terraform, per-tenant databases, and the AI search pipeline. Delivered for Tautsec Pty Ltd with Web4 and Program Productions.',
+    delivery: {
+      label: 'Lead platform architect · team delivery',
+      summary:
+        'Delivered with Web4 and Program Productions for Tautsec Pty Ltd — Pete led GCP platform architecture, identity and the AI search pipeline; product, frontend and wider engineering as a shared team effort.',
+      organizations: ['Tautsec Pty Ltd', 'Web4', 'Program Productions'],
+    },
+    role: 'Lead architect — serverless GCP platform, Firebase Identity multi-tenant auth, workspace-scoped Terraform, per-tenant databases, and CyberPilot vector search.',
     architecture:
       'Three pricing tiers and dedicated flows per sales channel; 127+ Cloud Functions in australia-southeast1 with Terraform-managed dev/staging/prod and per-developer namespaces. Firestore for transactions, MongoDB Atlas per tenant plus shared KB for AI, BigQuery analytics. CyberPilot quick actions include site scanning, executive reports, 90-day plans, policy drafts, and CVE alerts cross-referenced to live inventory. Integrations: Chubb Cyber ERM, ABR, Stripe, Attvest, SendGrid, NVD.',
     technologies: [
@@ -186,7 +169,13 @@ export const projectDeepDives: ProjectDeepDive[] = [
       'Racing punters drown in form guides and pricing noise — without timely predictions they cannot act before the market moves.',
     intelligence:
       'LEXI ingests form, pricing and race-market data, analyses tens of thousands of signals, and outputs predictions and twice-daily tips punters can trust.',
-    role: 'Architect — LEXI (Learned Expert Intelligence) at lexi.tips.',
+    delivery: {
+      label: 'Solutions architect · team delivery',
+      summary:
+        'Delivered on a Web4 engagement through Program Productions — shared product and engineering team; Pete owned architecture and AI platform design for LEXI at lexi.tips.',
+      organizations: ['Web4', 'Program Productions'],
+    },
+    role: 'Solutions architect — data pipelines, AI analysis layer and platform architecture for lexi.tips.',
     architecture:
       'lexi.tips ingests form, pricing and race-market inputs, runs them through AI analysis on GCP (BigQuery, vector retrieval, LangChain) and surfaces intelligence, predictions and twice-daily tips — plus chat with LEXI.',
     technologies: [
@@ -213,10 +202,55 @@ export const projectDeepDives: ProjectDeepDive[] = [
       'High-volume structured inputs → ML predictions → consumer intelligence surfaces — patterns common in fintech and markets products.',
   },
   {
+    id: 'aimi',
+    problem:
+      'Creators, labels and publishers lose time and revenue when catalogue and rights data are fragmented — manual auditing, slow dispute handling and inconsistent metadata leave money on the table.',
+    intelligence:
+      'AIMI combines guided creator workflows (identity, works intake, evidence-led disputes) with pattern detection and LLM-orchestrated catalogue matching on vector search — turning messy rights data into auditable intelligence, not just reports.',
+    delivery: {
+      label: 'Founder · primarily solo delivery',
+      summary:
+        'Pete as founder and primary architect — platform vision, product direction and hands-on build through Program Music (private beta, invite only).',
+      organizations: ['Program Music Ltd'],
+    },
+    role: 'Founder & solutions architect — multi-tenant rights intelligence, creator workflows, and end-to-end platform delivery.',
+    architecture:
+      'Multi-tenant SaaS foundations on GCP (Terraform, BigQuery, LangChain, vector retrieval, human-in-the-loop audit) plus agent-first React surfaces and Firebase-backed functions for guided creator flows, dispute routing and conflict detection.',
+    technologies: [
+      'React',
+      'Node.js',
+      'JavaScript',
+      'Firebase',
+      'GCP',
+      'Terraform',
+      'BigQuery',
+      'LangChain',
+      'Vector search',
+      'OpenAI',
+      'Firestore',
+      'Cloud Functions',
+    ],
+    aiNative: [
+      'LangChain and vector-backed catalogue matching',
+      'Pattern discovery and conflict detection across catalogues',
+      'Dispute routing suggestions with evidence-led handoff',
+      'Human-in-the-loop review for compliance-grade audit outputs',
+    ],
+    outcome:
+      'Recover missing royalties and handle disputed records faster and safer — from catalogue-scale matching to creator-ready dispute routing. Private beta, invite only.',
+    earthbancRelevance:
+      'Regulated-domain AI with audit trails, dispute evidence and multi-tenant isolation — applicable to financial and rights-heavy data products.',
+  },
+  {
     id: 'paradise-engineering',
     problem: 'Traditional delivery breaks down when AI agents become part of the engineering team.',
     intelligence:
       'Paradise Engineering — spec-first delivery with agents as structured partners across planning, implementation, review and promotion.',
+    delivery: {
+      label: 'Internal practice · Program Productions',
+      summary: 'Methodology created and applied across Pete’s delivery teams and client engagements.',
+      organizations: ['Program Productions Pty Ltd'],
+    },
     role: 'Creator of methodology and internal practice — shaping how specs, agents and review connect.',
     architecture:
       'Spec-first workflow: discovery → agent planning → implementation → evaluation → promotion, with Claude/Codex as structured partners.',
@@ -237,6 +271,11 @@ export const projectDeepDives: ProjectDeepDive[] = [
       'As teams grow, Terraform environment promotion becomes opaque, risky and blocked on technical gatekeepers.',
     intelligence:
       'Flight Deck — release governance so technical and non-technical stakeholders can approve, test and promote from dev through production safely.',
+    delivery: {
+      label: 'Internal platform · Program Productions',
+      summary: 'Built for Program Productions delivery teams — architecture and tooling to govern promotions.',
+      organizations: ['Program Productions Pty Ltd'],
+    },
     role: 'Architect of internal platform and governance workflows.',
     architecture:
       'Release governance layer over Terraform-managed apps — approval, test and promotion from dev → staging → production with stakeholder visibility.',

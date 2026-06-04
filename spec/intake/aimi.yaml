@@ -24,10 +24,18 @@ card:
     Recover missing royalties and handle disputed records faster and safer — from catalogue-scale
     matching to creator-ready dispute routing. Private beta, invite only.
 
+team:
+  label: Founder · primarily solo delivery
+  summary: >-
+    Pete as founder and primary architect — platform vision, product direction and hands-on build
+    through Program Music (private beta, invite only).
+  organizations:
+    - Program Music Ltd
+
 delivery:
   role: >-
-    Founder & solutions architect — platform design from multi-tenant rights intelligence
-    through creator-facing beta delivery (Program Music / AIMI Platform).
+    Founder & solutions architect — multi-tenant rights intelligence, creator workflows, and
+    end-to-end platform delivery.
   architecture: >-
     Multi-tenant SaaS foundations on GCP (Terraform, BigQuery, LangChain, vector retrieval,
     human-in-the-loop audit) plus agent-first React surfaces and Firebase-backed functions for

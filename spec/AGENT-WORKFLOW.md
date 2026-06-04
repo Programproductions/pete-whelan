@@ -62,6 +62,11 @@ Use this when you are an **implementing agent** (or human) adding or updating a 
   id: '<id>',
   problem: '<card.problem>',
   intelligence: '<card.intelligence>',
+  delivery: {
+    label: '<team.label>',
+    summary: '<team.summary>',
+    organizations: [...], // team.organizations
+  },
   role: '<delivery.role>',
   architecture: '<delivery.architecture>',
   technologies: [...],
@@ -70,6 +75,8 @@ Use this when you are an **implementing agent** (or human) adding or updating a 
   earthbancRelevance: '<delivery.earthbancRelevance || ''>',
 }
 ```
+
+**Team vs solo:** Always fill `team` for featured platforms. Use *team delivery* for client work (Tautsec, Lexi); *primarily solo* only when accurate (AIMI).
 
 - [ ] **Featured list** — if `featured: true`, append `id` to `PLATFORM_DEEP_DIVE_IDS` (order = display order on home)
 - [ ] **Hero bullet** — if featured, add to `hero.platforms[]`:
@@ -91,6 +98,7 @@ Use this when you are an **implementing agent** (or human) adding or updating a 
 | `card.problem` | `projectDeepDives[].problem` |
 | `card.intelligence` | `projectDeepDives[].intelligence` |
 | `card.outcome` | `projectDeepDives[].outcome` |
+| `team.*` | `projectDeepDives[].delivery` |
 | `delivery.role` | `projectDeepDives[].role` |
 | `delivery.architecture` | `projectDeepDives[].architecture` |
 | `delivery.technologies` | `projectDeepDives[].technologies` |
