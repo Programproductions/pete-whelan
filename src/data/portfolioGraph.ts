@@ -136,15 +136,6 @@ const portfolioNodesRaw: PortfolioNode[] = [
     tags: ['companies', 'ai', 'projects'],
   },
   {
-    id: 'aimi-platform',
-    label: 'AIMI Platform',
-    type: 'company',
-    summary: 'Client — AIMI platform (creator workflows and rights intelligence).',
-    detail:
-      'Organisation behind AIMI — guided creator disputes plus catalogue-scale rights intelligence; private beta with Program Music and Program Productions.',
-    tags: ['companies', 'projects', 'ai'],
-  },
-  {
     id: 'aimi',
     label: 'AIMI',
     type: 'project',
@@ -622,9 +613,6 @@ export const portfolioEdgesCore: PortfolioEdge[] = [
   { source: 'pete-whelan', target: 'cloud-architecture', label: 'practices' },
   { source: 'pete-whelan', target: 'voice-ai-pioneer', label: 'pioneered' },
   { source: 'program-music', target: 'aimi', label: 'built' },
-  { source: 'program-productions', target: 'aimi', label: 'delivered' },
-  { source: 'aimi-platform', target: 'aimi', label: 'client for' },
-  { source: 'pete-whelan', target: 'aimi-platform', label: 'architects' },
   { source: 'program-productions', target: 'tautsec', label: 'delivered' },
   { source: 'program-productions', target: 'lexi', label: 'delivered' },
   { source: 'program-productions', target: 'flight-deck', label: 'delivered' },
