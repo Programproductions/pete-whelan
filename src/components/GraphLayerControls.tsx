@@ -5,9 +5,14 @@ const layers: { id: GraphLayerId; label: string; hint: string }[] = [
   { id: 'organizations', label: 'Companies & clients', hint: 'Inner ring around Pete' },
   { id: 'projects', label: 'Projects', hint: 'Delivery work per organisation' },
   {
-    id: 'capabilities',
-    label: 'Skills & domains',
-    hint: 'Skills, tech, domains & methods — below Pete, linked to projects',
+    id: 'domains',
+    label: 'Domains',
+    hint: 'Industry & practice areas — above skills, linked to projects',
+  },
+  {
+    id: 'skills',
+    label: 'Skills & tech',
+    hint: 'Tools, methods & platforms — below domains',
   },
 ]
 
@@ -41,7 +46,7 @@ export function GraphLayerControls() {
         })}
       </div>
       <p className="text-[10px] text-zinc-600">
-        Pete stays at the centre — add or remove layers without hiding the spine.
+        Pete at the centre — domains above skills when both layers are on.
       </p>
     </div>
   )

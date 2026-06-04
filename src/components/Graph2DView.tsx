@@ -39,7 +39,8 @@ export function Graph2DView({ className = '' }: Graph2DViewProps) {
   const { selectNodeWithPath, setHoveredNodeId, hoveredNodeId, graphLayers } =
     usePortfolioStore()
   const { filtered, positionMap, edges, nodeState } = useGraphDisplay()
-  const capabilitiesLayer = graphLayers.capabilities
+  const domainsLayer = graphLayers.domains
+  const skillsLayer = graphLayers.skills
 
   const coords = useMemo(() => {
     const positions = [...positionMap.values()]
@@ -55,7 +56,8 @@ export function Graph2DView({ className = '' }: Graph2DViewProps) {
     const showLabel = shouldShowGraphNodeLabel(node, {
       highlighted,
       hovered: hoveredNodeId === node.id,
-      capabilitiesLayer,
+      domainsLayer,
+      skillsLayer,
     })
 
     return (
