@@ -32,25 +32,49 @@ export const companyEngagements: Record<string, CompanyEngagement> = {
   'alltasks-it': { companyRole: 'client' },
 }
 
-/** Review and fill optional dates / contract length as you confirm them */
+/** Contract engagements — dates shown on projects in the graph and platform cards */
 export const projectEngagements: Record<string, ProjectEngagement> = {
   aimi: {
     clientCompanyId: 'program-music',
+    contractLength: 'Contract',
+    startDate: 'Jun 2023',
+    endDate: 'ongoing',
     phase: 'Private beta — invite only',
   },
   tautsec: {
     clientCompanyId: 'tautsec-pty',
+    contractLength: 'Contract',
+    startDate: 'Jan 2026',
+    endDate: 'ongoing',
     website: 'https://tautsec.com.au',
     phase: 'Live',
   },
   lexi: {
     clientCompanyId: 'web4',
+    contractLength: 'Contract',
+    startDate: 'Jan 2025',
+    endDate: 'Jan 2026',
     website: 'https://lexi.tips',
-    phase: 'Pacesetter live',
+    phase: 'Live',
+  },
+  'florence-ai': {
+    clientCompanyId: 'wici',
+    contractLength: 'Contract',
+    startDate: 'Sep 2023',
+    endDate: 'Mar 2024',
+  },
+  'big-red-ronnie': {
+    clientCompanyId: 'alltasks-it',
+    contractLength: 'Contract',
+    startDate: 'Jan 2023',
+    endDate: 'Mar 2023',
+  },
+  'my-paralegal': {
+    clientCompanyId: 'upwork',
+    contractLength: 'Contract',
+    startDate: '2021',
+    endDate: '2023',
   },
   'flight-deck': { clientCompanyId: 'program-productions' },
-  'florence-ai': { clientCompanyId: 'wici' },
   'sage-chatbot': { clientCompanyId: 'program-productions' },
-  'my-paralegal': { clientCompanyId: 'upwork' },
-  'big-red-ronnie': { clientCompanyId: 'alltasks-it' },
 }

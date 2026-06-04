@@ -300,7 +300,7 @@ export const resumeExperience: ResumeRole[] = [
   {
     id: 'tautsec',
     headline: 'Lead Platform Architect — TautSec Cyber Protect',
-    context: 'Tautsec Pty Ltd · Team delivery with Web4 & Program Productions',
+    context: 'Contract · Jan 2026 – ongoing · Tautsec Pty Ltd with Web4 & Program Productions',
     bullets: [
       'Architected serverless GCP platform (127+ Cloud Functions), Firebase Identity multi-tenancy, Terraform-managed environments, and CyberPilot AI (vector search over compliance knowledge).',
       'Integrated Chubb cyber insurance, Essential Eight assessments, Protection Index, and Direct / Broker / MSP channel workflows — live at tautsec.com.au.',
@@ -310,7 +310,7 @@ export const resumeExperience: ResumeRole[] = [
   {
     id: 'lexi',
     headline: 'Solutions Architect — LEXI (lexi.tips)',
-    context: 'Web4 engagement · Delivered via Program Productions',
+    context: 'Contract · Jan 2025 – Jan 2026 · Web4 via Program Productions',
     bullets: [
       'Owned architecture and AI analysis layer for horse-racing intelligence product ingesting form, pricing and market data on GCP.',
       'Delivered predictions, twice-daily tips and conversational LEXI guide using BigQuery, vector retrieval and LangChain pipelines.',
@@ -320,7 +320,7 @@ export const resumeExperience: ResumeRole[] = [
   {
     id: 'aimi',
     headline: 'Founder & Solutions Architect — AIMI',
-    context: 'Program Music Ltd · Private beta, invite only',
+    context: 'Contract · Jun 2023 – ongoing · Program Music Ltd · Private beta, invite only',
     bullets: [
       'Founded and built music-rights intelligence platform combining catalogue matching (LLM + vector search) with guided creator dispute workflows.',
       'Designed multi-tenant GCP foundations (Terraform, BigQuery, LangChain, human-in-the-loop audit) and Firebase-backed creator flows.',

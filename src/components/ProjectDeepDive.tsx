@@ -5,7 +5,7 @@ import {
   type DeliveryContext,
   type ProjectDeepDive,
 } from '../data/cvContent'
-import { nodeById } from '../data/portfolioGraph'
+import { formatContractEngagement, nodeById } from '../data/portfolioGraph'
 import { usePortfolioStore } from '../store/usePortfolioStore'
 import { ArchitectureDiagram } from './ArchitectureDiagram'
 
@@ -40,6 +40,7 @@ function PlatformCard({
 }) {
   const selectNodeWithPath = usePortfolioStore((s) => s.selectNodeWithPath)
   const node = nodeById.get(project.id)
+  const contractLine = node ? formatContractEngagement(node) : null
 
   return (
     <motion.article
@@ -50,7 +51,12 @@ function PlatformCard({
       className="rounded-2xl border border-cyan-500/15 bg-gradient-to-br from-cyan-950/20 via-zinc-900/50 to-zinc-950/80 p-8 md:p-10"
     >
       <div className="flex flex-wrap items-start justify-between gap-4">
-        <h3 className="text-2xl font-semibold text-zinc-50">{node?.label ?? project.id}</h3>
+        <div>
+          <h3 className="text-2xl font-semibold text-zinc-50">{node?.label ?? project.id}</h3>
+          {contractLine && (
+            <p className="mt-1 font-mono text-xs tracking-wide text-zinc-500">{contractLine}</p>
+          )}
+        </div>
         {node && (
           <button
             type="button"

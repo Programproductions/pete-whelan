@@ -1,5 +1,5 @@
 import {
-  formatEngagementPeriod,
+  formatContractEngagement,
   getClientCompany,
   getNodeDisplayLabel,
   type PortfolioNode,
@@ -47,7 +47,7 @@ export function ProjectEngagementDetails({ node, onSelectClient }: ProjectEngage
   }
 
   const client = getClientCompany(node)
-  const period = formatEngagementPeriod(node)
+  const contractLine = formatContractEngagement(node)
 
   return (
     <section className="mt-6 rounded-lg border border-zinc-800 bg-zinc-900/40 p-4">
@@ -90,16 +90,10 @@ export function ProjectEngagementDetails({ node, onSelectClient }: ProjectEngage
             </dd>
           </div>
         )}
-        {period && (
+        {contractLine && (
           <div>
-            <dt className="text-xs text-zinc-500">Period</dt>
-            <dd className="mt-0.5 text-zinc-300">{period}</dd>
-          </div>
-        )}
-        {node.contractLength && (
-          <div>
-            <dt className="text-xs text-zinc-500">Contract</dt>
-            <dd className="mt-0.5 text-zinc-300">{node.contractLength}</dd>
+            <dt className="text-xs text-zinc-500">Engagement</dt>
+            <dd className="mt-0.5 text-zinc-300">{contractLine}</dd>
           </div>
         )}
       </dl>
