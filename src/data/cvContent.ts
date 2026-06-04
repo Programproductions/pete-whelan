@@ -56,7 +56,8 @@ export const hero = {
 export const aiNativeStatement = {
   heading: 'AI-native before it was a job title',
   paragraphs: [
-    'Voice AI, healthcare workflows and agentic delivery long before it was fashionable — now applied as structured intelligence platforms across regulated and data-heavy industries.',
+    'I was building conversational and voice-AI systems before the ChatGPT wave — Alexa applications, legal assistant voice apps, healthcare AI workflows and therapeutic chatbot concepts. That work required intent design, production certification and the discipline to make unreliable models feel dependable in real products.',
+    'Today I apply the same rigour to AI-native software delivery: agent systems, spec-driven development, context engineering, evaluation loops and internal platform engineering. AI is not autocomplete — it is a structured engineering partner across discovery, architecture, implementation, testing and governance.',
   ],
 }
 
