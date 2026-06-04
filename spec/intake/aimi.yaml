@@ -1,59 +1,101 @@
 version: "1.0"
 id: aimi
 displayName: AIMI
-featured: false
+productName: AIMI
+featured: true
+
 hero:
   name: AIMI
-  subtitle: AI-enabled creator royalties platform
-  outcome: Improved rights confidence through guided catalog and dispute workflows.
+  subtitle: aimi.app · music rights intelligence
+  outcome: Recover missing royalties and resolve disputed catalog records with guided, AI-assisted workflows.
+
 card:
-  problem: Creator rights operations were manual, fragmented, and slow.
-  intelligence: Pattern-based catalog insights and conflict detection reduced ambiguity.
-  outcome: Faster, safer handling of disputed or ambiguous royalty records.
+  problem: >-
+    Creators, labels and publishers lose time and revenue when catalogue and rights data are
+    fragmented — manual auditing, slow dispute handling and inconsistent metadata leave money
+    on the table.
+  intelligence: >-
+    AIMI combines guided creator workflows (identity, works intake, evidence-led disputes) with
+    pattern detection and LLM-orchestrated catalogue matching on vector search — turning messy
+    rights data into auditable intelligence, not just reports.
+  outcome: >-
+    Recover missing royalties and handle disputed records faster and safer — from catalogue-scale
+    matching to creator-ready dispute routing. Pilot at aimi.app.
+
 delivery:
-  role: Platform and workflow design across creator identity and catalogue processes.
-  architecture: Agent-first routing with modular React data surfaces and backend function orchestration.
+  role: >-
+    Founder & solutions architect — platform design from multi-tenant rights intelligence
+    through creator-facing pilot delivery (Program Music / AIMI Platform).
+  architecture: >-
+    Multi-tenant SaaS foundations on GCP (Terraform, BigQuery, LangChain, vector retrieval,
+    human-in-the-loop audit) plus agent-first React surfaces and Firebase-backed functions for
+    guided creator flows, dispute routing and conflict detection at aimi.app.
   technologies:
     - React
     - Node.js
+    - JavaScript
     - Firebase
+    - GCP
+    - Terraform
+    - BigQuery
+    - LangChain
+    - Vector search
+    - OpenAI
+    - Firestore
+    - Cloud Functions
   aiCapabilities:
-    - Dispute routing suggestions
-    - Pattern discovery
+    - LangChain and vector-backed catalogue matching
+    - Pattern discovery and conflict detection across catalogues
+    - Dispute routing suggestions with evidence-led handoff
+    - Human-in-the-loop review for compliance-grade audit outputs
   earthbancRelevance: >-
-    Structured dispute and catalog workflows with audit-friendly handoffs — applicable to
-    regulated data products and evidence-led review.
+    Regulated-domain AI with audit trails, dispute evidence and multi-tenant isolation —
+    applicable to financial and rights-heavy data products.
+
 engagement:
   clientCompanyId: aimi-platform
   website: https://aimi.app
-  phase: pilot
+  phase: Pilot — catalogue intelligence and creator workflows
+
 graph:
-  summary: Creator-focused portfolio and disputes workflow with AI-assisted triage.
+  summary: Music rights intelligence and creator dispute workflows — AI-assisted matching at aimi.app.
   detail: >-
-    A modular platform where creators move through guided workflows for identity, works intake,
-    discrepancy detection, and evidence-led handoff.
+    Blends label/publisher-grade catalogue ingestion and royalty recovery with guided creator
+    flows for disputes — LLM orchestration, vector search and agent-first routing on GCP and Firebase.
   keyPoints:
-    - Reduces manual catalog-risk work through guided flow design
-    - Improves rights confidence via structured catalog + dispute logic
-    - Supports scalable AI assistance for routing, detection, and escalation
+    - Catalogue and rights matching with LLM + vector search
+    - Guided creator identity, works intake and dispute handoff
+    - Pattern detection and conflict reduction across catalogues
+    - GCP multi-tenant SaaS · Firebase pilot surfaces · aimi.app
   tags:
     - projects
     - ai
     - cloud
+
 narrative:
-  whyExists: Creators need guided rights workflows instead of fragmented manual catalog operations.
-  problemSolved: Manual, slow rights ops with high ambiguity on disputed royalty records.
-  outcome: Pilot platform at aimi.app with AI-assisted triage and dispute routing.
+  whyExists: >-
+    Music rights need both catalogue-scale intelligence and creator-ready dispute workflows —
+    not spreadsheets and manual audits.
+  problemSolved: >-
+    Fragmented metadata, slow royalty auditing and ambiguous disputed records across creators
+    and rights holders.
+  outcome: >-
+    AIMI at aimi.app — recover royalties, route disputes safely, audit with human-in-the-loop
+    where it matters.
   ledTo:
     - music-rights
+    - program-music
     - agentic-workflows
-    - react
+    - openai
   storyPath:
     - pete-whelan
-    - program-productions
+    - program-music
     - aimi-platform
     - aimi
     - music-rights
+    - openai
+
 source:
   fullBrief: |
-    Short example used for validation and smoke tests.
+    Blend of label/publisher royalty recovery platform (GCP, LangChain, vector, HITL) and
+    aimi.app creator pilot (guided workflows, disputes, Firebase, pattern AI).
