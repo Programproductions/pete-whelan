@@ -159,7 +159,7 @@ const portfolioNodesRaw: PortfolioNode[] = [
     type: 'project',
     summary: 'TautSec Cyber Protect — posture, insurance and CyberPilot for Australian SMBs.',
     detail:
-      'Chubb-underwritten cyber insurance plus compliance dashboard: Essential Eight, Protection Index, supply chain risk, and CyberPilot AI. Direct, Broker and MSP channels on GCP — Tautsec Pty Ltd with Web4 and Program Productions.',
+      'Chubb-underwritten cyber insurance plus compliance dashboard: Essential Eight, Protection Index, supply chain risk, and CyberPilot AI. Direct, Broker and MSP channels on GCP — Tautsec Pty Ltd with Web4 and Program Productions. Earlier Web4 delivery Mar 2024 – Jan 2025.',
     keyPoints: [
       'Chubb cyber insurance + SaaS compliance (3 tiers)',
       'Direct, Broker and MSP sales channels',
@@ -707,8 +707,22 @@ export function getNodeDisplayLabel(node: PortfolioNode): string {
 
 export function formatEngagementPeriod(node: PortfolioNode): string | null {
   if (!node.startDate && !node.endDate) return null
-  if (node.startDate && node.endDate) return `${node.startDate} → ${node.endDate}`
+  if (node.startDate && node.endDate) return `${node.startDate} – ${node.endDate}`
   return node.startDate ?? node.endDate ?? null
+}
+
+/** e.g. "Contract · Jan 2026 – ongoing" */
+export function formatContractEngagement(node: PortfolioNode): string | null {
+  const period = formatEngagementPeriod(node)
+  if (!period) return null
+  const kind = node.contractLength ?? 'Contract'
+  return `${kind} · ${period}`
+}
+
+/** Subtitle under project nodes in the graph */
+export function getProjectGraphCaption(node: PortfolioNode): string | null {
+  if (node.type !== 'project') return node.phase ?? null
+  return formatContractEngagement(node) ?? node.phase ?? null
 }
 
 export function getConnectedIds(nodeId: string): Set<string> {

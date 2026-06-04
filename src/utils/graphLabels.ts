@@ -25,6 +25,7 @@ export function shouldShowGraphNodeLabel(
     (skillsLayer && isSkillLayerNode(node)) ||
     highlighted ||
     hovered ||
-    Boolean(node.phase)
+    Boolean(node.phase) ||
+    Boolean(node.startDate)
   )
 }

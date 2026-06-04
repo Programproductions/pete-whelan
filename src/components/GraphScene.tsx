@@ -1,7 +1,11 @@
 import { Canvas } from '@react-three/fiber'
 import { Html, Line, OrbitControls } from '@react-three/drei'
 import { Suspense } from 'react'
-import type { NodePosition, PortfolioNode } from '../data/portfolioGraph'
+import {
+  getProjectGraphCaption,
+  type NodePosition,
+  type PortfolioNode,
+} from '../data/portfolioGraph'
 import { usePortfolioStore } from '../store/usePortfolioStore'
 import { getNodeColor, getNodeScale } from '../utils/nodeColors'
 import { shouldShowGraphNodeLabel } from '../utils/graphLabels'
@@ -69,9 +73,9 @@ function GraphNode({
             <span className="whitespace-nowrap rounded bg-black/70 px-2 py-0.5 text-[10px] text-zinc-200 backdrop-blur">
               {node.label}
             </span>
-            {node.phase && (
-              <span className="mt-0.5 block whitespace-nowrap text-[9px] text-cyan-300/90">
-                {node.phase}
+            {getProjectGraphCaption(node) && (
+              <span className="mt-0.5 block max-w-[140px] whitespace-normal text-center text-[8px] leading-tight text-cyan-300/90">
+                {getProjectGraphCaption(node)}
               </span>
             )}
           </div>

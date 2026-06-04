@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import type { PortfolioNode } from '../data/portfolioGraph'
+import { getProjectGraphCaption, type PortfolioNode } from '../data/portfolioGraph'
 import { usePortfolioStore } from '../store/usePortfolioStore'
 import { getNodeColor, getNodeScale } from '../utils/nodeColors'
 import { shouldShowGraphNodeLabel } from '../utils/graphLabels'
@@ -53,6 +53,7 @@ export function Graph2DView({ className = '' }: Graph2DViewProps) {
     const { dimmed, highlighted } = nodeState(node)
     const r = Math.max(5, getNodeScale(node.type, node.featured) * 36)
     const color = getNodeColor(node.type)
+    const caption = getProjectGraphCaption(node)
     const showLabel = shouldShowGraphNodeLabel(node, {
       highlighted,
       hovered: hoveredNodeId === node.id,
@@ -82,14 +83,14 @@ export function Graph2DView({ className = '' }: Graph2DViewProps) {
           <>
             <text
               x={c.x}
-              y={c.y - r - (node.phase ? 10 : 6)}
+              y={c.y - r - (caption ? 10 : 6)}
               textAnchor="middle"
               className="fill-zinc-200 text-[10px]"
               style={{ fontSize: 10, pointerEvents: 'none' }}
             >
               {node.label}
             </text>
-            {node.phase && (
+            {caption && (
               <text
                 x={c.x}
                 y={c.y - r + 2}
@@ -97,7 +98,7 @@ export function Graph2DView({ className = '' }: Graph2DViewProps) {
                 className="fill-cyan-400/80 text-[8px]"
                 style={{ fontSize: 8, pointerEvents: 'none' }}
               >
-                {node.phase}
+                {caption}
               </text>
             )}
           </>

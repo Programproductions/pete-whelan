@@ -8,9 +8,6 @@ export function SkillClusters() {
         <h2 className="text-2xl font-semibold tracking-tight text-zinc-100 md:text-3xl">
           Skills matrix
         </h2>
-        <p className="mt-3 max-w-2xl text-zinc-500">
-          Grouped capability clusters — the same relationships visualised in the graph.
-        </p>
         <div className="mt-12 grid gap-6 sm:grid-cols-2">
           {skillClusters.map((cluster, i) => (
             <motion.div
