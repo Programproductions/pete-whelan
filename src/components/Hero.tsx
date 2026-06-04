@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { hero, site, contact } from '../data/cvContent'
+import { hero, site } from '../data/cvContent'
 import { CvEntryChoice } from './CvEntryChoice'
 
 type HeroProps = {
@@ -56,20 +56,6 @@ export function Hero({ onExploreGraph }: HeroProps) {
           transition={{ duration: 0.55, delay: 0.2 }}
         >
           <CvEntryChoice onExploreInteractive={onExploreGraph} />
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.35 }}
-          className="mt-8"
-        >
-          <a
-            href={`mailto:${contact.email}`}
-            className="text-sm text-zinc-500 transition hover:text-zinc-300"
-          >
-            {contact.email}
-          </a>
         </motion.div>
       </div>
     </section>

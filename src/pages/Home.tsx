@@ -5,7 +5,6 @@ import { AiNativeSection } from '../components/AiNativeSection'
 import { Hero } from '../components/Hero'
 import { CareerGraphModal } from '../components/CareerGraphModal'
 import { InteractiveGraphSection } from '../components/InteractiveGraphSection'
-import { InteractiveMethodology } from '../components/InteractiveMethodology'
 import { NodeDetailPanel } from '../components/NodeDetailPanel'
 import { ProjectDeepDive } from '../components/ProjectDeepDive'
 import { SkillClusters } from '../components/SkillClusters'
@@ -53,7 +52,6 @@ export function Home() {
           <AiNativeSection />
           <InteractiveGraphSection onOpenGraph={openGraph} />
           <TimelineStrip />
-          <InteractiveMethodology />
           <ProjectDeepDive />
           <SkillClusters />
           <WhyNotCvSection />

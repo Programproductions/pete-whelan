@@ -32,12 +32,12 @@ export function CvEntryChoice({ onExploreInteractive }: CvEntryChoiceProps) {
           whileTap={{ scale: 0.98 }}
           onClick={() => void handleGeneratePdf()}
           disabled={generating}
-          className="group relative overflow-hidden rounded-2xl border border-zinc-700/60 bg-gradient-to-br from-zinc-900/80 to-zinc-950 p-6 text-left ring-1 ring-zinc-700/40 transition hover:border-zinc-600 hover:shadow-[0_0_32px_rgba(255,255,255,0.04)] disabled:opacity-60"
+          className="group relative overflow-hidden rounded-2xl border border-red-500/40 bg-gradient-to-br from-red-950/80 to-zinc-950 p-6 text-left ring-1 ring-red-500/20 transition hover:border-red-400/60 hover:shadow-[0_0_32px_rgba(239,68,68,0.15)] disabled:opacity-60"
         >
-          <span className="block text-lg font-semibold text-zinc-100">
+          <span className="block text-lg font-semibold text-red-100">
             {generating ? 'Generating…' : 'Generate PDF'}
           </span>
-          <span className="mt-2 block text-sm leading-relaxed text-zinc-400">
+          <span className="mt-2 block text-sm leading-relaxed text-red-200/60">
             The familiar résumé — structured, printable, recruiter-ready.
           </span>
         </motion.button>
