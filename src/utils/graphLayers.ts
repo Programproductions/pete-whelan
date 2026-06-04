@@ -6,34 +6,43 @@ import {
   type PortfolioNode,
 } from '../data/portfolioGraph'
 
-export type GraphLayerId = 'organizations' | 'projects' | 'capabilities'
+export type GraphLayerId = 'organizations' | 'projects' | 'domains' | 'skills'
 
 export type GraphLayers = Record<GraphLayerId, boolean>
 
 export const DEFAULT_GRAPH_LAYERS: GraphLayers = {
   organizations: true,
   projects: true,
-  capabilities: false,
+  domains: false,
+  skills: false,
 }
 
 const PETE_ID = 'pete-whelan'
 const R_ORG = 4.2
 const R_PROJECT = 7.8
-const Y_CAPABILITY = -5.5
-const MIN_CAP_SPACING = 1.35
+/** Domains sit above skills — closer to projects and Pete */
+const Y_DOMAIN = -3.2
+/** Skills, tech and methods — lowest layer under domains */
+const Y_SKILL = -6.2
+const MIN_LAYER_SPACING = 1.35
 
-const CAPABILITY_TYPES: PortfolioNode['type'][] = [
-  'skill',
-  'technology',
-  'domain',
-  'methodology',
-]
+const DOMAIN_TYPES: PortfolioNode['type'][] = ['domain']
+const SKILL_TYPES: PortfolioNode['type'][] = ['skill', 'technology', 'methodology']
+
+export function isDomainNode(node: PortfolioNode): boolean {
+  return node.type === 'domain'
+}
+
+export function isSkillLayerNode(node: PortfolioNode): boolean {
+  return SKILL_TYPES.includes(node.type)
+}
 
 export function nodeLayer(node: PortfolioNode): GraphLayerId | 'person' {
   if (node.id === PETE_ID || node.type === 'person') return 'person'
   if (node.type === 'company') return 'organizations'
   if (node.type === 'project') return 'projects'
-  return 'capabilities'
+  if (node.type === 'domain') return 'domains'
+  return 'skills'
 }
 
 export function isNodeVisibleInLayers(
@@ -78,8 +87,8 @@ function getLinkedProjectIds(nodeId: string): string[] {
   return projectIds
 }
 
-function findCapabilityAnchor(capId: string): string {
-  const priority: PortfolioNode['type'][] = ['project', 'company', 'methodology', 'person']
+function findSkillAnchor(capId: string): string {
+  const priority: PortfolioNode['type'][] = ['project', 'company', 'domain', 'person']
   for (const want of priority) {
     for (const edge of portfolioEdges) {
       const otherId =
@@ -94,8 +103,42 @@ function findCapabilityAnchor(capId: string): string {
   return PETE_ID
 }
 
-function spreadCapabilityPositions(
+function draftPositionForNode(
+  node: PortfolioNode,
+  positions: NodePosition[],
+  companyAngle: Map<string, number>,
+  pullTowardProjects: number,
+): { x: number; z: number } {
+  const linkedProjectIds = getLinkedProjectIds(node.id)
+  const projectPositions = linkedProjectIds
+    .map((id) => positions.find((p) => p.id === id))
+    .filter((p): p is NodePosition => Boolean(p))
+
+  if (projectPositions.length > 0) {
+    const x =
+      (projectPositions.reduce((sum, p) => sum + p.x, 0) / projectPositions.length) *
+      pullTowardProjects
+    const z =
+      (projectPositions.reduce((sum, p) => sum + p.z, 0) / projectPositions.length) *
+      pullTowardProjects
+    return { x, z }
+  }
+
+  const anchorId = findSkillAnchor(node.id)
+  const anchorPos = positions.find((p) => p.id === anchorId)
+  const baseAngle = anchorPos
+    ? Math.atan2(anchorPos.z, anchorPos.x)
+    : (companyAngle.get(anchorId) ?? 0)
+  const radius = anchorPos ? Math.hypot(anchorPos.x, anchorPos.z) * pullTowardProjects * 0.85 : 3.2
+  return {
+    x: Math.cos(baseAngle) * radius,
+    z: Math.sin(baseAngle) * radius,
+  }
+}
+
+function spreadLayerPositions(
   drafts: { id: string; x: number; z: number }[],
+  y: number,
 ): NodePosition[] {
   const sorted = [...drafts].sort((a, b) => Math.atan2(a.z, a.x) - Math.atan2(b.z, b.x))
   const placed: { x: number; z: number }[] = []
@@ -106,7 +149,7 @@ function spreadCapabilityPositions(
       const collision = placed.some((p) => {
         const dx = p.x - x
         const dz = p.z - z
-        return Math.hypot(dx, dz) < MIN_CAP_SPACING
+        return Math.hypot(dx, dz) < MIN_LAYER_SPACING
       })
       if (!collision) break
       const angle = Math.atan2(z, x) + 0.22 * (attempt + 1)
@@ -115,11 +158,11 @@ function spreadCapabilityPositions(
       z = Math.sin(angle) * radius
     }
     placed.push({ x, z })
-    return { id: draft.id, x, y: Y_CAPABILITY, z }
+    return { id: draft.id, x, y, z }
   })
 }
 
-/** Pete-centred layout: companies inner ring, projects middle, capabilities below Pete. */
+/** Pete-centred: companies → projects → domains → skills (top to bottom). */
 export function computeSemanticLayout(nodes: PortfolioNode[] = portfolioNodes): NodePosition[] {
   const positions: NodePosition[] = []
   const pete = nodes.find((n) => n.id === PETE_ID)
@@ -160,39 +203,19 @@ export function computeSemanticLayout(nodes: PortfolioNode[] = portfolioNodes): 
     })
   }
 
-  const capabilities = nodes.filter((n) => CAPABILITY_TYPES.includes(n.type))
-  const capDrafts: { id: string; x: number; z: number }[] = []
+  const domains = nodes.filter((n) => DOMAIN_TYPES.includes(n.type))
+  const domainDrafts = domains.map((node) => ({
+    id: node.id,
+    ...draftPositionForNode(node, positions, companyAngle, 0.72),
+  }))
+  positions.push(...spreadLayerPositions(domainDrafts, Y_DOMAIN))
 
-  for (const cap of capabilities) {
-    const linkedProjectIds = getLinkedProjectIds(cap.id)
-    const projectPositions = linkedProjectIds
-      .map((id) => positions.find((p) => p.id === id))
-      .filter((p): p is NodePosition => Boolean(p))
-
-    let x: number
-    let z: number
-
-    if (projectPositions.length > 0) {
-      x = projectPositions.reduce((sum, p) => sum + p.x, 0) / projectPositions.length
-      z = projectPositions.reduce((sum, p) => sum + p.z, 0) / projectPositions.length
-      // Sit between Pete and the projects they support
-      x *= 0.55
-      z *= 0.55
-    } else {
-      const anchorId = findCapabilityAnchor(cap.id)
-      const anchorPos = positions.find((p) => p.id === anchorId)
-      const baseAngle = anchorPos
-        ? Math.atan2(anchorPos.z, anchorPos.x)
-        : (companyAngle.get(anchorId) ?? 0)
-      const radius = anchorPos ? Math.hypot(anchorPos.x, anchorPos.z) * 0.45 : 3.2
-      x = Math.cos(baseAngle) * radius
-      z = Math.sin(baseAngle) * radius
-    }
-
-    capDrafts.push({ id: cap.id, x, z })
-  }
-
-  positions.push(...spreadCapabilityPositions(capDrafts))
+  const skills = nodes.filter((n) => SKILL_TYPES.includes(n.type))
+  const skillDrafts = skills.map((node) => ({
+    id: node.id,
+    ...draftPositionForNode(node, positions, companyAngle, 0.52),
+  }))
+  positions.push(...spreadLayerPositions(skillDrafts, Y_SKILL))
 
   return positions
 }

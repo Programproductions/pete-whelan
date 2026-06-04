@@ -14,7 +14,8 @@ function GraphNode({
   highlighted,
   onSelect,
   onHover,
-  capabilitiesLayer,
+  domainsLayer,
+  skillsLayer,
 }: {
   node: PortfolioNode
   position: NodePosition
@@ -22,12 +23,17 @@ function GraphNode({
   highlighted: boolean
   onSelect: () => void
   onHover: (hover: boolean) => void
-  capabilitiesLayer: boolean
+  domainsLayer: boolean
+  skillsLayer: boolean
 }) {
   const color = getNodeColor(node.type)
   const scale = getNodeScale(node.type, node.featured)
   const emissive = highlighted ? 0.65 : dimmed ? 0.12 : 0.28
-  const showLabel = shouldShowGraphNodeLabel(node, { highlighted, capabilitiesLayer })
+  const showLabel = shouldShowGraphNodeLabel(node, {
+    highlighted,
+    domainsLayer,
+    skillsLayer,
+  })
 
   return (
     <group position={[position.x, position.y, position.z]}>
@@ -79,7 +85,8 @@ function SceneContent() {
   const { selectNodeWithPath, setHoveredNodeId, hoveredNodeId, graphLayers } =
     usePortfolioStore()
   const { filtered, positionMap, edges, nodeState } = useGraphDisplay()
-  const capabilitiesLayer = graphLayers.capabilities
+  const domainsLayer = graphLayers.domains
+  const skillsLayer = graphLayers.skills
 
   return (
     <>
@@ -118,7 +125,8 @@ function SceneContent() {
             highlighted={highlighted || hoveredNodeId === node.id}
             onSelect={() => selectNodeWithPath(node)}
             onHover={(hover) => setHoveredNodeId(hover ? node.id : null)}
-            capabilitiesLayer={capabilitiesLayer}
+            domainsLayer={domainsLayer}
+            skillsLayer={skillsLayer}
           />
         )
       })}
