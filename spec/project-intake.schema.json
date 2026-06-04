@@ -173,7 +173,19 @@
         "phase": { "type": "string", "maxLength": 64 },
         "contractLength": { "type": "string" },
         "startDate": { "type": "string" },
-        "endDate": { "type": "string" }
+        "endDate": { "type": "string" },
+        "priorPeriods": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["startDate", "endDate"],
+            "additionalProperties": false,
+            "properties": {
+              "startDate": { "type": "string" },
+              "endDate": { "type": "string" }
+            }
+          }
+        }
       }
     },
     "narrative": {

@@ -302,7 +302,8 @@ export const resumeExperience: ResumeRole[] = [
   {
     id: 'tautsec',
     headline: 'Lead Platform Architect — TautSec Cyber Protect',
-    context: 'Contract · Jan 2026 – ongoing · Tautsec Pty Ltd with Web4 & Program Productions',
+    context:
+      'Contract · Jan 2026 – ongoing; Mar 2023 – Jan 2024 · Tautsec Pty Ltd with Web4 & Program Productions',
     bullets: [
       'Led GCP platform architecture (serverless, Identity Platform, Terraform, CyberPilot AI) within a multi-disciplinary delivery team.',
       'Chubb cyber insurance, Essential Eight, Protection Index and Direct / Broker / MSP channels — tautsec.com.au.',

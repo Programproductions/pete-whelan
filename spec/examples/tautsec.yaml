@@ -100,6 +100,12 @@ graph:
 
 engagement:
   clientCompanyId: tautsec-pty
+  contractLength: Contract
+  startDate: Jan 2026
+  endDate: ongoing
+  priorPeriods:
+    - startDate: Mar 2023
+      endDate: Jan 2024
   website: https://tautsec.com.au
   phase: Live
 

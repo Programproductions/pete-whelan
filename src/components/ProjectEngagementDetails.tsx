@@ -1,5 +1,5 @@
 import {
-  formatContractEngagement,
+  formatContractEngagementLines,
   getClientCompany,
   getNodeDisplayLabel,
   type PortfolioNode,
@@ -47,7 +47,7 @@ export function ProjectEngagementDetails({ node, onSelectClient }: ProjectEngage
   }
 
   const client = getClientCompany(node)
-  const contractLine = formatContractEngagement(node)
+  const contractLines = formatContractEngagementLines(node)
 
   return (
     <section className="mt-6 rounded-lg border border-zinc-800 bg-zinc-900/40 p-4">
@@ -90,10 +90,14 @@ export function ProjectEngagementDetails({ node, onSelectClient }: ProjectEngage
             </dd>
           </div>
         )}
-        {contractLine && (
+        {contractLines.length > 0 && (
           <div>
             <dt className="text-xs text-zinc-500">Engagement</dt>
-            <dd className="mt-0.5 text-zinc-300">{contractLine}</dd>
+            <dd className="mt-0.5 space-y-1 text-zinc-300">
+              {contractLines.map((line) => (
+                <p key={line}>{line}</p>
+              ))}
+            </dd>
           </div>
         )}
       </dl>
