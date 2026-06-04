@@ -17,12 +17,12 @@ export const nodeNarratives: Record<string, NodeNarrative> = {
   },
   'flight-deck': {
     whyExists:
-      'Terraform promotion and deployment workflows became difficult to manage as environments, products and contributors expanded.',
+      'Program Productions needed a bespoke internal way to rethink CI/CD and Terraform promotion as delivery scaled.',
     problemSolved:
-      'Opaque, risky infrastructure promotion blocked on technical gatekeepers; non-technical stakeholders lacked visibility.',
+      'Legacy promotion patterns were opaque, risky and blocked on technical gatekeepers; stakeholders lacked visibility.',
     ledTo: ['platform-engineering', 'cicd', 'terraform', 'internal-tooling'],
     outcome:
-      'Terraform promotion governance for technical and non-technical stakeholders — work in progress at Program Productions.',
+      'Bespoke internal CI/CD and release-governance experiment — work in progress.',
     storyPath: [
       'pete-whelan',
       'program-productions',
@@ -73,12 +73,12 @@ export const nodeNarratives: Record<string, NodeNarrative> = {
   },
   'paradise-engineering': {
     whyExists:
-      'Teams need to see how security boundaries and spec-driven components fit the platform they are building — not only in flat diagrams.',
+      'Program Productions needed a bespoke internal way to develop new platform engineering and architecture practices.',
     problemSolved:
-      'Architecture and security intent were hard to communicate from docs alone while Tautsec was evolving.',
+      'Flat diagrams and scattered docs could not carry security boundaries and spec-driven structure as Tautsec evolved.',
     ledTo: ['tautsec', 'spec-driven-development', 'cyber-security', 'claude', 'cursor'],
     outcome:
-      'Experimental 3D architecture view with documentation — work in progress for the Tautsec platform.',
+      'Bespoke internal experiment in engineering and architecting platforms — work in progress for Tautsec.',
     storyPath: [
       'pete-whelan',
       'program-productions',

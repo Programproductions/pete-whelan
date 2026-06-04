@@ -244,16 +244,16 @@ export const projectDeepDives: ProjectDeepDive[] = [
   {
     id: 'paradise-engineering',
     problem:
-      'Flat diagrams and scattered docs make it hard to see how security boundaries and spec-driven components fit together on a live platform.',
+      'Platform engineering and architecture need better ways to communicate structure, security and specs — especially as products like Tautsec grow in complexity.',
     intelligence:
-      'Paradise Engineering — an experimental 3D visual interpretation of software architecture, coupled with documentation, exploring security modelling and spec-driven components as they apply to what is being built on Tautsec.',
+      'Paradise Engineering — a bespoke internal project developing new ways to engineer and architect platforms: 3D visual interpretation of software architecture, coupled with documentation, security modelling and spec-driven components (work in progress for Tautsec).',
     delivery: {
-      label: 'Creator · work in progress',
+      label: 'Bespoke internal · work in progress',
       summary:
-        'Program Productions internal experiment — 3D architecture views and linked docs, work in progress for the Tautsec platform.',
-      organizations: ['Program Productions Pty Ltd', 'Tautsec'],
+        'Program Productions R&D — new approaches to platform engineering and architecture; 3D model and docs in active use against the Tautsec platform.',
+      organizations: ['Program Productions Pty Ltd'],
     },
-    role: 'Creator — 3D architecture visualisation, documentation and security/spec component exploration for Tautsec.',
+    role: 'Creator — bespoke internal platform engineering & architecture experiment (3D visualisation, docs, security/spec exploration).',
     architecture:
       '3D system model with documentation in the same surface — security boundaries and spec-defined components rendered as navigable structure, aligned to the evolving Tautsec platform architecture.',
     technologies: [
@@ -270,29 +270,29 @@ export const projectDeepDives: ProjectDeepDive[] = [
       'Documentation coupled to the live 3D view',
     ],
     outcome:
-      'A working experiment in how teams read architecture, security and specs together — work in progress for Tautsec.',
+      'Bespoke internal lab for how Program Productions engineers and architects platforms — work in progress, focused on Tautsec.',
     earthbancRelevance:
       'Useful where regulated platforms need architecture and security intent visible before implementation hardens.',
   },
   {
     id: 'flight-deck',
     problem:
-      'As teams grow, Terraform environment promotion becomes opaque, risky and blocked on technical gatekeepers.',
+      'CI/CD and Terraform promotion need to evolve as teams and products scale — without blocking on a single technical gatekeeper.',
     intelligence:
-      'Flight Deck — release governance so technical and non-technical stakeholders can approve, test and promote from dev through production safely.',
+      'Flight Deck — a bespoke internal project developing new CI/CD and release-governance patterns: approve, test and promote Terraform-managed environments from dev through production with stakeholder visibility.',
     delivery: {
-      label: 'Creator · work in progress',
+      label: 'Bespoke internal · work in progress',
       summary:
-        'Release governance platform for Program Productions — Terraform promotion workflows with stakeholder visibility. Work in progress.',
+        'Program Productions R&D — new ways to engineer CI/CD, Terraform promotion and release governance across delivery teams.',
       organizations: ['Program Productions Pty Ltd'],
     },
-    role: 'Creator and architect — internal platform and governance workflows.',
+    role: 'Creator — bespoke internal CI/CD and release-governance experiment.',
     architecture:
       'Release governance layer over Terraform-managed apps — approval, test and promotion from dev → staging → production with stakeholder visibility.',
     technologies: ['Terraform', 'GCP', 'CI/CD', 'Internal web tooling', 'IAM'],
     aiNative: ['Process automation', 'Visibility for non-technical approvers', 'Safer promotion guardrails'],
     outcome:
-      'Terraform promotion governance with stakeholder visibility — work in progress at Program Productions.',
+      'Bespoke internal lab for how Program Productions runs CI/CD and promotes infrastructure — work in progress.',
     earthbancRelevance:
       'Platform engineering and deployment governance essential for regulated cloud products.',
   },
@@ -337,19 +337,20 @@ export const resumeExperience: ResumeRole[] = [
   {
     id: 'paradise-engineering',
     headline: 'Creator — Paradise Engineering',
-    context: 'Work in progress · Tautsec platform · Program Productions Pty Ltd',
+    context:
+      'Bespoke internal · work in progress · platform engineering & architecture · Program Productions',
     bullets: [
-      'Experimental 3D visual interpretation of software architecture, coupled with documentation.',
-      'Exploring security modelling and spec-driven components — work in progress for the Tautsec platform.',
+      'Bespoke internal project developing new ways to engineer and architect platforms — 3D visualisation with linked documentation.',
+      'Security and spec-driven component exploration; work in progress applied to the Tautsec platform.',
     ],
   },
   {
     id: 'flight-deck',
     headline: 'Creator — Flight Deck',
-    context: 'Work in progress · Program Productions Pty Ltd',
+    context: 'Bespoke internal · work in progress · CI/CD · Program Productions Pty Ltd',
     bullets: [
-      'Terraform release governance — approval, test and promotion from dev through production with stakeholder visibility.',
-      'Work in progress — internal platform for Program Productions delivery teams.',
+      'Bespoke internal project developing new CI/CD and Terraform promotion patterns for delivery teams.',
+      'Release governance — approve, test and promote from dev through production with stakeholder visibility.',
     ],
   },
 ]

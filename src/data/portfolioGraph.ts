@@ -194,14 +194,14 @@ const portfolioNodesRaw: PortfolioNode[] = [
     label: 'Paradise Engineering',
     type: 'project',
     summary:
-      'Experimental 3D visual interpretation of software architecture, coupled with documentation.',
+      'Bespoke internal project — new ways to engineer and architect platforms (work in progress).',
     detail:
-      'An exploratory build that maps system architecture in 3D alongside live documentation — testing how security boundaries and spec-driven components read when teams can walk the model. Work in progress for the Tautsec platform.',
+      'A Program Productions internal experiment: 3D visual interpretation of software architecture coupled with documentation — developing new approaches to platform engineering, security modelling and spec-driven components. Work in progress, applied to the Tautsec platform.',
     keyPoints: [
-      '3D architecture visualisation linked to documentation',
-      'Security and trust-boundary exploration',
-      'Spec-driven component modelling',
-      'Work in progress — Tautsec platform',
+      'Bespoke internal · platform engineering & architecture',
+      '3D architecture visualisation with linked documentation',
+      'Security and spec-driven component exploration',
+      'Work in progress — Tautsec',
     ],
     tags: ['ai', 'internal-tools', 'projects'],
     featured: true,
@@ -212,13 +212,14 @@ const portfolioNodesRaw: PortfolioNode[] = [
     id: 'flight-deck',
     label: 'Flight Deck',
     type: 'project',
-    summary: 'Internal Terraform release governance — work in progress.',
+    summary:
+      'Bespoke internal project — new ways to run CI/CD and Terraform promotion (work in progress).',
     detail:
-      'Release governance system for Terraform environment promotion as team complexity grows — enabling technical and non-technical stakeholders to approve, test and promote applications from dev through staging to production. Work in progress at Program Productions.',
+      'A Program Productions internal experiment in release governance — developing new CI/CD and promotion patterns so technical and non-technical stakeholders can approve, test and promote Terraform-managed apps from dev through staging to production.',
     keyPoints: [
+      'Bespoke internal · CI/CD & release governance',
       'Terraform promotion workflows',
-      'Approval gates for technical and non-technical stakeholders',
-      'Environment visibility from dev → staging → production',
+      'Stakeholder approval from dev → staging → production',
       'Work in progress',
     ],
     tags: ['projects', 'internal-tools', 'cloud'],

@@ -78,11 +78,12 @@ export const projectEngagements: Record<string, ProjectEngagement> = {
   'paradise-engineering': {
     clientCompanyId: 'program-productions',
     startDate: 'Work in progress',
-    phase: 'Tautsec platform',
+    phase: 'Bespoke internal · platform engineering & architecture',
   },
   'flight-deck': {
     clientCompanyId: 'program-productions',
     startDate: 'Work in progress',
+    phase: 'Bespoke internal · CI/CD',
   },
   'sage-chatbot': { clientCompanyId: 'program-productions' },
 }

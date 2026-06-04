@@ -236,7 +236,7 @@ const diagrams: Record<string, ReactNode> = {
       <path d="M112 96 L145 100" stroke="#22d3ee" strokeOpacity="0.4" strokeWidth="1" />
       <path d="M288 96 L255 100" stroke="#22d3ee" strokeOpacity="0.4" strokeWidth="1" />
       <text x="200" y="24" textAnchor="middle" fill="#71717a" fontSize="10">
-        Work in progress · Tautsec platform
+        Bespoke internal · work in progress
       </text>
     </svg>
   ),
@@ -271,10 +271,10 @@ const diagrams: Record<string, ReactNode> = {
         </g>
       ))}
       <text x="200" y="24" textAnchor="middle" fill="#71717a" fontSize="10">
-        Work in progress
+        Bespoke internal · CI/CD
       </text>
       <text x="200" y="155" textAnchor="middle" fill="#a1a1aa" fontSize="10">
-        Terraform promotion governance
+        Work in progress · Terraform promotion
       </text>
     </svg>
   ),
